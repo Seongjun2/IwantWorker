@@ -151,6 +151,15 @@ main {
 	text-align: center;
 }
 
+/*로그인 메인*/
+.explain {
+	height: 400px;
+	background-color: rebeccapurple;
+	text-align: center;
+	line-height: 400px;
+}
+/*로그인 메인*/
+
 footer {
 	display: block;
 	height: 15%;
