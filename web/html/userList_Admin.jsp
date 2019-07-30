@@ -12,12 +12,19 @@
 </head>
 <body>
 <table>
+    <tr>
+        <td>번호</td>
+        <td>이름</td>
+        <td>연락처</td>
+        <td>수정</td>
+    </tr>
     <%
         ConnectDB connectDB = new ConnectDB();
         Connection conn = connectDB.connect();
         Statement stmt = conn.createStatement();
-        
+
         UserDAO dao = new UserDAO_Impl();
+        connectDB.disConnect(conn);
 
     %>
 </table>
