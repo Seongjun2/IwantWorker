@@ -9,7 +9,7 @@ body {
 }
 
 /*	헤더 CSS 변경금지	*/
-header {
+#main_header {
 	background-color: #EC8032;
 	height: 20%;
 	width: 100%;
@@ -67,6 +67,23 @@ header {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+#header {
+	height: 30%;
+	width: 100%;
+	background-color: #ffa74e;
+}
+#header_menu {
+	height: 33.3%;
+	background-color: #FFFFFF;
+}
+#header_menu span {
+	display: table;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 60px;
 }
 #header_sidebar {
 	position: absolute;
