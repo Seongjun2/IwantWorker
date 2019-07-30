@@ -1,0 +1,135 @@
+﻿* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	height: 100%;
+	width: 100%;
+}
+
+header {
+	background-color: #EC8032;
+	height: 10%;
+	width: 100%;
+}
+#header_menu_btn {
+	position: absolute;
+	height: 4%;
+	top: 5%;
+	transform: translate(50%, -50%);
+}
+#header_menu_btn:focus {
+	
+}
+#header_menu_logo {
+	position: relative;
+	height: 50%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+main {
+	height: 90%;
+	width: 100%;
+}
+#main_head {
+	background-color: #FFFFFF;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 40%;
+}
+#main_head img {
+	position: relative;
+	height: 75%;
+	width: 90%;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+#main_content {
+	display: flex;
+	justify-content: center;
+	height: 60%;
+	width: 100%;
+}
+#main_content article {
+	position: relative;
+	height: 70%;
+	width: 90%;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+#main_content_header {
+	display: flex;
+	height: 20%;
+	width: 100%;
+	border-bottom: 5px solid #808080;
+}
+#main_content_header span {
+	display: table;
+	position: relative;
+	width: 100%;
+	top: 50%;
+	margin-left: 2%;
+	transform: translate(0, -50%);
+	font-size: 55px;
+}
+#main_content_header img {
+	position: relative;
+	float: right;
+	height: 70%;
+	top: 50%;
+	transform: translate(0, -50%);
+	margin-right: 2%;
+}
+#main_content_content {
+	height: 80%;
+	width: 100%;
+
+}
+#main_content_content ul {
+	height: 100%;
+	width: 100%;
+	list-style: none;
+}
+#main_content_content ul li {
+	display: flex;
+	font-size: 50px;
+	padding: 2% 0 2% 0;
+	border-bottom: 3px solid #808080;
+}
+#main_content_content ul li .main_content_title {
+	width: 70%;
+	padding-left: 2%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#main_content_content ul li .main_content_date {
+	width: 30%;
+	text-align: center;
+}
+
+footer {
+	display: block;
+	height: 15%;
+	width: 100%;
+	text-align: center;
+	background-color: #EC8032;
+}
+footer div {
+	height: 30%;
+	width: 100%;
+	padding: 2% 0 2% 0;
+}
+footer div img {
+	height: 100%;
+}
+footer span {
+	display: flex;
+	justify-content: center;
+	margin: 2% 0 2% 0;
+	color: #FFFFFF;
+	font-size: 30px;
+}
