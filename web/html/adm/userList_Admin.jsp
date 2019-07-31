@@ -9,8 +9,8 @@
     <title>Jeju</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%--    <link rel="stylesheet" type="text/css", href="../css/mobile.css">--%>
-    <link rel="stylesheet" type="text/css", href="../css/common.css">
-    <link rel="stylesheet" type="text/css", href="../css/userList.css">
+    <link rel="stylesheet" type="text/css", href="../css/common.css?ver=1">
+    <link rel="stylesheet" type="text/css", href="../css/userList.css?ver=1">
 </head>
 <body>
 <header>
@@ -43,7 +43,6 @@
                 UserDAO userDao = new UserDAO_Impl();
                 List<UserVO> userList = userDao.findAll();
                 for(UserVO vo : userList){
-                    System.out.println(vo);
             %>
             <tr>
             <td> <%=vo.getUuid()%></td>
