@@ -4,8 +4,9 @@
 	padding: 0;
 }
 body {
-	height: 100vh;
-	width: 100vw;
+	position: absolute;
+	height: 1700px;
+	width: 100%;
 }
 
 /*	헤더 CSS 변경금지	*/
@@ -32,7 +33,10 @@ body {
 	border-radius: 20px;
 }
 #main_header_search_form {
+	position: relative;
+	height: 99%;
 	width: 90%;
+	top: 1%;
 }
 #main_header_search_form input {
 	position: relative;
@@ -89,20 +93,23 @@ body {
 	font-size: 60px;
 }
 #header_sidebar {
-	position: absolute;
-	height: 100vh;
+	position: fixed;
+	height: 103vh;
 	width: 60vw;
-	z-index: 1;
+	z-index: 2;
 	transform: translate(-60vw, -20%);
 	transition: .5s;
 	background-color: #ff6b00;
 }
 #header_sidebar_blank {
-	position: absolute;
-	height: 100vh;
-	width: 40vw;
-	z-index: -1;
-	transform: translate(60vw, -20%);
+	display: none;
+	position: fixed;
+	height: 103vh;
+	width: 100vw;
+	z-index: 1;
+	background-color: #000000b8;
+	transform: translate(0, -20%);
+	transition: .5s;
 }
 
 /*	하단 CSS 변경금지	*/
