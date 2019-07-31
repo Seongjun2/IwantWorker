@@ -52,4 +52,16 @@ public class UserVO{
     public void setPoint(int point) {
         this.point = point;
     }
+
+    @Override
+    public String toString() {
+        return "UserVO{" +
+                "uuid=" + uuid +
+                ", tell='" + tell + '\'' +
+                ", name='" + name + '\'' +
+                ", pw='" + pw + '\'' +
+                ", permission=" + permission +
+                ", point=" + point +
+                '}';
+    }
 }
