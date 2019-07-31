@@ -27,6 +27,7 @@ body {
 	display: flex;
 	height: 60%;
 	width: 90%;
+	transition: 0.5s;
 	background-color: #FFFFFF;
 	border-radius: 20px;
 }
@@ -41,13 +42,6 @@ body {
 	border: 0;
 	letter-spacing: -0.05em;
 	left: 30px;
-}
-#main_header_search_form input:after {
-	content: "";
-	display: block;
-	width: 100%;
-	border-bottom: 1px solid #FF0000;
-	margin: 20px auto;
 }
 #main_header_search_form input:focus {
 	outline: none;
