@@ -6,6 +6,6 @@ import VO.BoardVO;
 import java.util.List;
 
 public interface BannerDAO {
-    public void add(BannerVO vo) throws Exception;
-    public List<BannerVO> findAll() throws Exception;
+    void add(BannerVO vo) throws Exception;
+    List<BannerVO> findAll() throws Exception;
 }
