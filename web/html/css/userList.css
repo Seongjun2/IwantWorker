@@ -1,0 +1,43 @@
+body{
+    font-family: "Nanum Gothic";
+}
+
+h3{
+    text-align: center;
+    font-size: 3.5em;
+    color: white;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    background-color: #ffb362;
+}
+.pageName{
+    width:100%;
+}
+
+#userTable{
+    width: 100%;
+    font-size: 2.5em;
+    border-spacing: 0.5em;
+}
+
+#div_list{
+    padding: 3em;
+}
+
+thead tr{
+    box-shadow: 0 1px #000000;
+}
+tbody{
+    margin-top: 1em;
+}
+.btn_modify{
+    font-size: 1em;
+}
+
+footer{
+    position : absolute;
+    bottom : 0;
+}
+
+
+
