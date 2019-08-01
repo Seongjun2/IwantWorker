@@ -60,7 +60,6 @@
 #main_content_content {
 	height: 80%;
 	width: 100%;
-
 }
 #main_content_content ul {
 	height: 100%;
@@ -84,12 +83,3 @@
 	width: 30%;
 	text-align: center;
 }
-
-/*로그인 메인*/
-.explain {
-	height: 400px;
-	background-color: rebeccapurple;
-	text-align: center;
-	line-height: 400px;
-}
-/*로그인 메인*/

@@ -27,7 +27,19 @@
 			</span>
     </div>
     <div id="header_sidebar">
-
+        <img src="<%= imgDir %>/close_icon.png">
+        <div id="header_sidebar_user">
+            <div id="header_sidebar_user_icon">
+                <img src="<%= imgDir %>/user_icon.png" />
+            </div>
+            <div id="header_sidebar_user_info">
+                <div>
+                    <span id="header_sidebar_user_name">임용성님</span>
+                    <span id="header_sidebar_user_point">1000 한라봉</span>
+                    <button>충전하기</button>
+                </div>
+            </div>
+        </div>
     </div>
     <div id="header_sidebar_blank" onclick="hideMenu()"></div>
 </header>

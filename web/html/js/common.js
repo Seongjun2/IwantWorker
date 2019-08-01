@@ -1,4 +1,3 @@
-var bannerCount = 1;
 window.addEventListener("click", function(e) {
 	var id = e.target.id;
 	if(id === 'main_header_menu_btn_area' || id === 'main_header_menu_btn') {
@@ -18,16 +17,6 @@ window.addEventListener("click", function(e) {
 		document.getElementById('main_header_search_span').style.width = '90%';	
 	}
 });
-function bannerSlide() {
-	if(document.getElementById('banner_'+(bannerCount+1)) == null) {
-		bannerCount = 1;
-		document.getElementById('main_head_div').style.transform = 'translate(0, 0)';
-	} else {
-		document.getElementById('main_head_div').style.transform = 'translate(-'+(bannerCount*100)+'%, 0)';
-		bannerCount++;
-	}
-}
-setInterval('bannerSlide()', 10000);
 
 window.onload = function () {
 	document.getElementById('header_sidebar_blank').onclick = function() {

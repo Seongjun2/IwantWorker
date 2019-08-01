@@ -106,7 +106,64 @@ body {
 	top: 350px;
 	transform: translate(-60vw, -350px);
 	transition: .5s;
+	overflow: hidden;
 	background-color: #ff6b00;
+}
+#header_sidebar img {
+	height: 50px;
+	float: right;
+	transform: translate(-50%, 50%);
+}
+#header_sidebar_user {
+	display: flex;
+	position: relative;
+	height: 300px;
+	width: 100%;
+	margin-top: 50px;
+	border-bottom: 3px solid #000000;
+	padding-left: 15px;
+}
+#header_sidebar_user_icon {
+	display: flex;
+	justify-content: center;
+	height: 100%;
+	width: 30%;
+}
+#header_sidebar_user_icon img {
+	position: relative;
+	height: 160px;
+	top: 50%;
+	transform: translate(0, -70%);
+}
+#header_sidebar_user_info {
+	height: 100%;
+	width: 70%;
+}
+#header_sidebar_user_info div {
+	position: relative;
+	top: 50%;
+	transform: translate(0, -50%);
+	height: 200px;
+	width: 100%;
+}
+#header_sidebar_user_info div span {
+	display: block;
+	height: 65px;
+	width: 100%;
+	font-size: 40px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#header_sidebar_user_info div button {
+	display: block;
+	height: 70px;
+	width: 200px;
+	color: #FFFFFF;
+	font-size: 40px;
+	background-color: #5e5e5e;
+	border: 0;
+	border-radius: 20px;
 }
 #header_sidebar_blank {
 	display: none;

@@ -5,6 +5,7 @@ String jsDir = "js";
 String imgDir = "imgs";
 %>
 <%@include file="header.jsp"%>
+<script type="text/javascript" src="<%= jsDir %>/main.js"></script>
 <main id="main">
     <div id="main_head">
         <div id="main_head_div">
