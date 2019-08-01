@@ -12,6 +12,7 @@
 <%--    <link rel="stylesheet" type="text/css", href="../css/mobile.css">--%>
     <link rel="stylesheet" type="text/css", href="../css/common.css">
     <link rel="stylesheet" type="text/css", href="../css/userList.css">
+    <link rel="stylesheet" type="text/css", href="../css/common_admin.css">
     <script type="text/javascript" src="../js/common.js"></script>
 </head>
 <body>
@@ -60,7 +61,12 @@
                 <td> <%=vo.getUuid()%></td>
                 <td> <%=vo.getName()%></td>
                 <td> <%=vo.getTell()%></td>
-                <td><input type="button" value = "수정" class="btn_modify"/></td>
+<%--                <td><input type="button" value = "수정" class="btn_modify"/></td>--%>
+                <td>
+                    <form action="./modify_userInfo_admin.jsp?uuid=<%=vo.getUuid()%>" method="post">
+                        <input type="submit" value = "수정" class="btn_modify">
+                    </form>
+                </td>
             </tr>
             <%
                 }
