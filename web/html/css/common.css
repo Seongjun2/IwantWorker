@@ -5,18 +5,38 @@
 }
 body {
 	position: absolute;
-	height: 1700px;
-	width: 100%;
+	height: 1750px;
+	width: 100vw;
 }
 
 /*	헤더 CSS 변경금지	*/
 #main_header {
 	background-color: #EC8032;
-	height: 20%;
+	height: 350px;
 	width: 100%;
 }
 #main_header_menu {
 	height: 50%;
+}
+#main_header_menu div {
+	position: absolute;
+	height: 10%;
+	width: 20%;
+}
+
+#main_header_menu_btn {
+	position: relative;
+	height: 40%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+#main_header_menu_logo {
+	position: relative;
+	height: 50%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 #main_header_search {
 	display: flex;
@@ -61,20 +81,6 @@ body {
 	transform: translate(-50%, -50%);
 	height: 85%;
 }
-#main_header_menu_btn {
-	position: absolute;
-	height: 3%;
-	top: 5%;
-	left: 2%;
-	transform: translate(50%, -50%);
-}
-#main_header_menu_logo {
-	position: relative;
-	height: 50%;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
 #header {
 	height: 30%;
 	width: 100%;
@@ -94,21 +100,23 @@ body {
 }
 #header_sidebar {
 	position: fixed;
-	height: 103vh;
+	height: 1750px;
 	width: 60vw;
 	z-index: 2;
-	transform: translate(-60vw, -20%);
+	top: 350px;
+	transform: translate(-60vw, -350px);
 	transition: .5s;
 	background-color: #ff6b00;
 }
 #header_sidebar_blank {
 	display: none;
 	position: fixed;
-	height: 103vh;
+	height: 1750px;
 	width: 100vw;
 	z-index: 1;
-	background-color: #000000b8;
-	transform: translate(0, -20%);
+	top: 350px;
+	background-color: rgba(0, 0, 0, 0.7);;
+	transform: translate(0, -350px);
 	transition: .5s;
 }
 
