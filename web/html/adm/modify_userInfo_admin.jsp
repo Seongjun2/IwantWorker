@@ -13,6 +13,7 @@
 
     UserDAO dao = new UserDAO_Impl();
     UserVO vo = dao.getUserInfo(Integer.parseInt(uuid));
+    session.setAttribute("vo", vo);
 %>
 <html>
 <head>
@@ -21,7 +22,6 @@
     <link rel="shortcut icon" href="../imgs/favicon.png">
     <%--    <link rel="stylesheet" type="text/css", href="../css/mobile.css">--%>
     <link rel="stylesheet" type="text/css", href="../css/common.css">
-    <link rel="stylesheet" type="text/css", href="../css/common_admin.css">
     <link rel="stylesheet" type="text/css", href="../css/userInfo_modify.css">
     <script type="text/javascript" src="../js/common.js"></script>
 </head>
@@ -47,12 +47,12 @@
     <div id="header_sidebar_blank"></div>
 </header>
 
-<main id="main">
-    <div class="pageName">
-        <h3>회원정보 수정</h3>
+<main>
+    <div class="div_pageName">
+        <h3 class = "h3_pageName">회원정보 수정</h3>
     </div>
-    <div id = "div_updateUserInfo">
-        <form action="./userInfoUpdate.jsp" method="post">
+    <div class="div_mainDiv">
+        <form action="./userInfoUpdate.jsp" method="get">
             <div class = "div_userInfo">
                 <p class = "p_userInfo">휴대폰 번호</p>
                 <input type="text" class="input_userInfo" name="tell" value="<%=vo.getTell()%>"/>
