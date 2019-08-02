@@ -1,11 +1,19 @@
 /*///////////////////////////////
 	[프로젝트 변수 선언부]
-///////////////////////////////*/
+변수를 사용하시려면 다음과 같이 사용하세요
 
+background-color: var(main-color-light)
+///////////////////////////////*/
+:root {
+	main-color-light: #f59652;
+	main-color-middle: #ec8032;
+	main-color-strong: #de6a17;
+}
 
 
 /*	사이트 기본 CSS - 변경금지	*/
 * {
+	-webkit-appearance: none;
 	margin: 0;
 	padding: 0;
 }
