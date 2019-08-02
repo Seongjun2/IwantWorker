@@ -194,6 +194,22 @@ main {
 	transform: translate(0, -350px);
 	transition: .5s;
 }
+/*main 안쪽*/
+.div_pageName{
+	width:100%;
+}
+.h3_pageName{
+	text-align: center;
+	font-size: 3.5em;
+	color: white;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	background-color: #ffb362;
+}
+
+.div_mainDiv{
+	padding : 3em;
+}
 
 /*	하단 CSS 변경금지	*/
 footer {

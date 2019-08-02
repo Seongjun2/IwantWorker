@@ -17,7 +17,6 @@
     <link rel="stylesheet" type="text/css", href="<%= cssDir %>/common.css">
     <script type="text/javascript" src="<%= jsDir %>/common.js"></script>
     <link rel="stylesheet" type="text/css", href="../css/userList.css">
-    <link rel="stylesheet" type="text/css", href="../css/common_admin.css">
     <script type="text/javascript" src="../js/common.js"></script>
 </head>
 <body>
