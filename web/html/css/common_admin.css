@@ -1,8 +1,11 @@
-body{
-    font-family: "Nanum Gothic";
-}
+/*div- class = “div_pageName” */
+/*             h3- id = “h3_pageName”*/
 
-h3{
+
+.div_pageName{
+    width:100%;
+}
+.h3_pageName{
     text-align: center;
     font-size: 3.5em;
     color: white;
@@ -11,13 +14,6 @@ h3{
     background-color: #ffb362;
 }
 
-.pageName{
-    width:100%;
-}
-main{
-    height:100%
-}
-
-footer{
-    position : relative;
+.div_mainDiv{
+    padding : 3em;
 }

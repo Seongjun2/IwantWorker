@@ -3,11 +3,6 @@
     font-size: 2.5em;
     border-spacing: 0.5em;
 }
-
-#div_list{
-    padding: 3em;
-}
-
 thead tr{
     box-shadow: 0 1px #000000;
 }

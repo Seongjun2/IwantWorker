@@ -1,14 +1,12 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Seongjun
-  Date: 2019-08-01
-  Time: 19:52
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="VO.UserVO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String tell = request.getParameter("tell");
+    String pw = request.getParameter("pw");
+%>
 <html>
 <head>
-    <title>Title</title>
+    <title>userInfoUpdate</title>
 </head>
 <body>
 
