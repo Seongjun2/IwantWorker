@@ -1,3 +1,9 @@
+/*///////////////////////////////
+	[프로젝트 변수 선언부]
+///////////////////////////////*/
+
+
+
 /*	사이트 기본 CSS - 변경금지	*/
 * {
 	margin: 0;
@@ -7,8 +13,11 @@ body {
 	position: absolute;
 	height: 1750px;
 	width: 100vw;
+	font-family: "Nanum Gothic", serif;
 }
-
+main {
+	min-height: 70%;
+}
 /*	헤더 CSS 변경금지	*/
 #main_header {
 	background-color: #EC8032;
@@ -104,10 +113,10 @@ body {
 	width: 60vw;
 	z-index: 2;
 	top: 350px;
-	transform: translate(-60vw, -350px);
+	transform: translate(-60vw, -350px) rotate(.001deg);
 	transition: .5s;
 	overflow: hidden;
-	background-color: #ff6b00;
+	background-color: #F8F9Fa;
 }
 #header_sidebar img {
 	height: 50px;
@@ -119,7 +128,8 @@ body {
 	position: relative;
 	height: 300px;
 	width: 100%;
-	margin-top: 50px;
+	margin-top: 6em;
+	background-color: #adb5bd;
 	border-bottom: 3px solid #000000;
 	padding-left: 15px;
 }
