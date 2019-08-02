@@ -27,14 +27,7 @@ public class UserDAO_Impl implements UserDAO {
         ResultSet rs = stmt.executeQuery(sql);
 
         while(rs.next()){
-            UserVO vo = new UserVO();
-            vo.setUuid(rs.getInt("uuid"));
-            vo.setTell(rs.getString("tell"));
-            vo.setName(rs.getString("name"));
-            vo.setPw(rs.getString("pw"));
-            vo.setPermission(rs.getInt("permission"));
-            vo.setPoint(rs.getInt("point"));
-
+            UserVO vo = mapRow(rs);
             System.out.println(vo);
             list.add(vo);
         }
@@ -43,5 +36,38 @@ public class UserDAO_Impl implements UserDAO {
         conn.close();
 
         return list;
+    }
+
+    @Override
+    public UserVO getUserInfo(int uuid) throws Exception {
+
+        conn = sqlConnector.connect();
+        Statement stmt = conn.createStatement();
+        System.out.println("this s");
+        String sql = "select * from user where uuid = " + uuid;
+        System.out.println(sql);
+        ResultSet rs = stmt.executeQuery(sql);
+        UserVO vo = null;
+
+        if(rs.next()) vo = mapRow(rs);
+
+        rs.close();
+        stmt.close();
+        conn.close();
+        return vo;
+    }
+
+    @Override
+    public UserVO mapRow(ResultSet rs) throws Exception{
+        UserVO vo = new UserVO();
+
+        vo.setUuid(rs.getInt("uuid"));
+        vo.setTell(rs.getString("tell"));
+        vo.setName(rs.getString("name"));
+        vo.setPw(rs.getString("pw"));
+        vo.setPermission(rs.getInt("permission"));
+        vo.setPoint(rs.getInt("point"));
+
+        return vo;
     }
 }
