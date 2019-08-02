@@ -1,0 +1,45 @@
+#div_updateUserInfo{
+    padding: 3em;
+}
+.div_userInfo{
+    margin-bottom: 5em;
+}
+.p_userInfo{
+    font-size : 3em;
+    opacity: 0.5;
+    margin-bottom: 0.3em;
+}
+
+#input_submit{
+    font-size: 3em;
+    text-align: center;
+    width:100%;
+    margin-bottom: 1em;
+}
+
+main{
+    height:70%;
+}
+.input_userInfo{
+    border : 0;
+    border-bottom:2px solid #aaa;
+    border-radius:4px;
+    margin:8px 0;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition:.3s;
+    font-size: 3em;
+}
+
+.input_userInfo:focus{
+    border-color:#ffb362;
+    box-shadow:0 0 8px 0 #ffb362;
+}
+#p_name{
+    font-size : 3em;
+}
+
+#div_submit{
+    
+}

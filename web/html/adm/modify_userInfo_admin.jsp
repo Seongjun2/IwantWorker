@@ -3,15 +3,26 @@
 <%@ page import="VO.UserVO" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding ="EUC-KR"%>
+<%
+    String uuid = null;
+    uuid = request.getParameter("uuid");
+    if(uuid == null) {
+        response.sendRedirect("./userList_Admin.jsp");
+        return;
+    }
 
+    UserDAO dao = new UserDAO_Impl();
+    UserVO vo = dao.getUserInfo(Integer.parseInt(uuid));
+%>
 <html>
 <head>
-    <title>banner</title>
+    <title>ModifyInfo</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="shortcut icon" href="../imgs/favicon.png">
     <%--    <link rel="stylesheet" type="text/css", href="../css/mobile.css">--%>
     <link rel="stylesheet" type="text/css", href="../css/common.css">
-    <link rel="stylesheet" type="text/css", href="../css/userList.css">
+    <link rel="stylesheet" type="text/css", href="../css/common_admin.css">
+    <link rel="stylesheet" type="text/css", href="../css/userInfo_modify.css">
     <script type="text/javascript" src="../js/common.js"></script>
 </head>
 <body>
@@ -38,35 +49,32 @@
 
 <main id="main">
     <div class="pageName">
-        <h3>회원목록 조회</h3>
+        <h3>회원정보 수정</h3>
     </div>
-    <div id = "div_list">
-        <table id = "userTable">
-            <thead align="center">
-            <tr>
-                <th>번호</th>
-                <th>이름</th>
-                <th>연락처</th>
-                <th>수정</th>
-            </tr>
-            </thead>
-            <tbody align="center">
-            <%
-                UserDAO userDao = new UserDAO_Impl();
-                List<UserVO> userList = userDao.findAll();
-                for(UserVO vo : userList){
-            %>
-            <tr>
-                <td> <%=vo.getUuid()%></td>
-                <td> <%=vo.getName()%></td>
-                <td> <%=vo.getTell()%></td>
-                <td><input type="button" value = "수정" class="btn_modify"/></td>
-            </tr>
-            <%
-                }
-            %>
-            </tbody>
-        </table>
+    <div id = "div_updateUserInfo">
+        <form action="./userInfoUpdate.jsp" method="post">
+            <div class = "div_userInfo">
+                <p class = "p_userInfo">휴대폰 번호</p>
+                <input type="text" class="input_userInfo" name="tell" value="<%=vo.getTell()%>"/>
+            </div>
+            <div class = "div_userInfo">
+                <p class = "p_userInfo">이름</p>
+                <p id ="p_name"><%=vo.getName()%></p>
+            </div>
+            <div class = "div_userInfo">
+                <p class = "p_userInfo">변경할 비밀번호</p>
+                <input type="password"  class="input_userInfo" name="pw"/>
+            </div>
+            <div class = "div_userInfo">
+                <p class = "p_userInfo">변경할 비밀번호 확인</p>
+                <input type="password"  class="input_userInfo" name="pw_check"/>
+            </div>
+
+            <div id = "div_submit">
+                <input id = "input_submit" type="submit" value="변경하기"/>
+            </div>
+
+        </form>
     </div>
 </main>
 
