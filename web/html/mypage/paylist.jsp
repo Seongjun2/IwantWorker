@@ -61,6 +61,7 @@
             </tbody>
         </table>
     </div>
+    <%@include file="pagination.jsp"%>
 </main>
 
 <%@include file="./../footer.jsp"%>
