@@ -40,6 +40,11 @@
                 </div>
             </div>
         </div>
+        <ul id="header_sidebar_menu">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
     </div>
     <div id="header_sidebar_blank" onclick="hideMenu()"></div>
 </header>
