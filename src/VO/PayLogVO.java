@@ -1,18 +1,18 @@
 package VO;
 
 public class PayLogVO{
-    private int point_id;
+    private Integer point_id;
     private String uuid;
     private String info;
-    private int point;
-    private int pointTotal;
+    private Integer point;
+    private Integer pointTotal;
     private String logData;
 
-    public int getPoint_id() {
+    public Integer getPoint_id() {
         return point_id;
     }
 
-    public void setPoint_id(int point_id) {
+    public void setPoint_id(Integer point_id) {
         this.point_id = point_id;
     }
 
@@ -32,19 +32,19 @@ public class PayLogVO{
         this.info = info;
     }
 
-    public int getPoint() {
+    public Integer getPoint() {
         return point;
     }
 
-    public void setPoint(int point) {
+    public void setPoint(Integer point) {
         this.point = point;
     }
 
-    public int getPointTotal() {
+    public Integer getPointTotal() {
         return pointTotal;
     }
 
-    public void setPointTotal(int pointTotal) {
+    public void setPointTotal(Integer pointTotal) {
         this.pointTotal = pointTotal;
     }
 

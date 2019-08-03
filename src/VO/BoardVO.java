@@ -1,21 +1,21 @@
 package VO;
 
 public class BoardVO{
-    private int board_id;
+    private Integer board_id;
     private String uuid;
     private String text;
     private String content;
     private String startDate;
     private String endDate;
     private String workTime;
-    private int money;
+    private Integer money;
     private String address;
 
-    public int getBoard_id() {
+    public Integer getBoard_id() {
         return board_id;
     }
 
-    public void setBoard_id(int board_id) {
+    public void setBoard_id(Integer board_id) {
         this.board_id = board_id;
     }
 
@@ -67,11 +67,11 @@ public class BoardVO{
         this.workTime = workTime;
     }
 
-    public int getMoney() {
+    public Integer getMoney() {
         return money;
     }
 
-    public void setMoney(int money) {
+    public void setMoney(Integer money) {
         this.money = money;
     }
 
