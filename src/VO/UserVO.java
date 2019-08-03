@@ -3,16 +3,16 @@ package VO;
 public class UserVO{
 
 
-    private int uuid;
+    private Integer uuid;
     private String tell;
     private String name;
     private String pw;
-    private int permission;// 1: 비로그인, 2: 로그인(회원), 3:로그인(프리미엄) ,10: 관리자
-    private int point;
+    private Integer permission;// 1: 비로그인, 2: 로그인(회원), 3:로그인(프리미엄) ,10: 관리자
+    private Integer point;
 
-    public int getUuid() { return uuid; }
+    public Integer getUuid() { return uuid; }
 
-    public void setUuid(int uuid) { this.uuid = uuid; }
+    public void setUuid(Integer uuid) { this.uuid = uuid; }
     public String getTell() {
         return tell;
     }
@@ -37,19 +37,19 @@ public class UserVO{
         this.pw = pw;
     }
 
-    public int getPermission() {
+    public Integer getPermission() {
         return permission;
     }
 
-    public void setPermission(int permission) {
+    public void setPermission(Integer permission) {
         this.permission = permission;
     }
 
-    public int getPoint() {
+    public Integer getPoint() {
         return point;
     }
 
-    public void setPoint(int point) {
+    public void setPoint(Integer point) {
         this.point = point;
     }
 

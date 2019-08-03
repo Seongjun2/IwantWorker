@@ -1,5 +1,19 @@
+/*///////////////////////////////
+	[프로젝트 변수 선언부]
+변수를 사용하시려면 다음과 같이 사용하세요
+
+background-color: var(main-color-light)
+///////////////////////////////*/
+:root {
+	main-color-light: #f59652;
+	main-color-middle: #ec8032;
+	main-color-strong: #de6a17;
+}
+
+
 /*	사이트 기본 CSS - 변경금지	*/
 * {
+	-webkit-appearance: none;
 	margin: 0;
 	padding: 0;
 }
@@ -7,8 +21,11 @@ body {
 	position: absolute;
 	height: 1750px;
 	width: 100vw;
+	font-family: "Nanum Gothic";
 }
-
+main {
+	min-height: 70%;
+}
 /*	헤더 CSS 변경금지	*/
 #main_header {
 	background-color: #EC8032;
@@ -104,10 +121,10 @@ body {
 	width: 60vw;
 	z-index: 2;
 	top: 350px;
-	transform: translate(-60vw, -350px);
+	transform: translate(-60vw, -350px) rotate(.001deg);
 	transition: .5s;
 	overflow: hidden;
-	background-color: #ff6b00;
+	background-color: #F8F9Fa;
 }
 #header_sidebar img {
 	height: 50px;
@@ -119,7 +136,8 @@ body {
 	position: relative;
 	height: 300px;
 	width: 100%;
-	margin-top: 50px;
+	margin-top: 6em;
+	background-color: #adb5bd;
 	border-bottom: 3px solid #000000;
 	padding-left: 15px;
 }
@@ -165,6 +183,15 @@ body {
 	border: 0;
 	border-radius: 20px;
 }
+#header_sidebar_menu {
+	height: 50em;
+	width: 100%;
+	list-style: none;
+}
+#header_sidebar_menu li {
+	display: block;
+	width: 100%;
+}
 #header_sidebar_blank {
 	display: none;
 	position: fixed;
@@ -175,6 +202,22 @@ body {
 	background-color: rgba(0, 0, 0, 0.7);;
 	transform: translate(0, -350px);
 	transition: .5s;
+}
+/*main 안쪽*/
+.div_pageName{
+	width:100%;
+}
+.h3_pageName{
+	text-align: center;
+	font-size: 3.5em;
+	color: white;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	background-color: #ffb362;
+}
+
+.div_mainDiv{
+	padding : 3em;
 }
 
 /*	하단 CSS 변경금지	*/
