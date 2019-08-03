@@ -3,18 +3,41 @@ div#board_post{
     width: 100%;
     border: 1px solid #5e5e5e;
     padding: 1em 1em 1em 1em;
-    margin: 5px 5px 5px 5px;
+    margin: 10px 10px 10px 10px;
 }
 
 div#board_title{
-    font-size: 3em;
+    font-size: 4em;
 }
 
 div#board_content{
-    padding : 1em 3em 1em 3em;
+    padding : 1.5em 3.5em 1.5em 3.5em;
 }
 
+div#order_button{
+    position: relative;
+    text-align: center;
+    align-content: center;
+    width: 100%;
+    margin-top: 30px;
+}
+
+div#order_button > button{
+    width: 100px;
+    height: 100px;
+    font-size: 3em;
+}
+
+#write_button{
+    text-align: center;
+    color: #000000;
+    font-size: 4em;
+    width: 100%;
+    background-color: #E0E0E0;
+    padding : 15px 15px 15px 15px;
+    margin-bottom: 30px;
+}
 
 li{
-    font-size: 2em;
+    font-size: 3em;
 }

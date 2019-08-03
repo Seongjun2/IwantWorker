@@ -1,26 +1,34 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="EUC-KR" %>
 <%!
     String cssDir = "./../css";
     String jsDir = "./../js";
     String imgDir = "./../imgs";
 %><%@include file="./../header.jsp"%>
-<%--headerì— head, footerì— body, html íƒœê·¸ ë“¤ì–´ê°€ ìžˆìŒ. ì“°ë©´ ì•ˆë¨--%>
+<%--header¿¡ head, footer¿¡ body, html ÅÂ±× µé¾î°¡ ÀÖÀ½. ¾²¸é ¾ÈµÊ--%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/board.css">
 <main>
     <div class="div_pageName">
-        <h3 class = "h3_pageName">ê²Œì‹œíŒ</h3>
+        <h3 class = "h3_pageName">°Ô½ÃÆÇ</h3>
     </div>
-    <div class="div_mainDiv">
+    <div class="div_mainDiv" style="align-content: center">
+        <button id="write_button" onclick="location.href='${pageContext.request.contextPath}/html/bbs/post_write.jsp'"> ±Û¾²±â </button>
         <div id="board_post">
-            <div id="board_title"> ì¤€ë¹„ì¤‘ìž…ë‹ˆë‹¤. </div>
+            <div id="board_title"> ÁØºñÁßÀÔ´Ï´Ù. </div>
             <div id="board_content">
                 <ul>
-                    <li> ê·¤ | ìˆ˜í™• </li>
+                    <li> ±Ö | ¼öÈ® </li>
                     <li> 19.07.15 ~ 19.08.09 </li>
-                    <li> ë¹„ìš© : 10ë§Œì› </li>
-                    <li> ì œì£¼ì‹œì²­ </li>
+                    <li> ºñ¿ë : 10¸¸¿ø </li>
+                    <li> Á¦ÁÖ½ÃÃ» </li>
                 </ul>
             </div>
+        </div>
+        <div id="order_button">
+            <button> < </button>
+            <% for(int i=1;i<=3;i++){%>
+            <button><%=i%></button>
+            <%}%>
+            <button> > </button>
         </div>
     </div>
 </main>
