@@ -12,7 +12,15 @@
     </div>
     <div class="div_mainDiv">
         <div id="board_post">
-
+            <div id="board_title"> 준비중입니다. </div>
+            <div id="board_content">
+                <ul>
+                    <li> 귤 | 수확 </li>
+                    <li> 19.07.15 ~ 19.08.09 </li>
+                    <li> 비용 : 10만원 </li>
+                    <li> 제주시청 </li>
+                </ul>
+            </div>
         </div>
     </div>
 </main>
