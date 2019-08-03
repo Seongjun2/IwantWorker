@@ -9,6 +9,10 @@
     font-size: 2.5em;
 }
 
+.table_list td {
+    padding: 0.5em;
+}
+
 .table_body{
      margin-top: 1em;
      font-size: 2.3em;
@@ -20,6 +24,12 @@
 
 .td_date {
     font-size: 0.9em;
+}
+
+.post_link {
+    display: block;
+    color: #212529;
+    font-weight: bold;
 }
 
 .btn_modify{
