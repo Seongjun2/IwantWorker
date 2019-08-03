@@ -1,17 +1,17 @@
 package VO;
 
 public class PointLogVO{
-    private int uuid;
+    private Integer uuid;
     private String info;
-    private int point;
-    private int pointTotal;
+    private Integer point;
+    private Integer pointTotal;
     private String LogDate;
 
-    public int getUuid() {
+    public Integer getUuid() {
         return uuid;
     }
 
-    public void setUuid(int uuid) {
+    public void setUuid(Integer uuid) {
         this.uuid = uuid;
     }
 
@@ -23,19 +23,19 @@ public class PointLogVO{
         this.info = info;
     }
 
-    public int getPoint() {
+    public Integer getPoint() {
         return point;
     }
 
-    public void setPoint(int point) {
+    public void setPoint(Integer point) {
         this.point = point;
     }
 
-    public int getPointTotal() {
+    public Integer getPointTotal() {
         return pointTotal;
     }
 
-    public void setPointTotal(int pointTotal) {
+    public void setPointTotal(Integer pointTotal) {
         this.pointTotal = pointTotal;
     }
 

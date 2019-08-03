@@ -1,15 +1,15 @@
 package VO;
 
 public class BannerVO {
-    int banner_id;
-    String image;
-    String uploadTime;
+    private Integer banner_id = null;
+    private String image = null;
+    private String uploadTime = null;
 
-    public int getBanner_id() {
+    public Integer getBanner_id() {
         return banner_id;
     }
 
-    public void setBanner_id(int banner_id) {
+    public void setBanner_id(Integer banner_id) {
         this.banner_id = banner_id;
     }
 
