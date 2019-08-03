@@ -43,7 +43,6 @@ public class UserDAO_Impl implements UserDAO {
 
         conn = sqlConnector.connect();
         Statement stmt = conn.createStatement();
-        System.out.println("this s");
         String sql = "select * from user where uuid = " + uuid;
         System.out.println(sql);
         ResultSet rs = stmt.executeQuery(sql);
