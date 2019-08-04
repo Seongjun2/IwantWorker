@@ -4,7 +4,7 @@
     String jsDir = "./../js";
     String imgDir = "./../imgs";
 %>
-<%@include file="./../header.jsp"%>
+<%@include file="../header.jsp"%>
 <link rel="stylesheet" type="text/css", href="../css/userInfo_modify.css">
 
 <main>

@@ -25,95 +25,37 @@ body {
 }
 main {
 	min-height: 70%;
+	transform: translate(0, -1.5px);
 }
 /*	헤더 CSS 변경금지	*/
-#main_header {
+#header {
 	background-color: #EC8032;
-	height: 350px;
+	height: 175px;
 	width: 100%;
 }
-#main_header_menu {
-	height: 50%;
+#header_menu {
+	height: 100%;
 }
-#main_header_menu div {
+#header_menu div {
 	position: absolute;
 	height: 10%;
 	width: 20%;
+	z-index: 1;
 }
 
-#main_header_menu_btn {
+#header_menu_btn {
 	position: relative;
 	height: 40%;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
-#main_header_menu_logo {
+#header_menu_logo {
 	position: relative;
 	height: 50%;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-}
-#main_header_search {
-	display: flex;
-	justify-content: center;
-	height: 50%;
-	width: 100%;
-}
-#main_header_search_span {
-	display: flex;
-	height: 60%;
-	width: 90%;
-	transition: 0.5s;
-	background-color: #FFFFFF;
-	border-radius: 20px;
-}
-#main_header_search_form {
-	position: relative;
-	height: 99%;
-	width: 90%;
-	top: 1%;
-}
-#main_header_search_form input {
-	position: relative;
-	height: 100%;
-	width: 100%;
-	font-size: 40px;
-	border: 0;
-	letter-spacing: -0.05em;
-	left: 30px;
-}
-#main_header_search_form input:focus {
-	outline: none;
-}
-#main_header_search_icon {
-	height: 100%;
-	width: 15%;
-}
-#main_header_search_icon img {
-	position: relative;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	height: 85%;
-}
-#header {
-	height: 30%;
-	width: 100%;
-	background-color: #ffa74e;
-}
-#header_menu {
-	height: 33.3%;
-	background-color: #FFFFFF;
-}
-#header_menu span {
-	display: table;
-	position: relative;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	font-size: 60px;
 }
 #header_sidebar {
 	position: fixed;
@@ -126,26 +68,32 @@ main {
 	overflow: hidden;
 	background-color: #F8F9Fa;
 }
-#header_sidebar img {
-	height: 50px;
+#header_sidebar_close {
+	height: 6em;
+	width: 20%;
 	float: right;
-	transform: translate(-50%, 50%);
+}
+#header_sidebar_close img {
+	position: relative;
+	height: 50px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 #header_sidebar_user {
 	display: flex;
 	position: relative;
 	height: 300px;
 	width: 100%;
-	margin-top: 6em;
 	background-color: #adb5bd;
 	border-bottom: 3px solid #000000;
-	padding-left: 15px;
 }
 #header_sidebar_user_icon {
 	display: flex;
 	justify-content: center;
 	height: 100%;
 	width: 30%;
+	margin-left: 2em;
 }
 #header_sidebar_user_icon img {
 	position: relative;
@@ -156,6 +104,7 @@ main {
 #header_sidebar_user_info {
 	height: 100%;
 	width: 70%;
+	padding-left: 3em;
 }
 #header_sidebar_user_info div {
 	position: relative;
@@ -190,7 +139,15 @@ main {
 }
 #header_sidebar_menu li {
 	display: block;
+	height: 2.5em;
 	width: 100%;
+	font-size: 3.5em;
+	padding-left: 0.5em;
+	line-height: 2.5em;
+	border-bottom: 1px solid #000000;
+}
+#header_sidebar_menu li:hover {
+	background-color: #dadada;
 }
 #header_sidebar_blank {
 	display: none;

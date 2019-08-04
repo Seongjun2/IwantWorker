@@ -11,10 +11,10 @@
         <h3 class = "h3_pageName">게시판</h3>
     </div>
     <div class="div_mainDiv" style="align-content: center">
-        <button id="write_button" onclick="location.href='${pageContext.request.contextPath}/html/bbs/post_write.jsp'"> 글쓰기 </button>
-        <div id="board_post">
-            <div id="board_title"> 준비중입니다. </div>
-            <div id="board_content">
+        <button class="write_button" onclick="location.href='${pageContext.request.contextPath}/html/bbs/post_write.jsp'"> 글쓰기 </button>
+        <div class="board_post">
+            <div class="board_title"> 준비중입니다. </div>
+            <div class="board_content">
                 <ul>
                     <li> 귤 | 수확 </li>
                     <li> 19.07.15 ~ 19.08.09 </li>
@@ -23,7 +23,7 @@
                 </ul>
             </div>
         </div>
-        <div id="order_button">
+        <div class="order_button">
             <button> < </button>
             <% for(int i=1;i<=3;i++){%>
             <button><%=i%></button>
