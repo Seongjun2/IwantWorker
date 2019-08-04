@@ -1,33 +1,31 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%
+    String __PATH__ = request.getContextPath()+"/html";
+    String cssDir = __PATH__+"/css";
+    String jsDir = __PATH__+"/js";
+    String imgDir = __PATH__+"/imgs";
+%>
 <html>
 <head>
     <title>Jeju</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="shortcut icon" href="./imgs/favicon.png">
-    <link rel="stylesheet" type="text/css", href="<%= cssDir %>/main.css">
+    <meta name="viewport" content="user-scalable=0" />
+    <link rel="shortcut icon" href="<%= imgDir %>/favicon.png">
     <link rel="stylesheet" type="text/css", href="<%= cssDir %>/common.css">
     <script type="text/javascript" src="<%= jsDir %>/common.js"></script>
 </head>
 <body>
-<header id="main_header">
-    <div id="main_header_menu">
-        <div id="main_header_menu_btn_area">
-            <img id="main_header_menu_btn" src="<%= imgDir %>/main_menu_btn.png">
+<header id="header">
+    <div id="header_menu">
+        <div id="header_menu_btn_area" onclick="showSideBar()">
+            <img id="header_menu_btn" src="<%= imgDir %>/main_menu_btn.png">
         </div>
-        <img id="main_header_menu_logo" src="<%= imgDir %>/logo.png" />
-    </div>
-    <div id="main_header_search">
-			<span id="main_header_search_span">
-				<form id="main_header_search_form">
-					<input id="main_header_search_text" type="text" name="search" placeholder="검색어를 입력하세요" />
-				</form>
-				<div id="main_header_search_icon">
-					<img src="<%= imgDir %>/lenz.png" />
-				</div>
-			</span>
+        <a href="<%=__PATH__%>/index.jsp"><img id="header_menu_logo" src="<%= imgDir %>/logo.png" /></a>
     </div>
     <div id="header_sidebar">
-        <img src="<%= imgDir %>/close_icon.png">
+        <div id="header_sidebar_close" onclick="hideSideBar()">
+            <img src="<%= imgDir %>/close_icon.png">
+        </div>
         <div id="header_sidebar_user">
             <div id="header_sidebar_user_icon">
                 <img src="<%= imgDir %>/user_icon.png" />
@@ -36,15 +34,18 @@
                 <div>
                     <span id="header_sidebar_user_name">임용성님</span>
                     <span id="header_sidebar_user_point">1000 한라봉</span>
-                    <button>충전하기</button>
+                    <a href="<%=__PATH__%>/bbs/shop.jsp"><button>충전하기</button></a>
                 </div>
             </div>
         </div>
         <ul id="header_sidebar_menu">
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            <li>내정보 수정</li>
+            <li>게시판</li>
+            <li>나의 글</li>
+            <li>결제 내역</li>
+            <li>포인트 내역</li>
+            <li>로그아웃</li>
         </ul>
     </div>
-    <div id="header_sidebar_blank" onclick="hideMenu()"></div>
+    <div id="header_sidebar_blank" onclick="hideSideBar()"></div>
 </header>
