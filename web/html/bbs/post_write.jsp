@@ -62,13 +62,13 @@
                         </li>
                         <li>
                             <div style="width: 100%; float: left">
-                                <input type="text" size="100px" name="title" style="text-align:right; width: 73%"/> 원
+                                <input type="text" size="100px" name="money" style="text-align:right; width: 73%"/> 원
                             </div>
                             <br />
                         </li>
                         <li>
                             <div style="width: 100%; float: left">
-                                <input type="text" size="100px" name="title" style="width: 80%" placeholder="읍면리"/>
+                                <input type="text" size="100px" name="location" style="width: 80%" placeholder="읍면리"/>
                             </div>
                             <br />
                         </li>
