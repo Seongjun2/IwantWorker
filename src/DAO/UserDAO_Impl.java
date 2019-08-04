@@ -45,7 +45,7 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
     }
 
     @Override
-    public void update(Object... args) throws Exception {//tell, pw, uuid 순으로 들어오면 됩니다.
+    public void update(Object... args) throws Exception {
         template = new JdbcTemplate();
 
         String sql = "update user set tell = ?, pw = ? where uuid = ?";
@@ -54,7 +54,6 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
         if(result < 1){
             System.out.println("변경된 것이 없습니다.");
         }
-
     }
 
     @Override

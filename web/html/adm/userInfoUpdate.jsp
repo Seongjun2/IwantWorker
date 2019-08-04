@@ -1,4 +1,3 @@
-<%@ page import="VO.UserVO" %>
 <%@ page import="DAO.UserDAO" %>
 <%@ page import="DAO.UserDAO_Impl" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
