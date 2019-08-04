@@ -12,13 +12,13 @@
     </div>
     <div class="div_mainDiv" style="align-content: center">
         <div id="posting">
-            <form method="POST" action="post_add.jsp" style="text-align: center">
+            <form method="POST" action="post_add.jsp">
                 <div>
-                    제목 <input type="text" size="100px" name="title" />
+                    제목 <input type="text" size="100px" name="title"/>
                 </div>
                 <br />
                 <div>
-                    모집기간 <input type="date" name="startDate" />
+                    모집기간 <input type="date" name="startDate"/>
                      ~ <input type="date" name="endDate" />
                 </div>
                 <div>
