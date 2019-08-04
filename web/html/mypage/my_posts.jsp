@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/board.css">
 <main>
     <div class="div_pageName">
-        <h3 class = "h3_pageName">게시판</h3>
+        <h3 class = "h3_pageName">내 게시글 목록</h3>
     </div>
     <div class="div_mainDiv">
         <div class="board_wrapper">
