@@ -3,7 +3,8 @@
     String cssDir = "./../css";
     String jsDir = "./../js";
     String imgDir = "./../imgs";
-%><%@include file="./../header.jsp"%>
+%>
+<%@include file="./../header.jsp"%>
 <%--header에 head, footer에 body, html 태그 들어가 있음. 쓰면 안됨--%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/post_write.css">
 <main>
@@ -45,6 +46,16 @@
                                     <option value="천해향">천해향</option>
                                     <option value="마늘">마늘</option>
                                     <option value="감자">감자</option>
+                                    <option value="기타">기타</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <select name="workType">
+                                    <option value="수확">수확</option>
+                                    <option value="운반">운반</option>
+                                    <option value="판별">판별</option>
                                     <option value="기타">기타</option>
                                 </select>
                             </div>
