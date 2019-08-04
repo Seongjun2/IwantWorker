@@ -1,4 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%
+    String __PATH__ = request.getContextPath()+"/html";
+    String cssDir = __PATH__+"/css";
+    String jsDir = __PATH__+"/js";
+    String imgDir = __PATH__+"/imgs";
+%>
 <html>
 <head>
     <title>Jeju</title>
@@ -14,7 +20,7 @@
         <div id="header_menu_btn_area" onclick="showSideBar()">
             <img id="header_menu_btn" src="<%= imgDir %>/main_menu_btn.png">
         </div>
-        <img id="header_menu_logo" src="<%= imgDir %>/logo.png" />
+        <a href="<%=__PATH__%>/index.jsp"><img id="header_menu_logo" src="<%= imgDir %>/logo.png" /></a>
     </div>
     <div id="header_sidebar">
         <div id="header_sidebar_close" onclick="hideSideBar()">
@@ -28,7 +34,7 @@
                 <div>
                     <span id="header_sidebar_user_name">임용성님</span>
                     <span id="header_sidebar_user_point">1000 한라봉</span>
-                    <button>충전하기</button>
+                    <a href="<%=__PATH__%>/bbs/shop.jsp"><button>충전하기</button></a>
                 </div>
             </div>
         </div>

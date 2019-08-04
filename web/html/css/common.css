@@ -57,6 +57,9 @@ main {
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
+#header_menu_logo:focus {
+	outline: none;
+}
 #header_sidebar {
 	position: fixed;
 	height: 1750px;
@@ -122,7 +125,10 @@ main {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-#header_sidebar_user_info div button {
+#header_sidebar_user_info div a {
+	text-decoration: none;
+}
+#header_sidebar_user_info div a button {
 	display: block;
 	height: 70px;
 	width: 200px;
@@ -131,6 +137,12 @@ main {
 	background-color: #5e5e5e;
 	border: 0;
 	border-radius: 20px;
+}
+#header_sidebar_user_info div a button:focus {
+	outline: none;
+}
+#header_sidebar_user_info div a button:hover {
+	background: #414141;
 }
 #header_sidebar_menu {
 	height: 50em;
