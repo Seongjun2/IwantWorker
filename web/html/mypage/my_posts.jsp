@@ -10,26 +10,28 @@
         <h3 class = "h3_pageName">게시판</h3>
     </div>
     <div class="div_mainDiv">
-        <div class="board_post">
-            <div class="board_title"> 준비중입니다. </div>
-            <div class="board_content">
-                <ul>
-                    <li> 귤 | 수확 </li>
-                    <li> 19.07.15 ~ 19.08.09 </li>
-                    <li> 비용 : 10만원 </li>
-                    <li> 제주시청 </li>
-                </ul>
+        <div class="board_wrapper">
+            <div class="board_post">
+                <div class="board_title"> 준비중입니다. </div>
+                <div class="board_content">
+                    <ul>
+                        <li> 귤 | 수확 </li>
+                        <li> 19.07.15 ~ 19.08.09 </li>
+                        <li> 비용 : 10만원 </li>
+                        <li> 제주시청 </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div id="board_post">
-            <div id="board_title"> 준비중입니다. </div>
-            <div id="board_content">
-                <ul>
-                    <li> 귤 | 수확 </li>
-                    <li> 19.07.15 ~ 19.08.09 </li>
-                    <li> 비용 : 10만원 </li>
-                    <li> 제주시청 </li>
-                </ul>
+            <div class="board_post">
+                <div class="board_title"> 귤 쪼아 귤 쪼아  </div>
+                <div class="board_content">
+                    <ul>
+                        <li> 귤 | 수확 </li>
+                        <li> 19.07.15 ~ 19.08.09 </li>
+                        <li> 비용 : 10만원 </li>
+                        <li> 제주시청 </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

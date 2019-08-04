@@ -1,3 +1,7 @@
+.board_wrapper {
+    height: 45%;
+}
+
 .board_post{
     box-sizing: border-box;
     width: 100%;
@@ -7,11 +11,17 @@
 }
 
 .board_title{
-    font-size: 4em;
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
 }
 
 .board_content{
     padding : 1.5em 3.5em 1.5em 3.5em;
+}
+
+.board_content li {
+    font-size: 2.3em;
 }
 
 .order_button{
@@ -36,8 +46,4 @@
     background-color: #E0E0E0;
     padding : 15px 15px 15px 15px;
     margin-bottom: 30px;
-}
-
-li{
-    font-size: 3em;
 }
