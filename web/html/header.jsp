@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="router.Router" %>
 <%
     String __PATH__ = request.getContextPath()+"/html";
     String cssDir = __PATH__+"/css";
