@@ -6,8 +6,11 @@
       <option name="myIgnoreVendorSpecificProperties" value="false" />
       <option name="myCustomPropertiesList">
         <value>
-          <list size="1">
+          <list size="4">
             <item index="0" class="java.lang.String" itemvalue="main-color" />
+            <item index="1" class="java.lang.String" itemvalue="main-color-light" />
+            <item index="2" class="java.lang.String" itemvalue="main-color-middle" />
+            <item index="3" class="java.lang.String" itemvalue="main-color-strong" />
           </list>
         </value>
       </option>

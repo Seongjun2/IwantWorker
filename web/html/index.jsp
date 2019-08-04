@@ -5,8 +5,20 @@ String jsDir = "js";
 String imgDir = "imgs";
 %>
 <%@include file="header.jsp"%>
+<link rel="stylesheet" type="text/css", href="<%= cssDir %>/main.css">
 <script type="text/javascript" src="<%= jsDir %>/main.js"></script>
 <main id="main">
+    <div id="main_search">
+        <span id="main_search_span">
+            <form id="main_search_form">
+                <input id="main_search_text" type="text" name="search" placeholder="검색어를 입력하세요" onclick="onFocusSearch()" />
+            </form>
+            <div id="main_search_icon">
+                <img src="<%= imgDir %>/lenz.png" />
+            </div>
+        </span>
+        <div id="search_blank" onclick="disFocusSearch()"></div>
+    </div>
     <div id="main_head">
         <div id="main_head_div">
             <img id="banner_1" src="<%= imgDir %>/banner_1.png" />
