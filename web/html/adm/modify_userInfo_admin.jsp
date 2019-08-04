@@ -56,7 +56,6 @@
                 <p class = "p_userInfo">변경할 비밀번호 확인</p>
                 <input id = "pw_check" type="password"  class="input_userInfo" name="pw_check"/>
             </div>
-
             <div id = "div_submit">
                 <input id = "input_submit" type="submit" value="변경하기" onclick="check_PW()"/>
             </div>
