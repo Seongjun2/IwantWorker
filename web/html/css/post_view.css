@@ -1,0 +1,69 @@
+.title{
+    text-align: center;
+    font-size: 3em;
+    padding-bottom: 50px;
+}
+
+.main_content{
+    width: 100%;
+    height: 20%;
+    margin-bottom: 0px;
+}
+
+.circle{
+    float: left;
+    background-color: #eeeeee;
+    width:25%; height: 60%;
+    border-radius:100%;
+    margin:0;
+    font-size:3em;
+    color:#212529;
+    text-align: center;
+    vertical-align:middle;
+    line-height:30%;
+    margin: 50px 30px 0px 30px;
+}
+
+.circle_content{
+    float: left;
+    margin: 0px 35px 100px 35px;
+    font-size: 3em;
+
+    width: 25%;
+    height: 20%;
+    text-align: center;
+}
+
+.etc{
+    margin: 3em 0em 3em 4em;
+}
+
+.etc li {
+    font-size: 2.6em;
+}
+
+.memo{
+    font-size: 2.6em;
+    padding-left : 0.5em;
+    width: 100%;
+}
+
+p{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+hr {
+    position: relative;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: #aaaaaa solid 1px;
+}
+
+ul{
+    margin-bottom: 0.5em;
+}
