@@ -47,6 +47,11 @@
             는
             기타 공간
         </div>
+        <div style="width: 100%">
+                <button class="button_writer">수정하기</button>
+                <button class="button_writer">삭제하기</button>
+    <%--            <button class="button_guest">홈으로</button>--%>
+        </div>
     </div>
 </main>
 <%@include file="./../footer.jsp"%>
