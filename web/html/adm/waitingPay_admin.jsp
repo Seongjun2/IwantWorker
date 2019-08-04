@@ -24,8 +24,8 @@
         <table id = "userTable">
             <thead align="center">
             <tr>
-                <th>결제번호</th>
-                <th>이름</th>d
+                <th id ="th_payNo">결제번호</th>
+                <th>이름</th>
                 <th>충전</br>포인트</th>
                 <th>가격</th>
                 <th>날짜</th>
@@ -55,7 +55,7 @@
                 <%}else if(status.equals("Expire")){%>
                 <td>거절</td>
                 <%}else if(status.equals("Wait")){%>
-                <td><a href="">승인</a><br><a href="">거절</a></td>
+                <td><a href="">승인</a> <a href="">거절</a></td>
                 <%}%>
             </tr>
             <%
