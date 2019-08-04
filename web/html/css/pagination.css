@@ -32,12 +32,12 @@
     font-size: 2em;
 }
 .page-numbers:hover, .page-numbers.current {
-    background-color: #86c023;
+    background-color: #ffb362;
     color: #fff;
 }
 .page-numbers.prev:hover, .page-numbers.next:hover {
     background-color: transparent;
-    color: #86c023;
+    color: #ffb362;
 }
 .page-numbers:nth-child(-n + 3), .page-numbers:nth-last-child(-n + 3) {
     display: block;

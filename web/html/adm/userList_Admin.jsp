@@ -41,10 +41,13 @@
                 <td> <%=vo.getName()%></td>
                 <td> <%=vo.getTell()%></td>
 <%--                <td><input type="button" value = "수정" class="btn_modify"/></td>--%>
+<%--                <td>--%>
+<%--                    <form action="./modify_userInfo_admin.jsp?uuid=<%=vo.getUuid()%>" method="post">--%>
+<%--                        <input type="submit" value = "수정" class="btn_modify">--%>
+<%--                    </form>--%>
+<%--                </td>--%>
                 <td>
-                    <form action="./modify_userInfo_admin.jsp?uuid=<%=vo.getUuid()%>" method="post">
-                        <input type="submit" value = "수정" class="btn_modify">
-                    </form>
+                    <a href="./modify_userInfo_admin.jsp?uuid=<%=vo.getUuid()%>">수정하기</a>
                 </td>
             </tr>
             <%
@@ -55,6 +58,7 @@
         </table>
     </div>
 </main>
+<%@include file="../pagination.jsp"%>
 <%@include file="../footer.jsp"%>
 </body>
     <link rel="stylesheet" type="text/css", href="<%=cssDir%>/userList.css">
