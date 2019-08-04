@@ -1,12 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%!
-    String cssDir = "./../css";
-    String jsDir = "./../js";
-    String imgDir = "./../imgs";
-%>
-<%@include file="./../header.jsp"%>
-<link rel="stylesheet" type="text/css", href="../css/mypage.css">
-
+<%@include file="../header.jsp"%>
+<link rel="stylesheet" type="text/css", href="<%= cssDir %>/mypage.css">
 <main>
     <div class="div_pageName">
         <h3 class = "h3_pageName">포인트 변동기록</h3>
@@ -70,4 +64,4 @@
     <%@include file="../pagination.jsp"%>
 </main>
 
-<%@include file="./../footer.jsp"%>
+<%@include file="../footer.jsp"%>
