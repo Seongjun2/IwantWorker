@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@include file="../header.jsp"%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/mypage.css">
-
 <main>
     <div class="div_pageName">
         <h3 class = "h3_pageName">포인트 변동기록</h3>
