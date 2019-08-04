@@ -3,6 +3,8 @@
 <%
     String tell = request.getParameter("tell");
     String pw = request.getParameter("pw");
+
+
 %>
 <html>
 <head>

@@ -2,6 +2,8 @@ package DAO;
 
 import VO.UserVO;
 import database.ConnectDB;
+import database.JdbcTemplate;
+import database.RowMapper;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -9,10 +11,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDAO_Impl implements UserDAO {
+public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
     private ConnectDB sqlConnector = ConnectDB.getInstacne();
-
+    private JdbcTemplate template = null;
     private Connection conn;
+
     @Override
     public void add(UserVO vo) throws Exception {
 
@@ -21,18 +24,13 @@ public class UserDAO_Impl implements UserDAO {
     @Override
     public List<UserVO> findAll() throws Exception {
         List<UserVO> list = new ArrayList<>();
-        conn = sqlConnector.connect();
-        Statement stmt = conn.createStatement();
-        String sql = "select * from user";
-        ResultSet rs = stmt.executeQuery(sql);
+        template = new JdbcTemplate();
+        RowMapper<UserVO> rowMapper = new UserDAO_Impl();
 
-        while(rs.next()){
-            UserVO vo = mapRow(rs);
-            System.out.println(vo);
-            list.add(vo);
-        }
-        rs.close();
-        stmt.close();
+        conn = sqlConnector.connect();
+        String sql = "select * from user";
+        list = template.query(sql, rowMapper);
+
         conn.close();
 
         return list;
@@ -41,18 +39,16 @@ public class UserDAO_Impl implements UserDAO {
     @Override
     public UserVO getUserInfo(int uuid) throws Exception {
 
-        conn = sqlConnector.connect();
-        Statement stmt = conn.createStatement();
-        String sql = "select * from user where uuid = " + uuid;
-        System.out.println(sql);
-        ResultSet rs = stmt.executeQuery(sql);
         UserVO vo = null;
+        template = new JdbcTemplate();
+        RowMapper<UserVO> rowMapper = new UserDAO_Impl();
 
-        if(rs.next()) vo = mapRow(rs);
+        conn = sqlConnector.connect();
+        String sql = "select * from user where uuid = ?";
+        vo = template.qeuryForObject(sql, rowMapper, uuid);;
 
-        rs.close();
-        stmt.close();
         conn.close();
+
         return vo;
     }
 
