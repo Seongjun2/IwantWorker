@@ -11,7 +11,7 @@
     <div class="div_pageName">
         <h3 class = "h3_pageName">구인 게시글 작성</h3>
     </div>
-    <span class="div_mainDiv" style="align-content: center">
+    <span class="div_mainDiv">
         <div id="posting">
             <form method="POST" action="post_add.jsp">
                 <div style="width: 30%; float: left">
@@ -60,7 +60,27 @@
                                 </select>
                             </div>
                         </li>
+                        <li>
+                            <div style="width: 100%; float: left">
+                                <input type="text" size="100px" name="title" style="text-align:right; width: 73%"/> 원
+                            </div>
+                            <br />
+                        </li>
+                        <li>
+                            <div style="width: 100%; float: left">
+                                <input type="text" size="100px" name="title" style="width: 80%" value="읍면리"/>
+                            </div>
+                            <br />
+                        </li>
                     </ul>
+                </div>
+                <br />
+                <hr>
+                <div class="content">
+                    <span>내용</span>
+                    <div style="padding-top: 30px">
+                       <input type="textarea" name="content" style="width: 100%; height: 20%" wrap="hard"/>
+                    </div>
                 </div>
             </form>
         </div>

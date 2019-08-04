@@ -3,6 +3,7 @@
 }
 
 #posting{
+    padding-top: 1em;
     font-size: 3em;
 }
 
@@ -13,6 +14,10 @@ input{
 
 .date{
     width: 35%;
+}
+
+div.content{
+    padding: 30px 50px;
 }
 
 ul{
@@ -32,4 +37,13 @@ select{
 
 select > option{
     font-size: 0.7em;
+}
+
+hr {
+    position: relative;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: #aaaaaa solid 1px;
 }
