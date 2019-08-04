@@ -1,9 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="EUC-KR" %>
-<%!
-    String cssDir = "./../css";
-    String jsDir = "./../js";
-    String imgDir = "./../imgs";
-%><%@include file="./../header.jsp"%>
+<%@include file="../header.jsp"%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/board.css">
 <main>
     <div class="div_pageName">
@@ -35,6 +31,6 @@
             </div>
         </div>
     </div>
-    <%@include file="./../pagination.jsp"%>
+    <%@include file="../pagination.jsp"%>
 </main>
-<%@include file="./../footer.jsp"%>
+<%@include file="../footer.jsp"%>

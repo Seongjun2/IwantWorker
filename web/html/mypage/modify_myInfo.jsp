@@ -1,11 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%!
-    String cssDir = "./../css";
-    String jsDir = "./../js";
-    String imgDir = "./../imgs";
-%>
-<%@include file="./../header.jsp"%>
-<link rel="stylesheet" type="text/css", href="../css/userInfo_modify.css">
+<%@include file="../header.jsp"%>
+<link rel="stylesheet" type="text/css", href="<%= cssDir %>>/userInfo_modify.css">
 
 <main>
     <div class="div_pageName">
@@ -38,4 +33,4 @@
     </div>
 </main>
 
-<%@include file="./../footer.jsp"%>
+<%@include file="../footer.jsp"%>
