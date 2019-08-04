@@ -7,5 +7,29 @@
 }
 
 input{
-    height: 4em;
+    width: 80%;
+    font-size: 1em;
+}
+
+.date{
+    width: 35%;
+}
+
+ul{
+    list-style:none;
+    text-align: center;
+}
+
+li{
+    margin-bottom: 0.5em;
+}
+
+select{
+    width: 70%;
+    font-size: 0.7em;
+    text-align: center;
+}
+
+select > option{
+    font-size: 0.7em;
 }

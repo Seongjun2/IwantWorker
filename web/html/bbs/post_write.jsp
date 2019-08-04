@@ -10,29 +10,49 @@
     <div class="div_pageName">
         <h3 class = "h3_pageName">구인 게시글 작성</h3>
     </div>
-    <div class="div_mainDiv" style="align-content: center">
+    <span class="div_mainDiv" style="align-content: center">
         <div id="posting">
             <form method="POST" action="post_add.jsp">
-                <div>
-                    제목 <input type="text" size="100px" name="title"/>
+                <div style="width: 30%; float: left">
+                    <ul>
+                        <li>제목</li>
+                        <li>모집기간</li>
+                        <li>작물</li>
+                        <li>작업종류</li>
+                        <li>일급</li>
+                        <li>위치</li>
+                    </ul>
                 </div>
-                <br />
-                <div>
-                    모집기간 <input type="date" name="startDate"/>
-                     ~ <input type="date" name="endDate" />
-                </div>
-                <div>
-                    <select name="crop">
-                        <option value="귤">귤</option>
-                        <option value="한라봉">한라봉</option>
-                        <option value="천해향">천해향</option>
-                        <option value="마늘">마늘</option>
-                        <option value="감자">감자</option>
-                        <option value="기타">기타</option>
-                    </select>
+                <div style="width: 70%; float: left">
+                    <ul>
+                        <li>
+                            <div style="width: 100%; float: left">
+                                <input type="text" size="100px" name="title" style="width: 80%"/>
+                            </div>
+                            <br />
+                        </li>
+                        <li>
+                            <div>
+                                <input type="date" name="startDate" class="date"/>
+                                 ~ <input type="date" name="endDate" class="date"/>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <select name="crop">
+                                    <option value="귤">귤</option>
+                                    <option value="한라봉">한라봉</option>
+                                    <option value="천해향">천해향</option>
+                                    <option value="마늘">마늘</option>
+                                    <option value="감자">감자</option>
+                                    <option value="기타">기타</option>
+                                </select>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </form>
         </div>
-    </div>
+    </span>
 </main>
 <%@include file="./../footer.jsp"%>
