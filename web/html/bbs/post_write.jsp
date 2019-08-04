@@ -18,6 +18,7 @@
                     <ul>
                         <li>제목</li>
                         <li>모집기간</li>
+                        <li>작업시간</li>
                         <li>작물</li>
                         <li>작업종류</li>
                         <li>일급</li>
@@ -36,6 +37,15 @@
                             <div>
                                 <input type="date" name="startDate" class="date"/>
                                  ~ <input type="date" name="endDate" class="date"/>
+                            </div>
+                        </li>
+                        <li>
+                            <div style="width: 100%;">
+                                <div style="width: 100%; float: left;">
+                                    <input type="time" size="100px" name="location" style="width: 35%"/>
+                                     ~ <input type="time" size="100px" name="location" style="width: 35%"/>
+                                </div>
+                                <br />
                             </div>
                         </li>
                         <li>
