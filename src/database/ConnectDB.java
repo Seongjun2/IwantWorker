@@ -10,7 +10,7 @@ public class ConnectDB {
 
     public Connection connect() throws Exception {//DB연결, 연결 후 conn 리턴
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/jeju?serverTimezone=UTC","root","seongjun100");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://15.164.79.177:3306/leaguelugas?serverTimezone=UTC","leaguelugas","8426753190");
 
         return conn;
     }

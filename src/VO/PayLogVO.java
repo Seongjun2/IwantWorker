@@ -1,58 +1,76 @@
 package VO;
 
 public class PayLogVO{
-    private Integer point_id;
-    private String uuid;
-    private String info;
-    private Integer point;
-    private Integer pointTotal;
-    private String logData;
+   private Integer pay_id = null;
+   private Integer uuid = null;
+   private String tell = null;
+   private Integer point = null;
+   private Integer price = null;
+   private String status = null;
+   private String requestTime = null;
+   private String updateTime = null;
 
-    public Integer getPoint_id() {
-        return point_id;
-    }
+   public Integer getPay_id() {
+      return pay_id;
+   }
 
-    public void setPoint_id(Integer point_id) {
-        this.point_id = point_id;
-    }
+   public void setPay_id(Integer pay_id) {
+      this.pay_id = pay_id;
+   }
 
-    public String getUuid() {
-        return uuid;
-    }
+   public Integer getUuid() {
+      return uuid;
+   }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
+   public void setUuid(Integer uuid) {
+      this.uuid = uuid;
+   }
 
-    public String getInfo() {
-        return info;
-    }
+   public String getTell() {
+      return tell;
+   }
 
-    public void setInfo(String info) {
-        this.info = info;
-    }
+   public void setTell(String tell) {
+      this.tell = tell;
+   }
 
-    public Integer getPoint() {
-        return point;
-    }
+   public Integer getPoint() {
+      return point;
+   }
 
-    public void setPoint(Integer point) {
-        this.point = point;
-    }
+   public void setPoint(Integer point) {
+      this.point = point;
+   }
 
-    public Integer getPointTotal() {
-        return pointTotal;
-    }
+   public Integer getPrice() {
+      return price;
+   }
 
-    public void setPointTotal(Integer pointTotal) {
-        this.pointTotal = pointTotal;
-    }
+   public void setPrice(Integer price) {
+      this.price = price;
+   }
 
-    public String getLogData() {
-        return logData;
-    }
+   public String getStatus() {
+      return status;
+   }
 
-    public void setLogData(String logData) {
-        this.logData = logData;
-    }
+   public void setStatus(String status) {
+      this.status = status;
+   }
+
+   public String getRequestTime() {
+      return requestTime;
+   }
+
+   public void setRequestTime(String requestTime) {
+      this.requestTime = requestTime;
+   }
+
+   public String getUpdateTime() {
+      return updateTime;
+   }
+
+   public void setUpdateTime(String updateTime) {
+      this.updateTime = updateTime;
+   }
 }
