@@ -68,7 +68,7 @@
                         </li>
                         <li>
                             <div style="width: 100%; float: left">
-                                <input type="text" size="100px" name="title" style="width: 80%" value="읍면리"/>
+                                <input type="text" size="100px" name="title" style="width: 80%" placeholder="읍면리"/>
                             </div>
                             <br />
                         </li>
@@ -79,8 +79,11 @@
                 <div class="content">
                     <span>내용</span>
                     <div style="padding-top: 30px">
-                       <input type="textarea" name="content" style="width: 100%; height: 20%" wrap="hard"/>
+                        <textarea wrap="hard" name="content"></textarea>
                     </div>
+                </div>
+                <div style="text-align: center">
+                    <input type="submit" value="올리기" style="width: 4em; padding: 20px"/>
                 </div>
             </form>
         </div>
