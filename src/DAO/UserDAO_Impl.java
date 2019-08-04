@@ -12,9 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
-    private ConnectDB sqlConnector = ConnectDB.getInstacne();
     private JdbcTemplate template = null;
-    private Connection conn;
 
     @Override
     public void add(UserVO vo) throws Exception {
@@ -27,11 +25,8 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
         template = new JdbcTemplate();
         RowMapper<UserVO> rowMapper = new UserDAO_Impl();
 
-        conn = sqlConnector.connect();
         String sql = "select * from user";
         list = template.query(sql, rowMapper);
-
-        conn.close();
 
         return list;
     }
@@ -43,13 +38,23 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
         template = new JdbcTemplate();
         RowMapper<UserVO> rowMapper = new UserDAO_Impl();
 
-        conn = sqlConnector.connect();
         String sql = "select * from user where uuid = ?";
         vo = template.qeuryForObject(sql, rowMapper, uuid);;
 
-        conn.close();
-
         return vo;
+    }
+
+    @Override
+    public void update(Object... args) throws Exception {//tell, pw, uuid 순으로 들어오면 됩니다.
+        template = new JdbcTemplate();
+
+        String sql = "update user set tell = ?, pw = ? where uuid = ?";
+        int result = template.update(sql, args);
+
+        if(result < 1){
+            System.out.println("변경된 것이 없습니다.");
+        }
+
     }
 
     @Override

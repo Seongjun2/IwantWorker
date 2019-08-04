@@ -30,8 +30,8 @@ public class JdbcTemplate {
                 else if(args[i] instanceof String){
                     stmt.setString(i+1, ((String)args[i]));
                 }
-                rc = stmt.executeUpdate();
             }
+            rc = stmt.executeUpdate();
 
         }catch(Exception e){
             throw e;
