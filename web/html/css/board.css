@@ -1,4 +1,4 @@
-div#board_post{
+.board_post{
     box-sizing: border-box;
     width: 100%;
     border: 1px solid #5e5e5e;
@@ -6,15 +6,15 @@ div#board_post{
     margin: 10px 10px 10px 10px;
 }
 
-div#board_title{
+.board_title{
     font-size: 4em;
 }
 
-div#board_content{
+.board_content{
     padding : 1.5em 3.5em 1.5em 3.5em;
 }
 
-div#order_button{
+.order_button{
     position: relative;
     text-align: center;
     align-content: center;
@@ -22,13 +22,13 @@ div#order_button{
     margin-top: 30px;
 }
 
-div#order_button > button{
+.order_button > button{
     width: 100px;
     height: 100px;
     font-size: 3em;
 }
 
-#write_button{
+.write_button{
     text-align: center;
     color: #000000;
     font-size: 4em;
