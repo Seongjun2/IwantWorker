@@ -1,23 +1,26 @@
 <%@ page import="routes.Router" %>
 <%@ page import="java.io.IOException" %>
+<%@ page import="DAO.UserDAO_Impl" %>
+<%@ page import="DAO.UserDAO" %>
+<%@ page import="VO.UserVO" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%!
-    public static void loginCheck(HttpServletRequest request, HttpServletResponse response) throws IOException {
-       HttpSession session = request.getSession();
-       String uuid = (String) session.getAttribute("uuid");
-       String user_level = (String) session.getAttribute("user_level");
-       if(uuid == null || user_level == null) {
-           response.sendRedirect(request.getContextPath()+"/html/index.jsp");
-       }
-    }
-%>
 <%
+
+    UserDAO userDAO = new UserDAO_Impl();
+    UserVO userVO = null;
     boolean isUser = false;
     if(session.getAttribute("uuid") != null) {
         isUser = true;
+        try {
+            userVO = userDAO.getUserInfo((Integer) session.getAttribute("uuid"));
+        } catch (Exception e) {
+            out.print("<script>alert('잘못된 접근입니다');</script>");
+            response.sendRedirect("");
+            return;
+        }
     }
 
-    Router router = Router.getInstance(request.getContextPath());
+    //Router router = Router.getInstance(request.getContextPath());
     String __PATH__ = request.getContextPath()+"/html";
     String cssDir = __PATH__+"/css";
     String jsDir = __PATH__+"/js";
@@ -51,8 +54,8 @@
             <div id="header_sidebar_user_info">
                 <div>
                     <% if(isUser) { %>
-                    <span id="header_sidebar_user_name">임용성님</span>
-                    <span id="header_sidebar_user_point">1000 한라봉</span>
+                    <span id="header_sidebar_user_name"><%=userVO.getName()%>님</span>
+                    <span id="header_sidebar_user_point"><%=userVO.getPoint()%> 한라봉</span>
                     <a href="<%=__PATH__%>/bbs/shop.jsp"><button>충전하기</button></a>
                     <% } else { %>
                     <span></span>
@@ -63,21 +66,11 @@
         </div>
         <ul id="header_sidebar_menu">
             <% if(isUser) { %>
-            <li>
-                <a href="<%= router.mypage.modify_myInfo %>">내정보 수정</a>
-            </li>
-            <li>
-                <a href="<%= router.board.board_list %>">게시판</a>
-            </li>
-            <li>
-                <a href="<%= router.mypage.my_posts %>">나의 글</a>
-            </li>
-            <li>
-                <a href="<%= router.mypage.pay_list%>">결제내역</a>
-            </li>
-            <li>
-                <a href="<%= router.mypage.point_list %>"> 포인트 내역 </a>
-            </li>
+            <li>내정보 수정</li>
+            <a href="<%=__PATH__%>/bbs/board_list.jsp"><li>게시판</li></a>
+            <li>나의 글</li>
+            <li>결제 내역</li>
+            <li>포인트 내역</li>
             <a href="<%=__PATH__%>/bbs/logout.jsp"><li>로그아웃</li></a>
             <% } else { %>
             <a href="<%=__PATH__%>/bbs/login.jsp"><li>로그인</li></a>

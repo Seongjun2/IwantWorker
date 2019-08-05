@@ -10,8 +10,9 @@
 <%
     String point = request.getParameter("point");
     String price = request.getParameter("price");
-    String uuid = (String) session.getAttribute("uuid");
+    Integer uuid = Integer.parseInt(String.valueOf(session.getAttribute("uuid")));
     if(point == null || price == null || uuid == null) {
+        out.print("<script>alert('로그인 하세요');</script>");
         response.sendRedirect(__PATH__+"/index.jsp");
         return;
     }
@@ -21,19 +22,18 @@
     UserVO vo = null;
     try {
         vo = dao.getUserInfo(Integer.parseInt(uuid));
-    } catch (Exception e) {%>
-        <script>alert('결제도중 오류가 발생하였습니다\n다시 시도해 주세요');</script>
-    <%
+    } catch (Exception e) {
+        out.print("<script>alert('결제도중 오류가 발생하였습니다\n다시 시도해 주세요');</script>");
         response.sendRedirect("shop.jsp");
         return;
     }
     String sql = "insert into paylog values (default, ?, ?, ?, ?, 'wait', now(), now())";
         try {
             db.update(sql, uuid, vo.getTell(), point, price);
-        } catch (Exception e) {%>
-            <script>alert('결제도중 오류가 발생하였습니다\n다시 시도해 주세요')</script>
-        <%
+        } catch (Exception e) {
+            out.print("<script>alert('결제도중 오류가 발생하였습니다\n다시 시도해 주세요');</script>");
             response.sendRedirect("shop.jsp");
+            return;
         }
 
         String endTime = null;
