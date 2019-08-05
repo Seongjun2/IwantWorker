@@ -17,7 +17,7 @@
         isUser = true;
     }
 
-    Router router = Router.getInstance(request.getContextPath());
+    //Router router = Router.getInstance(request.getContextPath());
     String __PATH__ = request.getContextPath()+"/html";
     String cssDir = __PATH__+"/css";
     String jsDir = __PATH__+"/js";
@@ -63,21 +63,11 @@
         </div>
         <ul id="header_sidebar_menu">
             <% if(isUser) { %>
-            <li>
-                <a href="<%= router.mypage.modify_myInfo %>">내정보 수정</a>
-            </li>
-            <li>
-                <a href="<%= router.board.board_list %>">게시판</a>
-            </li>
-            <li>
-                <a href="<%= router.mypage.my_posts %>">나의 글</a>
-            </li>
-            <li>
-                <a href="<%= router.mypage.pay_list%>">결제내역</a>
-            </li>
-            <li>
-                <a href="<%= router.mypage.point_list %>"> 포인트 내역 </a>
-            </li>
+            <li>내정보 수정</li>
+            <a href="<%=__PATH__%>/bbs/board_list.jsp"><li>게시판</li></a>
+            <li>나의 글</li>
+            <li>결제 내역</li>
+            <li>포인트 내역</li>
             <a href="<%=__PATH__%>/bbs/logout.jsp"><li>로그아웃</li></a>
             <% } else { %>
             <a href="<%=__PATH__%>/bbs/login.jsp"><li>로그인</li></a>
