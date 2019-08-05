@@ -1,15 +1,17 @@
 package VO;
 
+// TODO: 날짜들의 type이 String 이어도 되는지 고민 필요
 public class BoardVO{
     private Integer board_id;
-    private String uuid;
-    private String text;
+    private Integer uuid;
+    private String text; // TODO: DB 스키마와 일치 필요
     private String content;
     private String startDate;
     private String endDate;
     private String workTime;
     private Integer money;
     private String address;
+    private String writeTime;
 
     public Integer getBoard_id() {
         return board_id;
@@ -19,11 +21,11 @@ public class BoardVO{
         this.board_id = board_id;
     }
 
-    public String getUuid() {
+    public Integer getUuid() {
         return uuid;
     }
 
-    public void setUuid(String uuid) {
+    public void setUuid(Integer uuid) {
         this.uuid = uuid;
     }
 
@@ -91,6 +93,19 @@ public class BoardVO{
         this.writeTime = writeTime;
     }
 
-    String writeTime;
-
+    @Override
+    public String toString() {
+        return "BoardVO{" +
+                "board_id=" + board_id +
+                ", uuid=" + uuid +
+                ", text='" + text + '\'' +
+                ", content='" + content + '\'' +
+                ", startDate='" + startDate + '\'' +
+                ", endDate='" + endDate + '\'' +
+                ", workTime='" + workTime + '\'' +
+                ", money=" + money +
+                ", address='" + address + '\'' +
+                ", writeTime='" + writeTime + '\'' +
+                '}';
+    }
 }
