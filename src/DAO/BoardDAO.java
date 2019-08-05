@@ -5,6 +5,6 @@ import VO.BoardVO;
 import java.util.List;
 
 public interface BoardDAO{
-  void add(BoardVO vo) throws Exception;
+  void add(Object... args) throws Exception;
   List<BoardVO> findAll() throws Exception;
 }
