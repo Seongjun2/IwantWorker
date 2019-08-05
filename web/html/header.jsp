@@ -63,11 +63,21 @@
         </div>
         <ul id="header_sidebar_menu">
             <% if(isUser) { %>
-            <li>내정보 수정</li>
-            <li>게시판</li>
-            <li>나의 글</li>
-            <li>결제 내역</li>
-            <li>포인트 내역</li>
+            <li>
+                <a href="<%= router.mypage.modify_myInfo %>">내정보 수정</a>
+            </li>
+            <li>
+                <a href="<%= router.board.board_list %>">게시판</a>
+            </li>
+            <li>
+                <a href="<%= router.mypage.my_posts %>">나의 글</a>
+            </li>
+            <li>
+                <a href="<%= router.mypage.pay_list%>">결제내역</a>
+            </li>
+            <li>
+                <a href="<%= router.mypage.point_list %>"> 포인트 내역 </a>
+            </li>
             <a href="<%=__PATH__%>/bbs/logout.jsp"><li>로그아웃</li></a>
             <% } else { %>
             <a href="<%=__PATH__%>/bbs/login.jsp"><li>로그인</li></a>
