@@ -1,18 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%!
-    String cssDir = "./../css";
-    String jsDir = "./../js";
-    String imgDir = "./../imgs";
-%>
 <%@include file="../header.jsp"%>
-<link rel="stylesheet" type="text/css", href="../css/userInfo_modify.css">
+<link rel="stylesheet" type="text/css", href="<%= cssDir %>>/userInfo_modify.css">
 
 <main>
     <div class="div_pageName">
         <h3 class = "h3_pageName">내 정보 수정</h3>
     </div>
     <div class="div_mainDiv">
-        <form action="./userInfoUpdate.jsp" method="get">
+        <form method="POST" action="<%= router.mypage.my_posts %>">
             <div class = "div_userInfo">
                 <p class = "p_userInfo">휴대폰 번호</p>
                 <input type="text" class="input_userInfo" name="tell" value="010-1111-1111"/>
@@ -38,4 +33,4 @@
     </div>
 </main>
 
-<%@include file="./../footer.jsp"%>
+<%@include file="../footer.jsp"%>

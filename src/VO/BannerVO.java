@@ -3,7 +3,6 @@ package VO;
 public class BannerVO {
     private Integer banner_id = null;
     private String image = null;
-    private String uploadTime = null;
 
     public Integer getBanner_id() {
         return banner_id;
@@ -21,11 +20,4 @@ public class BannerVO {
         this.image = image;
     }
 
-    public String getUploadTime() {
-        return uploadTime;
-    }
-
-    public void setUploadTime(String uploadTime) {
-        this.uploadTime = uploadTime;
-    }
 }
