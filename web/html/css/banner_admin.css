@@ -10,6 +10,7 @@
     margin-bottom: 4em;
     /*box-shadow:0 0 10px 0 #ffb362;*/
     box-shadow:0 0 10px 0 #000000b3;
+    overflow: auto;
 
 }
 .img_addImg{
@@ -19,4 +20,19 @@
     transform: translate(-50%, -50%);
     width:80px;
     height:80px;
+}
+
+#file{
+    height:0;
+    width:0;
+}
+
+#submit_upload{
+    transform: translate(-50%, 0%);
+    position: relative;
+    left: 50%;
+    font-size: 3em;
+}
+.img_show{
+    width : 100%;
 }
