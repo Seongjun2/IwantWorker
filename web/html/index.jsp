@@ -2,13 +2,16 @@
 <%@ page import="VO.BannerVO" %>
 <%@ page import="java.util.List" %>
 <%@ page import="DAO.BannerDAO_Impl" %>
+<%@ page import="DAO.UserDAO" %>
+<%@ page import="DAO.UserDAO_Impl" %>
+<%@ page import="VO.UserVO" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@include file="header.jsp"%>
 <%
-    BannerDAO dao = new BannerDAO_Impl();
+    BannerDAO bannerDao = new BannerDAO_Impl();
     List<BannerVO> banner_list = null;
     try {
-         banner_list = dao.findAll();
+         banner_list = bannerDao.findAll();
     } catch (Exception ignored) {
         System.out.println("[ERROR] 배너 이미지 로딩중 에러가 발생하였습니다");
     }
@@ -29,13 +32,15 @@
     </div>
     <div id="main_head">
         <div id="main_head_div">
-            <% if(banner_list.size() == 0) { %>
-            <img id="banner_1" src="<%= imgDir %>/noImage.png" />
-            <% } else {
-                for(BannerVO vo : banner_list) { %>
-                <img id="banner_1" src="<%= __PATH__ %>/uploadImg/<%= vo.getImage() %>" />
-                <% }
-            } %>
+            <%
+            if(banner_list.size() == 0) {
+                out.print("<img id=\"banner_1\" src=\""+imgDir+"/noImage.png\" />");
+            } else {
+                for(int i = 0; i < banner_list.size(); i++) {
+                    out.print("<img id=\"banner_"+(i+1)+"\" src=\""+__PATH__+"/uploadImg/"+ banner_list.get(i).getImage() +"\" />");
+                }
+            }
+            %>
         </div>
     </div>
     <div id="main_content">

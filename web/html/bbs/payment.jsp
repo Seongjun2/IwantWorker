@@ -10,7 +10,7 @@
 <%
     String point = request.getParameter("point");
     String price = request.getParameter("price");
-    String uuid = String.valueOf(session.getAttribute("uuid"));
+    Integer uuid = Integer.parseInt(String.valueOf(session.getAttribute("uuid")));
     if(point == null || price == null || uuid == null) {
         out.print("<script>alert('로그인 하세요');</script>");
         response.sendRedirect(__PATH__+"/index.jsp");
