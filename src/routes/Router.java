@@ -3,10 +3,12 @@ package routes;
 public class Router {
     private static Router router = null;
 
+    public final MainRoute main;
     public final MypageRoute mypage;
     public final AdminRoute admin;
 
     private Router(String ctxPath) {
+        main = new MainRoute( ctxPath );
         mypage = new MypageRoute( ctxPath );
         admin = new AdminRoute( ctxPath );
     }
