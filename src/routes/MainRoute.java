@@ -10,7 +10,7 @@ public class MainRoute {
     public MainRoute (String ctxPath) {
         baseURL = ctxPath + "/html" + prefix;
 
-        index = baseURL + "index.jsp";
-        login = baseURL + "login.html";
+        index = baseURL + "/index.jsp";
+        login = baseURL + "/login.html";
     }
 }
