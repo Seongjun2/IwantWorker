@@ -42,7 +42,8 @@
         <form action="./userInfoUpdate.jsp" method="post" onsubmit="this.hand">
             <div class = "div_userInfo">
                 <p class = "p_userInfo">휴대폰 번호</p>
-                <input type="text" class="input_userInfo" name="tell" value="<%=vo.getTell()%>"/>
+                <input type="number" maxlength="11" id="input_tell" style="ime-mode:disabled;" onkeyup="SetNum(this)" onkeypress="NumObj(this)" class="input_userInfo" name="tell" value="<%=vo.getTell()%>"/>
+                <p id = "explain_inputTell"> * 숫자만 입력</p>
             </div>
             <div class = "div_userInfo">
                 <p class = "p_userInfo">이름</p>
@@ -66,4 +67,5 @@
 </body>
     <link rel="stylesheet" type="text/css", href="<%= cssDir %>/userInfo_modify.css">
     <script type="text/javascript" src="../js/modifyInfo_admin.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </html>
