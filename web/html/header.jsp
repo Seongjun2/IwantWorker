@@ -1,5 +1,16 @@
 <%@ page import="routes.Router" %>
+<%@ page import="java.io.IOException" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%!
+    public static void loginCheck(HttpServletRequest request, HttpServletResponse response) throws IOException {
+       HttpSession session = request.getSession();
+       String uuid = (String) session.getAttribute("uuid");
+       String user_level = (String) session.getAttribute("user_level");
+       if(uuid == null || user_level == null) {
+           response.sendRedirect(request.getContextPath()+"/html/index.jsp");
+       }
+    }
+%>
 <%
     boolean isUser = false;
     if(session.getAttribute("uuid") != null) {
