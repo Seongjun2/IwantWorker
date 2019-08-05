@@ -39,7 +39,8 @@ main{
 #p_name{
     font-size : 3em;
 }
+#explain_inputTell{
+    font-size: 2em;
+    color: red;
 
-#div_submit{
-    
 }

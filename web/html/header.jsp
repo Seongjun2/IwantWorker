@@ -1,9 +1,11 @@
+<%@ page import="routes.Router" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%
-    final String __PATH__ = request.getContextPath()+"/html";
-    final String cssDir = __PATH__+"/css";
-    final String jsDir = __PATH__+"/js";
-    final String imgDir = __PATH__+"/imgs";
+    Router router = Router.getInstance(request.getContextPath());
+    String __PATH__ = request.getContextPath()+"/html";
+    String cssDir = __PATH__+"/css";
+    String jsDir = __PATH__+"/js";
+    String imgDir = __PATH__+"/imgs";
 %>
 <html>
 <head>

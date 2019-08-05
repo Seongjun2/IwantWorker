@@ -23,13 +23,7 @@
                 </ul>
             </div>
         </div>
-        <div class="order_button">
-            <button> < </button>
-            <% for(int i=1;i<=3;i++){%>
-            <button><%=i%></button>
-            <%}%>
-            <button> > </button>
-        </div>
+        <%@include file="./../pagination.jsp"%>
     </div>
 </main>
 <%@include file="./../footer.jsp"%>
