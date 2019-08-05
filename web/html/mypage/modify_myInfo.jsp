@@ -7,7 +7,7 @@
         <h3 class = "h3_pageName">내 정보 수정</h3>
     </div>
     <div class="div_mainDiv">
-        <form method="POST" action="<%= Router.mypage.my_posts %>">
+        <form method="POST" action="<%= router.mypage.my_posts %>">
             <div class = "div_userInfo">
                 <p class = "p_userInfo">휴대폰 번호</p>
                 <input type="text" class="input_userInfo" name="tell" value="010-1111-1111"/>

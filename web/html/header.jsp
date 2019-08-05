@@ -1,6 +1,7 @@
+<%@ page import="routes.Router" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ page import="router.Router" %>
 <%
+    Router router = Router.getInstance(request.getContextPath());
     String __PATH__ = request.getContextPath()+"/html";
     String cssDir = __PATH__+"/css";
     String jsDir = __PATH__+"/js";
