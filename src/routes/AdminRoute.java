@@ -8,6 +8,7 @@ public class AdminRoute {
     public final String userinfo_update;
     public final String userlist;
     public final String wating_pay;
+    public final String banner;
 
     public AdminRoute (String ctxPath) {
         baseURL = ctxPath + "/html" + prefix;
@@ -16,5 +17,6 @@ public class AdminRoute {
         userinfo_update = baseURL + "/userInfoUpdate.jsp";
         userlist = baseURL + "/userList_Admin.jsp";
         wating_pay = baseURL + "/waitingPay_admin.jsp";
+        banner = baseURL + "/banner.jsp";
     }
 }
