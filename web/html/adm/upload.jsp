@@ -7,7 +7,7 @@
 <%@ page import="DAO.BannerDAO_Impl" %>
 <%@ page import="VO.BannerVO" %>
 <%
-    String uploadPath = request.getServletContext().getRealPath("/WEB-INF/uploadImg");
+    String uploadPath = request.getServletContext().getRealPath("/uploadImg");
     System.out.println(("절대경로 : " + uploadPath));
 
     BannerDAO bannerDAO = new BannerDAO_Impl();
