@@ -30,8 +30,12 @@
                 <div class="board_title"> <%= board.getText() %> </div>
                 <div class="board_content">
                     <ul>
-                        <li> <%= board.getStartDate() %> ~ <%= board.getEndDate() %> </li>
-                        <li> 비용 : <%= board.getMoney() %> </li>
+                        <li>
+                            <%= board.getStartDate().substring(0, 10) %>
+                            ~
+                            <%= board.getEndDate().substring(0, 10) %>
+                        </li>
+                        <li> 일급 : <%= board.getMoney() %> 원 </li>
                         <li> <%= board.getAddress() %> </li>
                     </ul>
                 </div>
