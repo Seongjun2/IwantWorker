@@ -22,8 +22,8 @@
     </div>
     <div class="div_mainDiv">
         <form method="POST" action="login2.jsp">
-            <input type="id" name="id" placeholder="핸드폰 번호">
-            <input type="password" name="pwd" placeholder="비밀번호">
+            <input type="id" name="tell" placeholder="핸드폰 번호">
+            <input type="password" name="pw" placeholder="비밀번호">
             <input type="submit">
             <button type="button" onclick="location.href='http:\/\/www.naver.com'">회원가입</button>
             <button type="button" onclick="location.href='http:\/\/www.naver.com'">계정찾기</button>
