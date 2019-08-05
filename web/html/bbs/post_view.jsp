@@ -14,6 +14,7 @@
 <%@include file="./../header.jsp"%>
 <%--header에 head, footer에 body, html 태그 들어가 있음. 쓰면 안됨--%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/post_view.css">
+<script type="text/javascript" src="<%=jsDir%>/post.js"></script>
 <main>
     <div class="div_pageName">
         <h3 class = "h3_pageName">구 인</h3>
@@ -50,7 +51,7 @@
         <div style="width: 100%">
                 <button class="button_writer">수정하기</button>
                 <button class="button_writer">삭제하기</button>
-    <%--            <button class="button_guest">홈으로</button>--%>
+    <%--            <button class="button_guest" onclick="goto_lastpage(<%=prePath%>)">홈으로</button>--%>
         </div>
     </div>
 </main>

@@ -1,13 +1,9 @@
 package DAO;
 
 import VO.UserVO;
-import database.ConnectDB;
 import database.JdbcTemplate;
 import database.RowMapper;
-
-import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +11,7 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
     private JdbcTemplate template = null;
 
     @Override
-    public void add(Object... args) throws Exception { // tell, name , pw 순으로 들어오면 됩니다.
+    public void add(Object... args) throws Exception {
         template = new JdbcTemplate();
         String sql = "insert into user values ( default , ?, ? , ? , 2 , 0 )";
         template.update( sql , args );
@@ -47,10 +43,31 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
     }
 
     @Override
+    public UserVO getUserInfo(String tell) throws Exception {
+        template = new JdbcTemplate();
+        RowMapper<UserVO> rowMapper = new UserDAO_Impl();
+        String sql = "select * from user where tell = ?";
+
+        UserVO vo = template.qeuryForObject(sql, rowMapper, tell);
+        return vo;
+    }
+
+    @Override
     public void update(Object... args) throws Exception {
         template = new JdbcTemplate();
 
         String sql = "update user set tell = ?, pw = ? where uuid = ?";
+        int result = template.update(sql, args);
+
+        if(result < 1){
+            System.out.println("변경된 것이 없습니다.");
+        }
+    }
+
+    @Override
+    public void pointUpdate(Object... args) throws Exception {
+        template = new JdbcTemplate();
+        String sql = "update user set point=point+? where uuid = ?";
         int result = template.update(sql, args);
 
         if(result < 1){
