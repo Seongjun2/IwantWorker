@@ -10,11 +10,8 @@
     request.setCharacterEncoding("euc-kr");
     String ctxPath = request.getContextPath();
     String tell = request.getParameter("tell");
-    String name = request.getParameter("name");
     String pw = request.getParameter("pw");
-    String pw_check = request.getParameter("pw_check");
-
     UserDAO dao = new UserDAO_Impl();
-    dao.add( tell, name, pw );
-    response.sendRedirect(ctxPath + "/html/bbs/login.jsp");
+    List<UserVO> rl = dao.getUserInfo();
+    response.sendRedirect(ctxPath + "/html/bbs/signup.jsp");
 %>
