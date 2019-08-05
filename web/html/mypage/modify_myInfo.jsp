@@ -21,7 +21,7 @@
         <h3 class = "h3_pageName">내 정보 수정</h3>
     </div>
     <div class="div_mainDiv">
-        <form method="POST" action="<%= router.mypage.my_posts %>">
+        <form method="POST" action="<%= router.admin.userinfo_update %>">
             <div class = "div_userInfo">
                 <p class = "p_userInfo">휴대폰 번호</p>
                 <input type="number" maxlength="11" id="input_tell" style="ime-mode:disabled;"
