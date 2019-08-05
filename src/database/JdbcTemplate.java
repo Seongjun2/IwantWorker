@@ -19,7 +19,7 @@ public class JdbcTemplate {
 
             for (int i = 0; i < args.length; i++) {
                 if(args[i] == null){
-                    stmt.setObject(i+1, null);
+                        stmt.setObject(i+1, null);
                 }
                 else if(args[i] instanceof Integer){
                     stmt.setInt(i+1, ((Integer)args[i]).intValue());

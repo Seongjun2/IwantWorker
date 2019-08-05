@@ -15,8 +15,10 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
     private JdbcTemplate template = null;
 
     @Override
-    public void add(UserVO vo) throws Exception {
-
+    public void add(Object... args) throws Exception { // tell, name , pw 순으로 들어오면 됩니다.
+        template = new JdbcTemplate();
+        String sql = "insert into user values ( default , ?, ? , ? , 2 , 0 )";
+        template.update( sql , args );
     }
 
     @Override
