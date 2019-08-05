@@ -49,7 +49,7 @@ public class BoardDAO_Impl implements BoardDAO, RowMapper<BoardVO> {
         vo.setContent(rs.getString("content"));
         vo.setStartDate(rs.getString("startDate"));
         vo.setEndDate(rs.getString("EndDate"));
-        vo.setWorkTime(rs.getString("WorkType"));
+        vo.setWorkTime(rs.getString("WorkTime"));
         vo.setMoney(rs.getInt("money"));
         vo.setAddress(rs.getString("addr"));
         vo.setWriteTime(rs.getString("writeTime"));
