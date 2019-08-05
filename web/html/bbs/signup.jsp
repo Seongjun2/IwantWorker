@@ -13,7 +13,7 @@
         <h3 class = "h3_pageName">회원가입</h3>
     </div>
     <div class="div_mainDiv">
-        <form action="./signup2.jsp" method="POST">
+        <form action="signup2.jsp" method="POST">
             <div class = "div_userInfo">
                 <p class = "p_userInfo">휴대폰 번호</p>
                 <input type="text" class="input_userInfo" name="tell" id="tell" placeholder="휴대폰 번호 입력"/>
