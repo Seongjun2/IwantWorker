@@ -3,10 +3,13 @@
     String cssDir = "./../css";
     String jsDir = "./../js";
     String imgDir = "./../imgs";
+%><%
+    String prePath = "'" + request.getHeader("referer") + "'";
 %>
 <%@include file="./../header.jsp"%>
 <%--header에 head, footer에 body, html 태그 들어가 있음. 쓰면 안됨--%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/post_write.css">
+<script type="text/javascript" src="<%=jsDir%>/post_write.js"></script>
 <main>
     <div class="div_pageName">
         <h3 class = "h3_pageName">구인 게시글 작성</h3>
@@ -93,9 +96,15 @@
                     </div>
                 </div>
                 <div style="text-align: center">
-                    <input type="submit" value="올리기" style="width: 4em; padding: 20px"/>
+                    <input type="submit" class="submit" value="올리기" style="width: 4em; padding: 20px;"/>
+                    <input type="button" id="cancel" value="뒤로 가기"
+                           style="width: 4.5em; padding: 20px;" onclick="goto_lastpage(<%=prePath%>)"/>
+                    <% System.out.println(prePath); %>
                 </div>
             </form>
+<%--            <div class="cancel" style="text-align: center">--%>
+<%--                <button>뒤로 가기</button>--%>
+<%--            </div>--%>
         </div>
     </span>
 </main>
