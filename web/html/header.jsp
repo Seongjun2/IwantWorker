@@ -1,20 +1,23 @@
 <%@ page import="routes.Router" %>
 <%@ page import="java.io.IOException" %>
+<%@ page import="DAO.UserDAO_Impl" %>
+<%@ page import="DAO.UserDAO" %>
+<%@ page import="VO.UserVO" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%!
-    public static void loginCheck(HttpServletRequest request, HttpServletResponse response) throws IOException {
-       HttpSession session = request.getSession();
-       String uuid = (String) session.getAttribute("uuid");
-       String user_level = (String) session.getAttribute("user_level");
-       if(uuid == null || user_level == null) {
-           response.sendRedirect(request.getContextPath()+"/html/index.jsp");
-       }
-    }
-%>
 <%
+
+    UserDAO userDAO = new UserDAO_Impl();
+    UserVO userVO = null;
     boolean isUser = false;
     if(session.getAttribute("uuid") != null) {
         isUser = true;
+        try {
+            userVO = userDAO.getUserInfo((Integer) session.getAttribute("uuid"));
+        } catch (Exception e) {
+            out.print("<script>alert('잘못된 접근입니다');</script>");
+            response.sendRedirect("");
+            return;
+        }
     }
 
     //Router router = Router.getInstance(request.getContextPath());
@@ -51,8 +54,8 @@
             <div id="header_sidebar_user_info">
                 <div>
                     <% if(isUser) { %>
-                    <span id="header_sidebar_user_name">임용성님</span>
-                    <span id="header_sidebar_user_point">1000 한라봉</span>
+                    <span id="header_sidebar_user_name"><%=userVO.getName()%>님</span>
+                    <span id="header_sidebar_user_point"><%=userVO.getPoint()%> 한라봉</span>
                     <a href="<%=__PATH__%>/bbs/shop.jsp"><button>충전하기</button></a>
                     <% } else { %>
                     <span></span>
