@@ -1,6 +1,12 @@
 <%@ page import="routes.Router" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%
+    boolean isUser = false;
+    HttpSession sesssion = request.getSession();
+    if(session.getAttribute("user_id") != null) {
+        isUser = true;
+    }
+
     Router router = Router.getInstance(request.getContextPath());
     String __PATH__ = request.getContextPath()+"/html";
     String cssDir = __PATH__+"/css";
@@ -34,19 +40,28 @@
             </div>
             <div id="header_sidebar_user_info">
                 <div>
+                    <% if(isUser) { %>
                     <span id="header_sidebar_user_name">임용성님</span>
                     <span id="header_sidebar_user_point">1000 한라봉</span>
                     <a href="<%=__PATH__%>/bbs/shop.jsp"><button>충전하기</button></a>
+                    <% } else { %>
+                    <span></span>
+                    <span>로그인을 해주세요</span>
+                    <% } %>
                 </div>
             </div>
         </div>
         <ul id="header_sidebar_menu">
+            <% if(isUser) { %>
             <li>내정보 수정</li>
             <li>게시판</li>
             <li>나의 글</li>
             <li>결제 내역</li>
             <li>포인트 내역</li>
             <li>로그아웃</li>
+            <% } else { %>
+            <a href="<%=__PATH__%>/bbs/login.jsp"><li>로그인</li></a>
+            <% } %>
         </ul>
     </div>
     <div id="header_sidebar_blank" onclick="hideSideBar()"></div>
