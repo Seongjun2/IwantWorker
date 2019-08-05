@@ -9,7 +9,7 @@
 <%@include file="./../header.jsp"%>
 <%--header에 head, footer에 body, html 태그 들어가 있음. 쓰면 안됨--%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/post_write.css">
-<script type="text/javascript" src="<%=jsDir%>/post_write.js"></script>
+<script type="text/javascript" src="<%=jsDir%>/post.js"></script>
 <main>
     <div class="div_pageName">
         <h3 class = "h3_pageName">구인 게시글 작성</h3>

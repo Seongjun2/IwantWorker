@@ -33,7 +33,7 @@
         }
         bannerDAO.add(bannerVO);
     }
-    bannerDAO.findAll();//테스트
+//    bannerDAO.findAll();//테스트
     response.sendRedirect("./userList_Admin.jsp");
 
 %>

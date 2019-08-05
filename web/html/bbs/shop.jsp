@@ -1,4 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    loginCheck(request,response);
+%>
 <%@include file="../header.jsp"%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/shop.css">
 <script type="text/javascript" src="<%= jsDir %>/shop.js"></script>

@@ -55,7 +55,7 @@
                 <%}else if(status.equals("Expire")){%>
                 <td>거절</td>
                 <%}else if(status.equals("Wait")){%>
-                <td><a href="">승인</a> <a href="">거절</a></td>
+                <td><a href="./updatePoint.jsp?status=Success">승인</a> <a href="./updatePoint.jsp?status=Expire">거절</a></td>
                 <%}%>
             </tr>
             <%

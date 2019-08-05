@@ -1,9 +1,19 @@
 <%@ page import="routes.Router" %>
+<%@ page import="java.io.IOException" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%!
+    public static void loginCheck(HttpServletRequest request, HttpServletResponse response) throws IOException {
+       HttpSession session = request.getSession();
+       String uuid = (String) session.getAttribute("uuid");
+       String user_level = (String) session.getAttribute("user_level");
+       if(uuid == null || user_level == null) {
+           response.sendRedirect(request.getContextPath()+"/html/index.jsp");
+       }
+    }
+%>
 <%
     boolean isUser = false;
-    HttpSession sesssion = request.getSession();
-    if(session.getAttribute("user_id") != null) {
+    if(session.getAttribute("uuid") != null) {
         isUser = true;
     }
 
@@ -68,7 +78,7 @@
             <li>
                 <a href="<%= router.mypage.point_list %>"> 포인트 내역 </a>
             </li>
-            <li>로그아웃</li>
+            <a href="<%=__PATH__%>/bbs/logout.jsp"><li>로그아웃</li></a>
             <% } else { %>
             <a href="<%=__PATH__%>/bbs/login.jsp"><li>로그인</li></a>
             <% } %>
