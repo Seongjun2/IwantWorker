@@ -2,8 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%
     boolean isUser = false;
-    HttpSession sesssion = request.getSession();
-    if(session.getAttribute("user_id") != null) {
+    if(session.getAttribute("uuid") != null) {
         isUser = true;
     }
 
@@ -58,7 +57,7 @@
             <li>나의 글</li>
             <li>결제 내역</li>
             <li>포인트 내역</li>
-            <li>로그아웃</li>
+            <a href="<%=__PATH__%>/bbs/logout.jsp"><li>로그아웃</li></a>
             <% } else { %>
             <a href="<%=__PATH__%>/bbs/login.jsp"><li>로그인</li></a>
             <% } %>

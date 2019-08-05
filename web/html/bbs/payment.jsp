@@ -1,10 +1,42 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.util.Date" %>
+<%@ page import="DAO.UserDAO" %>
+<%@ page import="DAO.UserDAO_Impl" %>
+<%@ page import="VO.UserVO" %>
+<%@ page import="database.JdbcTemplate" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../header.jsp"%>
 <%
-    String endTime = null;
+    String point = request.getParameter("point");
+    String price = request.getParameter("price");
+    String uuid = (String) session.getAttribute("uuid");
+    if(point == null || price == null || uuid == null) {
+        response.sendRedirect(__PATH__+"/index.jsp");
+        return;
+    }
+
+    JdbcTemplate db = new JdbcTemplate();
+    UserDAO dao = new UserDAO_Impl();
+    UserVO vo = null;
+    try {
+        vo = dao.getUserInfo(Integer.parseInt(uuid));
+    } catch (Exception e) {%>
+        <script>alert('결제도중 오류가 발생하였습니다\n다시 시도해 주세요');</script>
+    <%
+        response.sendRedirect("shop.jsp");
+        return;
+    }
+    String sql = "insert into paylog values (default, ?, ?, ?, ?, 'wait', now(), now())";
+        try {
+            db.update(sql, uuid, vo.getTell(), point, price);
+        } catch (Exception e) {%>
+            <script>alert('결제도중 오류가 발생하였습니다\n다시 시도해 주세요')</script>
+        <%
+            response.sendRedirect("shop.jsp");
+        }
+
+        String endTime = null;
 
     Date date = new Date();
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -14,8 +46,6 @@
     cal.add(Calendar.DATE, 2);
 
     endTime = dateFormat.format(cal.getTime());
-
-    String price = request.getParameter("price");
 %>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/payment.css">
 <main id="payment">
