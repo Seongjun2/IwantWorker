@@ -1,7 +1,20 @@
+<%@ page import="VO.UserVO" %>
+<%@ page import="DAO.UserDAO, DAO.UserDAO_Impl" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@include file="../header.jsp"%>
-<link rel="stylesheet" type="text/css", href="<%= cssDir %>>/userInfo_modify.css">
+<%
+    Integer uuid = null;
+    uuid = (Integer) session.getAttribute("uuid");
+    if(uuid == null) {
+        response.sendRedirect(router.main.index);
+        return;
+    }
 
+    UserDAO dao = new UserDAO_Impl();
+    UserVO vo = dao.getUserInfo(uuid);
+%>
+
+<link rel="stylesheet" type="text/css", href="<%= cssDir %>/userInfo_modify.css">
 <main>
     <div class="div_pageName">
         <h3 class = "h3_pageName">내 정보 수정</h3>
@@ -10,11 +23,11 @@
         <form method="POST" action="<%= router.mypage.my_posts %>">
             <div class = "div_userInfo">
                 <p class = "p_userInfo">휴대폰 번호</p>
-                <input type="text" class="input_userInfo" name="tell" value="010-1111-1111"/>
+                <input type="text" class="input_userInfo" name="tell" value="<%= vo.getTell() %>"/>
             </div>
             <div class = "div_userInfo">
                 <p class = "p_userInfo">이름</p>
-                <p id ="p_name">김농부</p>
+                <p id ="p_name"><%= vo.getName() %></p>
             </div>
             <div class = "div_userInfo">
                 <p class = "p_userInfo">변경할 비밀번호</p>
