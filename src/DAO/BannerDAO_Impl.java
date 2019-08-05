@@ -18,9 +18,11 @@ public class BannerDAO_Impl implements BannerDAO, RowMapper<BannerVO> {
     }
 
     @Override
-    public BannerVO mapRow(ResultSet rs) throws Exception {//고쳐야댐
+    public BannerVO mapRow(ResultSet rs) throws Exception {
         BannerVO vo = new BannerVO();
-        vo.setBanner_id(rs.getInt(""));
+        vo.setBanner_id(rs.getInt("Banner_Id"));
+        vo.setImage(rs.getString("Image"));
+        vo.setUploadTime(rs.getString("UploadTime"));
         return vo;
     }
 }
