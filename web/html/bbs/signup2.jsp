@@ -16,5 +16,6 @@
 
     UserDAO dao = new UserDAO_Impl();
     dao.add( tell, name, pw );
-    response.sendRedirect(ctxPath + "/html/boradori/signup.jsp");
+
+    response.sendRedirect(ctxPath + "/html/bbs/login.jsp");
 %>

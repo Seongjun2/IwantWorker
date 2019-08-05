@@ -49,7 +49,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="mysql-connector-java-8.0.17" level="project" />
+    <orderEntry type="library" exported="" name="mysql-connector-java-8.0.17" level="project" />
     <orderEntry type="library" name="servlet-api" level="project" />
     <orderEntry type="module-library">
       <library>
@@ -79,10 +79,19 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
           <root url="jar://D:/mysql-connector-java-8.0.17.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://C:/A/mysql-connector-java-8.0.17.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
