@@ -11,5 +11,13 @@ function hideSideBar() {
 }
 
 window.addEventListener("dragover", function(e) {
-    alert(e);
+    alert('이벤트');
 });
+
+window.addEventListener("close", function (ev) {
+    ev.returnValue = 'real???';
+});
+window.close = function (ev) {
+    alert('asdasd');
+    ev.returnValue = "asdasdasdasd";
+};

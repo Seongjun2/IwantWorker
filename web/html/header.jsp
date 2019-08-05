@@ -1,9 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%
-    String __PATH__ = request.getContextPath()+"/html";
-    String cssDir = __PATH__+"/css";
-    String jsDir = __PATH__+"/js";
-    String imgDir = __PATH__+"/imgs";
+    final String __PATH__ = request.getContextPath()+"/html";
+    final String cssDir = __PATH__+"/css";
+    final String jsDir = __PATH__+"/js";
+    final String imgDir = __PATH__+"/imgs";
 %>
 <html>
 <head>
@@ -20,7 +20,7 @@
         <div id="header_menu_btn_area" onclick="showSideBar()">
             <img id="header_menu_btn" src="<%= imgDir %>/main_menu_btn.png">
         </div>
-        <a href="<%=__PATH__%>/index.jsp"><img id="header_menu_logo" src="<%= imgDir %>/logo.png" /></a>
+        <img id="header_menu_logo" src="<%= imgDir %>/logo.png" onclick="location.href='<%=__PATH__%>/index.jsp'"/>
     </div>
     <div id="header_sidebar">
         <div id="header_sidebar_close" onclick="hideSideBar()">

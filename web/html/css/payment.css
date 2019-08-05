@@ -1,0 +1,32 @@
+#payment_content {
+    height: 80em;
+}
+#payment_info {
+    height: auto;
+    width: 100%;
+    padding-top: 5em;
+}
+#payment_info strong {
+    font-size: 5em;
+}
+#payment_info p {
+    font-size: 3em;
+}
+#payment_back_button {
+    height: auto;
+    width: 100%;
+    text-align: center;
+    margin-top: 10em;
+}
+#payment_back_button button {
+    height: 4em;
+    width: 90%;
+    color: #FFFFFF;
+    font-size: 3em;
+    border: 0;
+    border-radius: 20px;
+    background-color: #ec6632;
+}
+#payment_back_button button:hover {
+    background-color: #ec3c08;
+}

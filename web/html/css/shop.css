@@ -1,0 +1,74 @@
+#shop_content {
+    height: 70em;
+}
+#shop_title {
+    font-size: 4em;
+}
+#shop_list {
+    height: 35em;
+    width: 100%;
+    overflow-x: scroll;
+}
+#shop_list_content {
+    display: flex;
+    position: relative;
+    height: 30em;
+    width: min-content;
+    list-style: none;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+#shop_list_content li {
+    display: block;
+    height: 100%;
+    width: 21em;
+    margin: 0 1em 0 1em;
+    overflow: hidden;
+    color: #656565;
+    border: 3px solid #656565;
+    border-radius: 3em;
+}
+.shop_list_item_point {
+    height: 25%;
+    font-size: 5em;
+    font-family: Impact, fantasy;
+    text-align: center;
+    background-color: #FFFFFF;
+}
+.shop_list_item_price {
+    height: 75%;
+    padding: 25px;
+    font-size: 3em;
+    background-color: #f3f3f3;
+}
+
+#shop_des {
+    height: 5em;
+    width: 100%;
+    font-size: 3.1em;
+}
+#shop_form {
+    display: grid;
+    justify-content: center;
+    height: 15em;
+    width: 100%;
+}
+#shop_form p {
+    font-size: 3em;
+    font-family: Impact, fantasy;
+    padding-right: 0.5em;
+    text-align: right;
+}
+#shop_form button {
+    height: 3em;
+    width: 17em;
+    color: #FFFFFF;
+    background-color: #ec6632;
+    font-size: 3em;
+    border-radius: 1em;
+    outline: none;
+    border: 0;
+}
+#shop_form button:hover {
+    background-color: #ec3c08;
+}
