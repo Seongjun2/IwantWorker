@@ -12,9 +12,9 @@ public class AdminRoute {
     public AdminRoute (String ctxPath) {
         baseURL = ctxPath + "/html" + prefix;
 
-        modify_userInfo = "/modify_userInfo_admin.jsp";
-        userinfo_update = "/userInfoUpdate.jsp";
-        userlist = "/userList_Admin.jsp";
-        wating_pay = "/waitingPay_admin.jsp";
+        modify_userInfo = baseURL + "/modify_userInfo_admin.jsp";
+        userinfo_update = baseURL + "/userInfoUpdate.jsp";
+        userlist = baseURL + "/userList_Admin.jsp";
+        wating_pay = baseURL + "/waitingPay_admin.jsp";
     }
 }
