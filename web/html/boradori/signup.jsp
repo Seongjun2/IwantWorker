@@ -4,7 +4,7 @@
     String jsDir = "js";
     String imgDir = "imgs";
 %>
-<%@include file="header.jsp"%>
+<%@include file="../header.jsp"%>
 <link rel="stylesheet" type="text/css", href="<%=cssDir%>/signup.css">
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/userInfo_modify.css">
 <script type="text/javascript" src="js/modifyInfo_admin.js"></script>
@@ -38,4 +38,4 @@
         </form>
     </div>
 </main>
-<%@include file="footer.jsp"%>
+<%@include file="../footer.jsp"%>
