@@ -9,15 +9,3 @@ function hideSideBar() {
     document.getElementById('header_sidebar_blank').style.display = 'none';
     document.body.style['overflow-y'] = 'scroll';
 }
-
-window.addEventListener("dragover", function(e) {
-    alert('이벤트');
-});
-
-window.addEventListener("close", function (ev) {
-    ev.returnValue = 'real???';
-});
-window.close = function (ev) {
-    alert('asdasd');
-    ev.returnValue = "asdasdasdasd";
-};

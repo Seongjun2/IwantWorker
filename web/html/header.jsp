@@ -17,7 +17,7 @@
         isUser = true;
     }
 
-    Router router = Router.getInstance(request.getContextPath());
+    //Router router = Router.getInstance(request.getContextPath());
     String __PATH__ = request.getContextPath()+"/html";
     String cssDir = __PATH__+"/css";
     String jsDir = __PATH__+"/js";
@@ -64,7 +64,7 @@
         <ul id="header_sidebar_menu">
             <% if(isUser) { %>
             <li>내정보 수정</li>
-            <li>게시판</li>
+            <a href="<%=__PATH__%>/bbs/board_list.jsp"><li>게시판</li></a>
             <li>나의 글</li>
             <li>결제 내역</li>
             <li>포인트 내역</li>

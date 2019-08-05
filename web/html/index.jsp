@@ -33,7 +33,7 @@
             <img id="banner_1" src="<%= imgDir %>/noImage.png" />
             <% } else {
                 for(BannerVO vo : banner_list) { %>
-                <img id="banner_1" src="<%= imgDir %>/<%= vo.getImage() %>" />
+                <img id="banner_1" src="<%= __PATH__ %>/uploadImg/<%= vo.getImage() %>" />
                 <% }
             } %>
         </div>
