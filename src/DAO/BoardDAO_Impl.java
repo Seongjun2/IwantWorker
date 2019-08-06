@@ -51,13 +51,16 @@ public class BoardDAO_Impl implements BoardDAO, RowMapper<BoardVO> {
     }
 
     @Override
-    public BoardVO findByBoID(Integer boid) throws  Exception{
+    public BoardVO findByBoID(Integer bo_id) throws  Exception{
         String sql = "SELECT " +
                 "Bo_Id, Uuid, Title, Content, StartDate, EndDate, WorkTime, Money, Addr, WriteTime " +
                 "FROM board " +
                 "WHERE Bo_Id = ?";
 
         BoardVO vo = null;
+        RowMapper<BoardVO> rowMapper = new BoardDAO_Impl();
+
+        vo = template.qeuryForObject(sql, rowMapper, bo_id);
 
         return vo;
     }
