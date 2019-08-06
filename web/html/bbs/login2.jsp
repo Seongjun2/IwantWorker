@@ -8,12 +8,13 @@
 <%@ page import="java.sql.*"%>
 <%@ page import="database.ConnectDB" %>
 <%@ page import="java.sql.DriverManager" %>
+<%@ page import="Util.Util" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding ="EUC-KR"%>
 <%
     System.out.println("---------------------");
     String ctxPath = request.getContextPath();
     String tell = request.getParameter("tell");
-    String pw = request.getParameter("pw");
+    String pw = Util.md5( request.getParameter("pw") );
     request.setCharacterEncoding("euc-kr");
 
     UserDAO dao = new UserDAO_Impl();

@@ -5,6 +5,7 @@
 <%@ page import="database.JdbcTemplate" %>
 <%@ page import="java.sql.PreparedStatement" %>
 <%@ page import="database.ConnectDB" %>
+<%@ page import="Util.Util" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding ="EUC-KR"%>
 <%
     request.setCharacterEncoding("euc-kr");
@@ -15,7 +16,7 @@
     String pw_check = request.getParameter("pw_check");
 
     UserDAO dao = new UserDAO_Impl();
-    dao.add( tell, name, pw );
+    dao.add( tell, name, Util.md5( pw ) );
 
     response.sendRedirect(ctxPath + "/html/bbs/login.jsp");
 %>
