@@ -1,5 +1,25 @@
+<%@ page import="DAO.PayLogDAO" %>
+<%@ page import="DAO.PayLogDAO_Impl" %>
+<%@ page import="VO.PayLogVO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@include file="../header.jsp"%>
+<%
+    Integer uuid = (Integer) session.getAttribute("uuid");
+    List<PayLogVO> payLogs = new ArrayList<PayLogVO>();
+
+    if ( uuid == null ) {
+        response.sendRedirect(router.main.index);
+    } else {
+        PayLogDAO dao = new PayLogDAO_Impl();
+        payLogs = dao.findByUUID(uuid);
+    }
+
+    for (PayLogVO payLog: payLogs) {
+        System.out.println(payLog.toString());
+    }
+%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/mypage.css">
 <main>
     <div class="div_pageName">

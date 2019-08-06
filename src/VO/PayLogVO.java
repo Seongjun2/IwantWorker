@@ -73,4 +73,18 @@ public class PayLogVO{
    public void setUpdateTime(String updateTime) {
       this.updateTime = updateTime;
    }
+
+   @Override
+   public String toString() {
+      return "PayLogVO{" +
+              "pay_id=" + pay_id +
+              ", uuid=" + uuid +
+              ", tell='" + tell + '\'' +
+              ", point=" + point +
+              ", price=" + price +
+              ", status='" + status + '\'' +
+              ", requestTime='" + requestTime + '\'' +
+              ", updateTime='" + updateTime + '\'' +
+              '}';
+   }
 }
