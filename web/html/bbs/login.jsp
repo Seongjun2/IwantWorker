@@ -4,7 +4,22 @@
     String jsDir = "js";
     String imgDir = "imgs";
 %>
+<%
+    String ctxPath = request.getContextPath()+"/html";
+    String error = null;
+    error = (String)session.getAttribute("error");
+    if ( error != null ) {
+        if ( error.equals("id") ) {
+            out.print("<script>alert('전화번호가 일치하지 않습니다.'); </script>");
+        } else if ( session.getAttribute("error").equals("pw")) {
+            out.print("<script>alert('비밀번호가 일치하지 않습니다.'); </script>");
+        }
+    }
+    else {
 
+    }
+    session.removeAttribute("error");
+%>
 <script type="text/javascript" src="<%= jsDir %>/main.js"></script>
 <html>
 
@@ -25,8 +40,9 @@
             <input type="id" name="tell" placeholder="핸드폰 번호">
             <input type="password" name="pw" placeholder="비밀번호">
             <input type="submit">
-            <button type="button" onclick="location.href='http:\/\/www.naver.com'">회원가입</button>
-            <button type="button" onclick="location.href='http:\/\/www.naver.com'">계정찾기</button>
+
+            <button type="button" onclick="location.href='<%=ctxPath + "/bbs/signup.jsp"%>'">회원가입</button>
+            <button type="button" onclick="location.href='<%=ctxPath + "/bbs/findaccount.jsp"%>'">계정찾기</button>
             <a href="#">
                 <h4>- 앗! 아직 계정이 없나요? 회원가입을 해보세요!</h4>
             </a>

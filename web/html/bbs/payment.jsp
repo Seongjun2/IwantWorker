@@ -21,7 +21,7 @@
     UserDAO dao = new UserDAO_Impl();
     UserVO vo = null;
     try {
-        vo = dao.getUserInfo(Integer.parseInt(uuid));
+        vo = dao.getUserInfo(uuid);
     } catch (Exception e) {
         out.print("<script>alert('결제도중 오류가 발생하였습니다\n다시 시도해 주세요');</script>");
         response.sendRedirect("shop.jsp");

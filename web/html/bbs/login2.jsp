@@ -8,24 +8,33 @@
 <%@ page import="java.sql.*"%>
 <%@ page import="database.ConnectDB" %>
 <%@ page import="java.sql.DriverManager" %>
+<%@ page import="Util.Util" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding ="EUC-KR"%>
 <%
     System.out.println("---------------------");
     String ctxPath = request.getContextPath();
     String tell = request.getParameter("tell");
-    String pw = request.getParameter("pw");
+    String pw = Util.md5( request.getParameter("pw") );
     request.setCharacterEncoding("euc-kr");
 
     UserDAO dao = new UserDAO_Impl();
-    UserVO vo = dao.getUserInfo(tell);
-    System.out.println(vo.getTell());
-    System.out.println(vo.getPw());
-    if ( vo.getPw().equals(pw) ) {
-        System.out.println(2222222);
-        System.out.println(vo.getUuid());
-        session.setAttribute("uuid" , vo.getUuid());
-        session.setAttribute("user_level" , vo.getPermission());
+    try {
+        UserVO vo = dao.getUserInfo(tell);
+        if ( vo.getPw().equals(pw) ) {
+            System.out.println(vo.getUuid());
+            session.setAttribute("uuid" , (Integer)vo.getUuid());
+            session.setAttribute("user_level" ,(Integer)vo.getPermission());
+        } else {
+            session.setAttribute("error", "pw");
+            out.print("<script>location.href=\"" + ctxPath + "/html/bbs/login.jsp\";</script>");
+            return;
+        }
+
+    } catch ( Exception e) {
+        session.setAttribute("error", "id");
+        out.print("<script>location.href=\"" + ctxPath + "/html/bbs/login.jsp\";</script>");
+        return;
     }
-    
+
     response.sendRedirect(ctxPath + "/html/index.jsp");
 %>

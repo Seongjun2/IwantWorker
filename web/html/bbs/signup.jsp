@@ -17,6 +17,7 @@
             <div class = "div_userInfo">
                 <p class = "p_userInfo">휴대폰 번호</p>
                 <input type="text" class="input_userInfo" name="tell" id="tell" placeholder="휴대폰 번호 입력"/>
+                <p id = "explain_inputTell"> * (-) 하이폰 없이 숫자만 입력</p>
             </div>
             <div class = "div_userInfo">
                 <p class = "p_userInfo">이름</p>
