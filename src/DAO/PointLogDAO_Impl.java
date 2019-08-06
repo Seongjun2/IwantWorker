@@ -2,10 +2,12 @@ package DAO;
 
 import VO.PointLogVO;
 import database.JdbcTemplate;
+import database.RowMapper;
 
+import java.sql.ResultSet;
 import java.util.List;
 
-public class PointLogDAO_Impl implements PointLogDAO {
+public class PointLogDAO_Impl implements PointLogDAO, RowMapper<PointLogVO> {
     private JdbcTemplate template = null;
 
     public PointLogDAO_Impl() {
@@ -26,5 +28,18 @@ public class PointLogDAO_Impl implements PointLogDAO {
     public List<PointLogVO> findByUUID(Integer uuid) throws Exception {
         List<PointLogVO> pointLogs = null;
         return pointLogs;
+    }
+
+    @Override
+    public PointLogVO mapRow(ResultSet rs) throws Exception {
+        PointLogVO vo = new PointLogVO();
+
+        vo.setUuid( rs.getInt("uuid") );
+        vo.setInfo( rs.getString("info") );
+        vo.setPoint( rs.getInt("point") );
+        vo.setPointTotal( rs.getInt("pointtotal") );
+        vo.setLogDate( rs.getString("logdate") );
+
+        return vo;
     }
 }
