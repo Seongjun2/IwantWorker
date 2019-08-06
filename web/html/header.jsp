@@ -20,7 +20,7 @@
         }
     }
 
-    //Router router = Router.getInstance(request.getContextPath());
+    Router router = Router.getInstance(request.getContextPath());
     String __PATH__ = request.getContextPath()+"/html";
     String cssDir = __PATH__+"/css";
     String jsDir = __PATH__+"/js";
