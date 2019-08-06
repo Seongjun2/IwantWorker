@@ -8,12 +8,10 @@
   Time: 15:22
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="EUC-KR" %><%
-    request.setCharacterEncoding("euc-kr");
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" %><%
     String ctxPath = request.getContextPath();
 
-    String uuid = (session.getAttribute("uuid")).toString();
+    Integer uuid = Integer.parseInt(session.getAttribute("uuid").toString());
     String title = request.getParameter("title");
     String content = request.getParameter("content");
     String startDate = request.getParameter("startDate");
@@ -22,10 +20,10 @@
     int money = Integer.parseInt(request.getParameter("money"));
     String addr = request.getParameter("location");
 
+
     SimpleDateFormat format = new SimpleDateFormat ("yyyy-MM-dd");
     String format_time = format.format (System.currentTimeMillis());
 
-    System.out.println(format_time);
     String time = format_time;
 
     BoardDAO dao = new BoardDAO_Impl();

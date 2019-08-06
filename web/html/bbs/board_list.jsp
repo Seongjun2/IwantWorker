@@ -42,7 +42,7 @@
             </div>
         <% } else { %>
             <% for(BoardVO vo : list) { %>
-                <div class="board_post" id=<%=vo.getUuid()%>>
+                <div class="board_post" id=<%=vo.getBoard_id()%>>
                     <div class="board_title"><%=vo.getText()%></div>
                     <div class="board_content">
                         <ul>
