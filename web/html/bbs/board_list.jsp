@@ -10,6 +10,7 @@
     String jsDir = "./../js";
     String imgDir = "./../imgs";
 %><%@include file="./../header.jsp"%><%
+    request.setCharacterEncoding("euc-kr");
     BoardDAO_Impl dao = new BoardDAO_Impl();
 
     List<BoardVO> list = null;
@@ -22,8 +23,10 @@
         <h3 class = "h3_pageName">게시판</h3>
     </div>
     <div class="div_mainDiv" style="align-content: center">
-        <button class="write_button" onclick="location.href='${pageContext.request.contextPath}/html/bbs/post_write.jsp'"> 글쓰기 </button>
-<%--        <div class="board_post">--%>
+        <% if(session.getAttribute("uuid")!=null) {%>
+            <button class="write_button" onclick="location.href='${pageContext.request.contextPath}/html/bbs/post_write.jsp'"> 글쓰기 </button>
+        <% } %>
+        <%--        <div class="board_post">--%>
 <%--            <div class="board_title"> 준비중입니다. </div>--%>
 <%--            <div class="board_content">--%>
 <%--                <ul>--%>
@@ -33,18 +36,17 @@
 <%--                </ul>--%>
 <%--            </div>--%>
 <%--        </div>--%>
-        <% if(list.isEmpty()) {
-            System.out.println(new Date());%>
+        <% if(list.isEmpty()) {%>
             <div class="board_post">
                 <div class="board_title"> 아직 게시글이 없습니다. </div>
             </div>
         <% } else { %>
             <% for(BoardVO vo : list) { %>
-                <div class="board_post">
+                <div class="board_post" id=<%=vo.getUuid()%>>
                     <div class="board_title"><%=vo.getText()%></div>
                     <div class="board_content">
                         <ul>
-                            <li><%=vo.getStartDate() + "~" + vo.getEndDate()%></li>
+                            <li>기간 : <%=vo.getStartDate().substring(0, 10) + "~" + vo.getEndDate().substring(0, 10)%></li>
                             <li>비용 : <%=vo.getMoney()%>
                             <li><%=vo.getAddress()%></li>
                         </ul>

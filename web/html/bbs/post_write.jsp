@@ -45,8 +45,8 @@
                         <li>
                             <div style="width: 100%;">
                                 <div style="width: 100%; float: left;">
-                                    <input type="time" size="100px" name="location" style="width: 35%"/>
-                                     ~ <input type="time" size="100px" name="location" style="width: 35%"/>
+                                    <input type="time" size="100px" name="startTime" style="width: 35%"/>
+                                     ~ <input type="time" size="100px" name="endTime" style="width: 35%"/>
                                 </div>
                                 <br />
                             </div>
@@ -99,7 +99,6 @@
                     <input type="submit" class="submit" value="올리기" style="width: 4em; padding: 20px;"/>
                     <input type="button" id="cancel" value="뒤로 가기"
                            style="width: 4.5em; padding: 20px;" onclick="goto_lastpage(<%=prePath%>)"/>
-                    <% System.out.println(prePath); %>
                 </div>
             </form>
 <%--            <div class="cancel" style="text-align: center">--%>
