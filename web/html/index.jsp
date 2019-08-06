@@ -1,10 +1,7 @@
-<%@ page import="DAO.BannerDAO" %>
 <%@ page import="VO.BannerVO" %>
 <%@ page import="java.util.List" %>
-<%@ page import="DAO.BannerDAO_Impl" %>
-<%@ page import="DAO.UserDAO" %>
-<%@ page import="DAO.UserDAO_Impl" %>
-<%@ page import="VO.UserVO" %>
+<%@ page import="DAO.*" %>
+<%@ page import="VO.BoardVO" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@include file="header.jsp"%>
 <%
@@ -15,6 +12,9 @@
     } catch (Exception ignored) {
         System.out.println("[ERROR] 배너 이미지 로딩중 에러가 발생하였습니다");
     }
+
+    BoardDAO boardDAO = new BoardDAO_Impl();
+    List<BoardVO> boardVOList = boardDAO.findAll();
 %>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/main.css">
 <script type="text/javascript" src="<%= jsDir %>/main.js"></script>
@@ -51,18 +51,12 @@
             </div>
             <div id="main_content_content">
                 <ul>
+                    <% for(int i = 0; i < 3; i++) { %>
                     <li>
-                        <div class="main_content_title">이거슨 용성이의 처뻔째 게시글 이다</div>
-                        <div class="main_content_date">19.07.26</div>
+                        <div class="main_content_title"><%= "게시글이 없습니다" %></div>
+                        <div class="main_content_date"><%= "2019.08.06" %></div>
                     </li>
-                    <li>
-                        <div class="main_content_title">마늘 캐기 알바 하실?</div>
-                        <div class="main_content_date">19.07.27</div>
-                    </li>
-                    <li>
-                        <div class="main_content_title">귤 나르실 뿐? 시급 10000원!</div>
-                        <div class="main_content_date">19.07.28</div>
-                    </li>
+                    <% } %>
                 </ul>
             </div>
         </article>
