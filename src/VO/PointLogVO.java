@@ -46,4 +46,15 @@ public class PointLogVO{
     public void setLogDate(String logDate) {
         LogDate = logDate;
     }
+
+    @Override
+    public String toString() {
+        return "PointLogVO{" +
+                "uuid=" + uuid +
+                ", info='" + info + '\'' +
+                ", point=" + point +
+                ", pointTotal=" + pointTotal +
+                ", LogDate='" + LogDate + '\'' +
+                '}';
+    }
 }
