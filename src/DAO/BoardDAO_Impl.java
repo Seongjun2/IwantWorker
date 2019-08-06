@@ -66,6 +66,12 @@ public class BoardDAO_Impl implements BoardDAO, RowMapper<BoardVO> {
     }
 
     @Override
+    public void deleteByBoID(Integer bo_id) throws Exception{
+        String sql = "delete from board where Bo_Id = ?";
+
+    }
+
+    @Override
     public BoardVO mapRow(ResultSet rs) throws Exception {
         BoardVO vo = new BoardVO();
 

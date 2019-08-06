@@ -14,7 +14,4 @@
     System.out.println(bo_id);
 
     BoardVO vo = dao.findByBoID(bo_id);
-    System.out.println(vo.getMoney());
-    System.out.println(vo.getText());
-
 %>

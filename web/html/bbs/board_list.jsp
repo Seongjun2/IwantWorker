@@ -32,7 +32,7 @@
             </div>
         <% } else { %>
             <% for(BoardVO vo : list) { %>
-                <div class="board_post" onclick="location.href='<%=router.board.post_get%>?bo_id=<%=vo.getBoard_id()%>'">
+                <div class="board_post" onclick="location.href='<%=router.board.post_view%>?bo_id=<%=vo.getBoard_id()%>'">
                     <div class="board_title"><%=vo.getText()%></div>
                     <div class="board_content">
                         <ul>
