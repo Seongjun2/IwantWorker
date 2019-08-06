@@ -18,7 +18,7 @@
 
     UserDAO dao = new UserDAO_Impl();
     UserVO vo = dao.getUserInfo(Integer.parseInt(uuid));
-    session.setAttribute("uuid", uuid);
+    session.setAttribute("uuid", vo.getUuid());
 %>
 <html>
 <head>

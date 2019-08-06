@@ -2,6 +2,7 @@
 <%@ page import="DAO.UserDAO_Impl" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
+
     String status = request.getParameter("status");
     UserDAO userDAO = new UserDAO_Impl();
 
