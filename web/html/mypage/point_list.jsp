@@ -39,7 +39,7 @@
                 <td><%= pointLog.getInfo() %></td>
                 <td><%= pointLog.getPoint() %></td>
                 <td><%= pointLog.getPointTotal() %></td>
-                <td class="td_date"><%= pointLog.getLogDate() %></td>
+                <td class="td_date"><%= pointLog.getLogDate().substring(2, 10) %></td>
             </tr>
             <% } %>
             </tbody>
