@@ -27,6 +27,13 @@ public class PointLogDAO_Impl implements PointLogDAO, RowMapper<PointLogVO> {
     @Override
     public List<PointLogVO> findByUUID(Integer uuid) throws Exception {
         List<PointLogVO> pointLogs = null;
+        String sql = "SELECT " +
+                "point_id, uuid, info, point, pointtotal, logdate " +
+                "FROM pointlog " +
+                "WHERE uuid=?";
+
+        pointLogs = template.query(sql, this, uuid);
+
         return pointLogs;
     }
 

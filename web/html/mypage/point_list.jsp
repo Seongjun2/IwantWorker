@@ -1,5 +1,21 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="DAO.PointLogDAO" %>
+<%@ page import="DAO.PointLogDAO_Impl" %>
+<%@ page import="VO.PointLogVO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" %>
 <%@include file="../header.jsp"%>
+<%
+    Integer uuid = (Integer) session.getAttribute("uuid");
+    List<PointLogVO> pointLogs = new ArrayList<PointLogVO>();
+
+    if (uuid == null) {
+        response.sendRedirect(router.main.index);
+    } else {
+        PointLogDAO dao = new PointLogDAO_Impl();
+        pointLogs = dao.findByUUID(uuid);
+    }
+%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/mypage.css">
 <main>
     <div class="div_pageName">
