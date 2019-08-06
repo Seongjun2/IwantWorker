@@ -31,7 +31,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
@@ -50,8 +49,21 @@
         <SOURCES />
       </library>
     </orderEntry>
-
-    <orderEntry type="library" name="mysql-connector-java-8.0.17" level="project" />
-    <orderEntry type="library" name="servlet-api" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://C:/apache-tomcat-8.0.45" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://C:/apache-tomcat-8.0.45/webapps/docs/appdev/sample/src" />
+          <root url="file://C:/apache-tomcat-8.0.45/webapps/examples/WEB-INF/classes" />
+          <root url="file://C:/apache-tomcat-8.0.45/webapps/examples/WEB-INF/jsp/applet" />
+          <root url="file://C:/apache-tomcat-8.0.45/webapps/examples/jsp/plugin/applet" />
+          <root url="file://C:/apache-tomcat-8.0.45/work/Catalina/localhost/ROOT" />
+          <root url="file://C:/apache-tomcat-8.0.45/work/Catalina/localhost/manager" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
