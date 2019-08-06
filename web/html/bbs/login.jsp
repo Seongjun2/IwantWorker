@@ -26,34 +26,82 @@
 <head>
     <title>Jeju</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" , href="<%=cssDir%>/common.css">
 </head>
 
 <body>
 <%@include file="../header.jsp"%>
 <main>
-    <div class="h3_pageName">
-        <h3>로그인</h3>
+    <div class="div_pageName">
+        <h3 class = "h3_pageName">로그인</h3>
     </div>
     <div class="div_mainDiv">
-        <form method="POST" action="login2.jsp">
-            <input type="id" name="tell" placeholder="핸드폰 번호">
-            <input type="password" name="pw" placeholder="비밀번호">
-            <input type="submit">
+        <form action="login2.jsp" method="POST">
+            <div class = "div_userInfo">
+                <p class = "p_userInfo">휴대폰 번호</p>
+                    <input type="text" class="input_userInfo" name="tell" id="tell" placeholder="휴대폰 번호 입력"/>
+                <p id = "explain_inputTell"> * (-) 하이폰 없이 숫자만 입력</p>
+            </div>
+            <div class = "div_userInfo">
+                <p class = "p_userInfo">비밀번호</p>
+                <input type="password"  class="input_userInfo" name="pw" id="pw" placeholder="비밀번호 입력"/>
+            </div>
 
-            <button type="button" onclick="location.href='<%=ctxPath + "/bbs/signup.jsp"%>'">회원가입</button>
-            <button type="button" onclick="location.href='<%=ctxPath + "/bbs/findaccount.jsp"%>'">계정찾기</button>
-            <a href="#">
-                <h4>- 앗! 아직 계정이 없나요? 회원가입을 해보세요!</h4>
-            </a>
-            <a href="#">
-                <h4>- 계정을 잊어버리셨나요? 계정찾기 버튼을 눌러주세요!</h4>
-            </a>
+            <div id = "div_submit">
+                <input id = "input_submit" type="submit" value="로그인"/>
+            </div>
+
         </form>
     </div>
+    <div class="div_login_menu">
+        <div class="login_menu">
+            <a href="<%=ctxPath + "/bbs/signup.jsp"%>">
+                <p>- 앗! 아직 계정이 없나요? 회원가입을 해보세요!</p>
+            </a>
+            </div>
+            <div class="login_menu">
+                <button type="button" onclick="location.href='<%=ctxPath + "/bbs/signup.jsp"%>'">회원가입</button>
+            </div>
+            <div class="login_menu">
+                <a href="<%=ctxPath + "/bbs/findaccount.jsp"%>">
+                    <p>- 계정을 잊어버리셨나요? 계정찾기 버튼을 눌러주세요!</p>
+                </a>
+            </div>
+            <div class="login_menu">
+                <button type="button" onclick="location.href='<%=ctxPath + "/bbs/findaccount.jsp"%>'">계정찾기</button>
+            </div>
+    </div>
 </main>
+<%--<main>--%>
+<%--    <div class="h3_pageName">--%>
+<%--        <h3>로그인</h3>--%>
+<%--    </div>--%>
+<%--    <div class="div_mainDiv">--%>
+<%--        <form method="POST" action="login2.jsp">--%>
+<%--            <div class="login_menu"><input type="id" name="tell" placeholder="핸드폰 번호"></div>--%>
+<%--            <div class="login_menu"><input type="password" name="pw" placeholder="비밀번호"></div>--%>
+<%--            <div class="login_menu"><input type="submit" id="login_button" value="로그인"></div>--%>
+<%--            <div class="login_menu">--%>
+<%--                <a href="<%=ctxPath + "/bbs/signup.jsp"%>">--%>
+<%--                    <h4>- 앗! 아직 계정이 없나요? 회원가입을 해보세요!</h4>--%>
+<%--                </a>--%>
+<%--            </div>--%>
+<%--            <div class="login_menu">--%>
+<%--                <div><button type="button" onclick="location.href='<%=ctxPath + "/bbs/signup.jsp"%>'">회원가입</button></div>--%>
+<%--            </div>--%>
+<%--            <div class="login_menu">--%>
+<%--                <a href="<%=ctxPath + "/bbs/findaccount.jsp"%>">--%>
+<%--                    <h4>- 계정을 잊어버리셨나요? 계정찾기 버튼을 눌러주세요!</h4>--%>
+<%--                </a>--%>
+<%--            </div>--%>
+<%--            <div class="login_menu">--%>
+<%--                <div><button type="button" onclick="location.href='<%=ctxPath + "/bbs/findaccount.jsp"%>'">계정찾기</button></div>--%>
+<%--            </div>--%>
+<%--        </form>--%>
+<%--    </div>--%>
+<%--</main>--%>
 
 <%@include file="../footer.jsp"%>
+<link rel="stylesheet" type="text/css" , href="<%=cssDir%>/login.css">
 </body>
 
 </html>
