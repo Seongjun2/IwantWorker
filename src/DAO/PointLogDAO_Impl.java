@@ -41,6 +41,7 @@ public class PointLogDAO_Impl implements PointLogDAO, RowMapper<PointLogVO> {
     public PointLogVO mapRow(ResultSet rs) throws Exception {
         PointLogVO vo = new PointLogVO();
 
+        vo.setPointId( rs.getInt("point_id") );
         vo.setUuid( rs.getInt("uuid") );
         vo.setInfo( rs.getString("info") );
         vo.setPoint( rs.getInt("point") );
