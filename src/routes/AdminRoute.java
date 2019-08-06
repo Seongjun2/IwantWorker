@@ -1,7 +1,7 @@
 package routes;
 
 public class AdminRoute {
-    final String prefix = "/admin";
+    final String prefix = "/adm";
     final String baseURL;
 
     public final String modify_userInfo;
