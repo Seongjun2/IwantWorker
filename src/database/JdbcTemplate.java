@@ -42,7 +42,7 @@ public class JdbcTemplate {
 
         return rc;
     }
-    public <T extends Object> T qeuryForObject(String sql, RowMapper<T> rowMapper, Object... args) throws Exception{
+    public <T extends Object> T queryForObject(String sql, RowMapper<T> rowMapper, Object... args) throws Exception{
         T vo = null;
 
         Connection conn = null;

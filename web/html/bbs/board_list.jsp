@@ -4,50 +4,40 @@
 <%@ page import="DAO.UserDAO_Impl" %>
 <%@ page import="DAO.BoardDAO_Impl" %>
 <%@ page import="java.util.Date" %>
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="EUC-KR" %>
-<%!
-    String cssDir = "./../css";
-    String jsDir = "./../js";
-    String imgDir = "./../imgs";
-%><%@include file="./../header.jsp"%><%
-    request.setCharacterEncoding("euc-kr");
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" %>
+<%@include file="../header.jsp"%>
+<%
     BoardDAO_Impl dao = new BoardDAO_Impl();
 
     List<BoardVO> list = null;
     list = dao.findAll();
+
+    String ctxPath = request.getContextPath();
 %>
-<%--header¿¡ head, footer¿¡ body, html ÅÂ±× µé¾î°¡ ÀÖÀ½. ¾²¸é ¾ÈµÊ--%>
+<%--<% System.out.println(router.board.post_get); %>--%>
+<%--headerì— head, footerì— body, html íƒœê·¸ ë“¤ì–´ê°€ ìžˆìŒ. ì“°ë©´ ì•ˆë¨--%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/board.css">
+<script type="text/javascript" src="<%=jsDir%>/board.js"></script>
 <main>
     <div class="div_pageName">
-        <h3 class = "h3_pageName">°Ô½ÃÆÇ</h3>
+        <h3 class = "h3_pageName">ê²Œì‹œíŒ</h3>
     </div>
     <div class="div_mainDiv" style="align-content: center">
         <% if(session.getAttribute("uuid")!=null) {%>
-            <button class="write_button" onclick="location.href='${pageContext.request.contextPath}/html/bbs/post_write.jsp'"> ±Û¾²±â </button>
+            <button class="write_button" onclick="location.href='${pageContext.request.contextPath}/html/bbs/post_write.jsp'"> ê¸€ì“°ê¸° </button>
         <% } %>
-        <%--        <div class="board_post">--%>
-<%--            <div class="board_title"> ÁØºñÁßÀÔ´Ï´Ù. </div>--%>
-<%--            <div class="board_content">--%>
-<%--                <ul>--%>
-<%--                    <li> 19.07.15 ~ 19.08.09 </li>--%>
-<%--                    <li> ºñ¿ë : 10¸¸¿ø </li>--%>
-<%--                    <li> Á¦ÁÖ½ÃÃ» </li>--%>
-<%--                </ul>--%>
-<%--            </div>--%>
-<%--        </div>--%>
         <% if(list.isEmpty()) {%>
             <div class="board_post">
-                <div class="board_title"> ¾ÆÁ÷ °Ô½Ã±ÛÀÌ ¾ø½À´Ï´Ù. </div>
+                <div class="board_title"> ì•„ì§ ê²Œì‹œê¸€ì´ ì—†ìŠµë‹ˆë‹¤. </div>
             </div>
         <% } else { %>
             <% for(BoardVO vo : list) { %>
-                <div class="board_post" id=<%=vo.getBoard_id()%>>
+                <div class="board_post" onclick="location.href='<%=router.board.post_get%>?bo_id=<%=vo.getBoard_id()%>'">
                     <div class="board_title"><%=vo.getText()%></div>
                     <div class="board_content">
                         <ul>
-                            <li>±â°£ : <%=vo.getStartDate().substring(0, 10) + "~" + vo.getEndDate().substring(0, 10)%></li>
-                            <li>ºñ¿ë : <%=vo.getMoney()%>
+                            <li>ê¸°ê°„ : <%=vo.getStartDate().substring(0, 10) + "~" + vo.getEndDate().substring(0, 10)%></li>
+                            <li>ë¹„ìš© : <%=vo.getMoney()%>
                             <li><%=vo.getAddress()%></li>
                         </ul>
                     </div>

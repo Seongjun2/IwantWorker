@@ -8,4 +8,5 @@ public interface BoardDAO{
   void add(Object... args) throws Exception;
   List<BoardVO> findAll() throws Exception;
   List<BoardVO> findByUUID(Integer Uuid) throws Exception;
+  BoardVO findByBoID(Integer Boid) throws Exception;
 }

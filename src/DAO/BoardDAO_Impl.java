@@ -51,6 +51,18 @@ public class BoardDAO_Impl implements BoardDAO, RowMapper<BoardVO> {
     }
 
     @Override
+    public BoardVO findByBoID(Integer boid) throws  Exception{
+        String sql = "SELECT " +
+                "Bo_Id, Uuid, Title, Content, StartDate, EndDate, WorkTime, Money, Addr, WriteTime " +
+                "FROM board " +
+                "WHERE Bo_Id = ?";
+
+        BoardVO vo = null;
+
+        return vo;
+    }
+
+    @Override
     public BoardVO mapRow(ResultSet rs) throws Exception {
         BoardVO vo = new BoardVO();
 
