@@ -71,35 +71,6 @@
             </div>
     </div>
 </main>
-<%--<main>--%>
-<%--    <div class="h3_pageName">--%>
-<%--        <h3>로그인</h3>--%>
-<%--    </div>--%>
-<%--    <div class="div_mainDiv">--%>
-<%--        <form method="POST" action="login2.jsp">--%>
-<%--            <div class="login_menu"><input type="id" name="tell" placeholder="핸드폰 번호"></div>--%>
-<%--            <div class="login_menu"><input type="password" name="pw" placeholder="비밀번호"></div>--%>
-<%--            <div class="login_menu"><input type="submit" id="login_button" value="로그인"></div>--%>
-<%--            <div class="login_menu">--%>
-<%--                <a href="<%=ctxPath + "/bbs/signup.jsp"%>">--%>
-<%--                    <h4>- 앗! 아직 계정이 없나요? 회원가입을 해보세요!</h4>--%>
-<%--                </a>--%>
-<%--            </div>--%>
-<%--            <div class="login_menu">--%>
-<%--                <div><button type="button" onclick="location.href='<%=ctxPath + "/bbs/signup.jsp"%>'">회원가입</button></div>--%>
-<%--            </div>--%>
-<%--            <div class="login_menu">--%>
-<%--                <a href="<%=ctxPath + "/bbs/findaccount.jsp"%>">--%>
-<%--                    <h4>- 계정을 잊어버리셨나요? 계정찾기 버튼을 눌러주세요!</h4>--%>
-<%--                </a>--%>
-<%--            </div>--%>
-<%--            <div class="login_menu">--%>
-<%--                <div><button type="button" onclick="location.href='<%=ctxPath + "/bbs/findaccount.jsp"%>'">계정찾기</button></div>--%>
-<%--            </div>--%>
-<%--        </form>--%>
-<%--    </div>--%>
-<%--</main>--%>
-
 <%@include file="../footer.jsp"%>
 <link rel="stylesheet" type="text/css" , href="<%=cssDir%>/login.css">
 </body>
