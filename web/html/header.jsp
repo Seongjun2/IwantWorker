@@ -1,5 +1,4 @@
 <%@ page import="routes.Router" %>
-<%@ page import="java.io.IOException" %>
 <%@ page import="DAO.UserDAO_Impl" %>
 <%@ page import="DAO.UserDAO" %>
 <%@ page import="VO.UserVO" %>
