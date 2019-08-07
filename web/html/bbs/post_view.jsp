@@ -1,4 +1,6 @@
-<%--
+<%@ page import="DAO.BoardDAO" %>
+<%@ page import="VO.BoardVO" %>
+<%@ page import="DAO.BoardDAO_Impl" %><%--
   Created by IntelliJ IDEA.
   User: ddang
   Date: 2019-08-04
@@ -6,10 +8,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%!
-    String cssDir = "./../css";
-    String jsDir = "./../js";
-    String imgDir = "./../imgs";
+<%
+    Integer bo_id = Integer.parseInt(request.getParameter("bo_id"));
+
+    BoardDAO dao = new BoardDAO_Impl();
+
+    BoardVO vo = dao.findByBoID(bo_id);
 %>
 <%@include file="./../header.jsp"%>
 <%--header에 head, footer에 body, html 태그 들어가 있음. 쓰면 안됨--%>
@@ -29,29 +33,29 @@
                 <div class="circle"><p>위치</p></div>
             </div>
             <div style="width: 100%;">
-                <div class="circle_content">10만원</div>
-                <div class="circle_content">7:00 ~ 10:00</div>
-                <div class="circle_content">안덕면 색달리</div>
+                <div class="circle_content"><%=vo.getMoney()%>원</div>
+                <div class="circle_content"><%=vo.getWorkTime()%></div>
+                <div class="circle_content"><%=vo.getAddress()%></div>
             </div>
         </div>
         <hr color="black" style="width: 100%">
         <div class="etc">
             <ul>
-                <li>작물 | 마늘</li>
-                <li>작업 | 수확, 나르기</li>
-                <li>모집기간 | 19.07.01 ~ 19.07.09</li>
+                <li>모집기간 | <%=vo.getStartDate().substring(0, 10) + "~" + vo.getEndDate().substring(0, 10)%></li>
             </ul>
         </div>
         <div class="memo">
-            여
-            기
-            는
-            기타 공간
+            <%=vo.getContent()%>
         </div>
         <div style="width: 100%">
+            <% System.out.println("this is vo id : " + vo.getUuid().toString()); %>
+            <% if ((session.getAttribute("uuid").toString()).equals(vo.getUuid().toString())) {%>
+                <% System.out.println("true!"); %>
                 <button class="button_writer">수정하기</button>
                 <button class="button_writer">삭제하기</button>
-    <%--            <button class="button_guest" onclick="goto_lastpage(<%=prePath%>)">홈으로</button>--%>
+            <% } else { %>
+                <button class="button_guest" onclick="history.back()">홈으로</button>
+            <% } %>
         </div>
     </div>
 </main>

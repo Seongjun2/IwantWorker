@@ -65,11 +65,11 @@
         </div>
         <ul id="header_sidebar_menu">
             <% if(isUser) { %>
-            <a><li>내정보 수정</li></a>
-            <a href="<%=__PATH__%>/bbs/board_list.jsp"><li>게시판</li></a>
-            <a><li>나의 글</li></a>
-            <a><li>결제 내역</li></a>
-            <a><li>포인트 내역</li></a>
+            <a href="<%= router.mypage.modify_myInfo %>"><li>내정보 수정</li></a>
+            <a href="<%= router.board.board_list %>"><li>게시판</li></a>
+            <a href="<%= router.mypage.my_posts %>"><li>나의 글</li></a>
+            <a href="<%= router.mypage.pay_list %>"><li>결제 내역</li></a>
+            <a href="<%= router.mypage.point_list %>"><li>포인트 내역</li></a>
             <a href="<%=__PATH__%>/bbs/logout.jsp"><li>로그아웃</li></a>
             <% } else { %>
             <a href="<%=__PATH__%>/bbs/login.jsp"><li>로그인</li></a>

@@ -1,5 +1,21 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="DAO.PointLogDAO" %>
+<%@ page import="DAO.PointLogDAO_Impl" %>
+<%@ page import="VO.PointLogVO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" %>
 <%@include file="../header.jsp"%>
+<%
+    Integer uuid = (Integer) session.getAttribute("uuid");
+    List<PointLogVO> pointLogs = new ArrayList<PointLogVO>();
+
+    if (uuid == null) {
+        response.sendRedirect(router.main.index);
+    } else {
+        PointLogDAO dao = new PointLogDAO_Impl();
+        pointLogs = dao.findByUUID(uuid);
+    }
+%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/mypage.css">
 <main>
     <div class="div_pageName">
@@ -17,47 +33,15 @@
             </tr>
             </thead>
             <tbody class="table_body">
+            <% for (PointLogVO pointLog : pointLogs) { %>
             <tr>
-                <td>13</td>
-                <td>포인트 충전</td>
-                <td>+500</td>
-                <td>1500</td>
-                <td class="td_date">2019.07.20</td>
+                <td><%= pointLog.getPointId() %></td>
+                <td><%= pointLog.getInfo() %></td>
+                <td><%= pointLog.getPoint() %></td>
+                <td><%= pointLog.getPointTotal() %></td>
+                <td class="td_date"><%= pointLog.getLogDate().substring(2, 10) %></td>
             </tr>
-            <tr>
-                <td>14</td>
-                <td>
-                    <a href="#" class="post_link">마농따러옵서</a> 게시글 작성
-                </td>
-                <td>+500</td>
-                <td>1500</td>
-                <td class="td_date">2019.07.20</td>
-            </tr>
-            <tr>
-                <td>14</td>
-                <td>
-                    <a href="#" class="post_link">메롱메롱메롱</a> 게시글 작성
-                </td>
-                <td>+500</td>
-                <td>1500</td>
-                <td class="td_date">2019.07.20</td>
-            </tr>
-            <tr>
-                <td>14</td>
-                <td>
-                    <a href="#" class="post_link">마농따러옵서</a> 게시글 작성
-                </td>
-                <td>+500</td>
-                <td>1500</td>
-                <td class="td_date">2019.07.20</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            <% } %>
             </tbody>
         </table>
     </div>
