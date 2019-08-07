@@ -4,7 +4,7 @@ import DAO.UserDAO;
 import DAO.UserDAO_Impl;
 
 public class Paging {
-    private final static int pageCount = 5;
+    private final static int pageCount = 10;
     private int blockStartNum = 0;
     private int blockLastNum = 0;
     private int lastPageNum = 0;
@@ -46,6 +46,7 @@ public class Paging {
     public void makeLastPageNum() throws Exception{
         UserDAO dao = new UserDAO_Impl();
         int total = dao.getCount();
+        System.out.println("total : " + total);
 
         if(total % pageCount == 0){
             lastPageNum = (int)Math.floor(total/pageCount);
