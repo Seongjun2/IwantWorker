@@ -37,10 +37,16 @@
                 <tr>
                     <td><%= payLog.getPay_id() %></td>
                     <td><%= payLog.getPoint() %></td>
-                    <td><%= payLog.getPrice() %></td>
+                    <td><%= payLog.getPrice() %>원</td>
                     <td class="td_date"><%= payLog.getRequestTime().substring(2, 11) %></td>
                     <td>
-                        <%= payLog.getStatus() %>
+                        <% if ( payLog.getStatus().equals("Wait") ) { %>
+                        입금확인중
+                        <% } else if ( payLog.getStatus().equals("Success") ) { %>
+                        결제완료
+                        <% } else if ( payLog.getStatus().equals("Expire") ) { %>
+                        결제취소
+                        <% } %>
                     </td>
                 </tr>
             <% } %>
