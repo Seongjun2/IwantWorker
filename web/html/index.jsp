@@ -53,7 +53,7 @@
                 <ul>
                     <% for(int i = 0; i < 3; i++) { %>
                     <li>
-                        <a href="<%= (boardVOList.get(i) != null)?"bbs/post_view.jsp?bo_id="+boardVOList.get(i).getUuid():"" %>">
+                        <a href="<%= (boardVOList.get(i) != null)?"bbs/post_view.jsp?bo_id="+boardVOList.get(i).getBoard_id():"" %>">
                         <div class="main_content_title"><%= (boardVOList.get(i) != null)?boardVOList.get(i).getText():"게시글이 없습니다" %></div>
                         <div class="main_content_date"><%= (boardVOList.get(i) != null)?boardVOList.get(i).getWriteTime().split(" ")[0]:"" %></div>
                         </a>
