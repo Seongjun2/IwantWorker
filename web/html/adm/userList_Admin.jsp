@@ -25,9 +25,7 @@
     int blockLastNum = paging.getBlockLastNum();
     paging.makeLastPageNum();
     int lastPageNum = paging.getLastPageNum();
-    System.out.println("blockStartNum : " + blockStartNum);
-    System.out.println("blackLastNum : " + blockLastNum);
-    System.out.println("lastPageNum : " + lastPageNum);
+
 %>
 <html>
 <head>
@@ -49,25 +47,33 @@
                     <th>수정</th>
                 </tr>
             </thead>
-            <tbody align="center">
+            <tbody align="center" class = "tbody_list">
+
             <%
                 UserDAO userDao = new UserDAO_Impl();
-                List<UserVO> userList = userDao.findAll();
-                int i = 1;
-                for(int j = blockStartNum-1; j< blockLastNum;j++){
-                    UserVO vo = userList.get(i);
-                    if(vo.getPermission() == 2){
+                List<UserVO> userList = userDao.getUsers();
+                int i = ((pageNum-1) * 10)+1;
+                int lastIdx = 0;
+                int startIdx = i-1;
+
+                if(pageNum == lastPageNum) lastIdx = userList.size();
+                else{
+                    lastIdx = startIdx+10;
+                }
+
+                for(int j = startIdx; j<lastIdx;j++){
+                    UserVO vo = userList.get(j);
             %>
             <tr>
                 <td> <%=i%></td>
                 <td> <%=vo.getName()%></td>
                 <td> <%=vo.getTell()%></td>
                 <td>
-                    <a href="./modify_userInfo_admin.jsp?uuid=<%=vo.getUuid()%>">수정하기</a>
+                    <a href="<%=router.admin.modify_userInfo%>?uuid=<%=vo.getUuid()%>">수정하기</a>
                 </td>
             </tr>
             <%
-                    i++;}
+                    i++;
                 }
             %>
             </tbody>

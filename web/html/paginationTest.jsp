@@ -3,7 +3,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%
-
+ String uri = request.getRequestURI();
 %>
 
 <link rel="stylesheet" type="text/css", href="../css/pagination.css">
@@ -17,18 +17,16 @@
                     <span aria-current="page" class="page-numbers current"><%=j+1%></span>
             <%
                 }
-                else{%>
-                <a class="page-numbers" href="userList_Admin.jsp?pageNum=<%=j+1%>"><%=j+1%></a>
+                else{
+            %>
+                <a class="page-numbers" href="<%=uri%>?pageNum=<%=j+1%>"><%=j+1%></a>
+<%--                <a href="javascript:void(0)" onchange="test()"><%=j+1%></a>--%>
                 <%
                 }
             %>
             <%
                 }
             %>
-            <%--<a class="page-numbers" href="javascript:;">7</a>--%>
-            <%--<a class="page-numbers" href="javascript:;">8</a>--%>
-            <%--<a class="page-numbers" href="javascript:;">9</a>--%>
-            <%--<a class="page-numbers" href="javascript:;">10</a>--%>
             <a class="next page-numbers" href="javascript:;">next</a>
         </div>
     </div>
