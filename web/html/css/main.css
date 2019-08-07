@@ -125,14 +125,21 @@
 	padding: 2% 0 2% 0;
 	border-bottom: 3px solid #808080;
 }
-#main_content_content ul li .main_content_title {
-	width: 70%;
+#main_content_content ul li a {
+    display: flex;
+    height: 1.5em;
+    width: 100%;
+    z-index: 1;
+}
+#main_content_content ul li a .main_content_title {
+	width: 65%;
 	padding-left: 2%;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-#main_content_content ul li .main_content_date {
-	width: 30%;
+#main_content_content ul li a .main_content_date {
+	width: 35%;
+    line-height: 2em;
 	text-align: center;
 }

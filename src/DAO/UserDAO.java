@@ -12,4 +12,5 @@ public interface UserDAO{
   UserVO getUserInfo(String tell) throws Exception;
   void update(Object... args) throws Exception;
   void pointUpdate(Object... args) throws Exception;
+  int getCount() throws Exception;
 }

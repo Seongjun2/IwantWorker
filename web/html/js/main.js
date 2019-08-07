@@ -1,4 +1,4 @@
-var bannerCount = 1;
+let bannerCount = 1;
 setInterval(function () {
     if(document.getElementById('banner_'+(bannerCount+1)) == null) {
         bannerCount = 1;
@@ -20,4 +20,7 @@ function disFocusSearch() {
     document.getElementById('main_search_span').style.transform = 'translate(0, 0)';
     document.getElementById('main_search_span').style.height = '60%';
     document.getElementById('main_search_span').style.width = '90%';
+}
+function goBoard() {
+    location.href = 'bbs/board_list.jsp';
 }

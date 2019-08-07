@@ -74,6 +74,18 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
             System.out.println("변경된 것이 없습니다.");
         }
     }
+    @Override
+    public int getCount() throws Exception{
+       template = new JdbcTemplate();
+       String sql = "SELECT COUNT(*) as cnt FROM user";
+       int rc = template.rowCount(sql);
+
+       if(rc == -1){
+           System.out.println("Error : fail get rowCount");
+       }
+
+       return rc;
+    }
 
     @Override
     public UserVO mapRow(ResultSet rs) throws Exception{
