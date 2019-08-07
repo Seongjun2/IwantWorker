@@ -7,7 +7,8 @@
     justify-content: center;
     height: 175px;
     width: 100%;
-        background-color: #EC8032;
+	-webkit-user-select : auto;
+	background-color: #EC8032;
 }
 #main_search_span {
     display: flex;

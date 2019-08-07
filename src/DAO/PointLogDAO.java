@@ -7,4 +7,5 @@ import java.util.List;
 public interface PointLogDAO{
   void add(PointLogVO vo) throws Exception;
   List<PointLogVO> findAll() throws Exception;
+  List<PointLogVO> findByUUID(Integer uuid) throws Exception;
 }

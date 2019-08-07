@@ -1,9 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
-<%!
-    String cssDir = "./../css";
-    String jsDir = "./../js";
-    String imgDir = "./../imgs";
-%><%
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" %>
+<%
     String prePath = "'" + request.getHeader("referer") + "'";
 %>
 <%@include file="./../header.jsp"%>
@@ -22,8 +18,6 @@
                         <li>제목</li>
                         <li>모집기간</li>
                         <li>작업시간</li>
-                        <li>작물</li>
-                        <li>작업종류</li>
                         <li>일급</li>
                         <li>위치</li>
                     </ul>
@@ -45,32 +39,10 @@
                         <li>
                             <div style="width: 100%;">
                                 <div style="width: 100%; float: left;">
-                                    <input type="time" size="100px" name="location" style="width: 35%"/>
-                                     ~ <input type="time" size="100px" name="location" style="width: 35%"/>
+                                    <input type="time" size="100px" name="startTime" style="width: 35%"/>
+                                     ~ <input type="time" size="100px" name="endTime" style="width: 35%"/>
                                 </div>
                                 <br />
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <select name="crop">
-                                    <option value="귤">귤</option>
-                                    <option value="한라봉">한라봉</option>
-                                    <option value="천해향">천해향</option>
-                                    <option value="마늘">마늘</option>
-                                    <option value="감자">감자</option>
-                                    <option value="기타">기타</option>
-                                </select>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <select name="workType">
-                                    <option value="수확">수확</option>
-                                    <option value="운반">운반</option>
-                                    <option value="판별">판별</option>
-                                    <option value="기타">기타</option>
-                                </select>
                             </div>
                         </li>
                         <li>
@@ -98,8 +70,7 @@
                 <div style="text-align: center">
                     <input type="submit" class="submit" value="올리기" style="width: 4em; padding: 20px;"/>
                     <input type="button" id="cancel" value="뒤로 가기"
-                           style="width: 4.5em; padding: 20px;" onclick="goto_lastpage(<%=prePath%>)"/>
-                    <% System.out.println(prePath); %>
+                           style="width: 4.5em; padding: 20px;" onclick="history.back()"/>
                 </div>
             </form>
 <%--            <div class="cancel" style="text-align: center">--%>
