@@ -48,11 +48,14 @@
             <%=vo.getContent()%>
         </div>
         <div style="width: 100%">
-            <% System.out.println("this is vo id : " + vo.getUuid().toString()); %>
-            <% if ((session.getAttribute("uuid").toString()).equals(vo.getUuid().toString())) {%>
-                <% System.out.println("true!"); %>
-                <button class="button_writer">수정하기</button>
-                <button class="button_writer">삭제하기</button>
+            <% if(session.getAttribute("uuid")!=null) {%>
+                <% if ((session.getAttribute("uuid").toString()).equals(vo.getUuid().toString())) {%>
+                    <% System.out.println("true!"); %>
+                    <button class="button_writer">수정하기</button>
+                    <button class="button_writer">삭제하기</button>
+                <% } else { %>
+                    <button class="button_guest" onclick="history.back()">홈으로</button>
+                <% } %>
             <% } else { %>
                 <button class="button_guest" onclick="history.back()">홈으로</button>
             <% } %>
