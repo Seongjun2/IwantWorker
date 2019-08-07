@@ -1,8 +1,6 @@
 package database;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -128,5 +126,28 @@ public class JdbcTemplate {
             if(conn != null) conn.close();
         }
         return list;
+    }
+    public int rowCount(String sql) throws SQLException {
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+
+        int rowCnt = -1;
+
+        try{
+            conn = ConnectDB.getInstacne().connect();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            if(rs.next()) rowCnt = rs.getInt(1);
+
+
+        }catch (Exception e){
+               return rowCnt;
+        }finally {
+            if(rs != null) rs.close();
+            if(stmt != null) stmt.close();
+            if(conn != null) conn.close();
+        }
+        return rowCnt;
     }
 }
