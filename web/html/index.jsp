@@ -49,12 +49,14 @@
                 <span><strong>구인 게시판</strong></span>
                 <img src="./imgs/plus_icon.png" />
             </div>
-            <div id="main_content_content">
+            <div id="main_content_content" onclick="goBoard()">
                 <ul>
                     <% for(int i = 0; i < 3; i++) { %>
                     <li>
-                        <div class="main_content_title"><%= "게시글이 없습니다" %></div>
-                        <div class="main_content_date"><%= "2019.08.06" %></div>
+                        <a href="<%= (boardVOList.get(i) != null)?"bbs/post_view.jsp?bo_id="+boardVOList.get(i).getUuid():"" %>">
+                        <div class="main_content_title"><%= (boardVOList.get(i) != null)?boardVOList.get(i).getText():"게시글이 없습니다" %></div>
+                        <div class="main_content_date"><%= (boardVOList.get(i) != null)?boardVOList.get(i).getWriteTime().split(" ")[0]:"" %></div>
+                        </a>
                     </li>
                     <% } %>
                 </ul>
