@@ -16,21 +16,24 @@
     String pw_check = request.getParameter("pw_check");
     String question = request.getParameter("question");
     String answer = request.getParameter("answer");
-    System.out.println( question);
-    System.out.println( answer );
     UserDAO dao = new UserDAO_Impl();
     try {
-        UserVO vo = null;
-        vo = dao.getUserInfo(tell);
+        UserVO vo = dao.getUserInfo(tell);
         if ( tell.equals( vo.getTell() ) ) {
             session.setAttribute("error", "id");
             out.print("<script>location.href=\"" + ctxPath + "/html/bbs/signup.jsp\";</script>");
             return;
         }
-        dao.add( tell, name, Util.md5( pw ) );
-
     } catch ( Exception e ) {
+        System.out.println(tell);
+        System.out.println(name);
+        System.out.println(pw);
+        System.out.println(question);
+        System.out.println(answer);
+
+
 
     }
-    response.sendRedirect(ctxPath + "/html/bbs/login.jsp");
+    dao.add( tell, name , Util.md5(pw), question, answer );
+    response.sendRedirect( ctxPath + "/html/bbs/login.jsp");
 %>

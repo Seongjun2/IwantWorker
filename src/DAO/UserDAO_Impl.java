@@ -13,7 +13,7 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
     @Override
     public void add(Object... args) throws Exception {
         template = new JdbcTemplate();
-        String sql = "insert into user values ( default , ?, ? , ? , 2 , 0 )";
+        String sql = "insert into user values ( default , ? , ? , ? , 2 , 0 , ? , ? )";
         template.update( sql , args );
     }
 
@@ -47,7 +47,6 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
         template = new JdbcTemplate();
         RowMapper<UserVO> rowMapper = new UserDAO_Impl();
         String sql = "select * from user where tell = ?";
-
         UserVO vo = template.qeuryForObject(sql, rowMapper, tell);
         return vo;
     }
@@ -97,6 +96,8 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
         vo.setPw(rs.getString("pw"));
         vo.setPermission(rs.getInt("permission"));
         vo.setPoint(rs.getInt("point"));
+        vo.setQuestion(rs.getString("question"));
+        vo.setAnswer(rs.getString("answer"));
 
         return vo;
     }
