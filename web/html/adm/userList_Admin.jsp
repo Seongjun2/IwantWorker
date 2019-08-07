@@ -8,6 +8,27 @@
     String jsDir = "../js";
     String imgDir = "../imgs";
 %>
+<%
+    String pageNumString = request.getParameter("pageNum");
+
+    int pageNum = 0;
+    if(pageNumString == null){
+        pageNum = 1;
+    }
+    else{
+        pageNum = Integer.parseInt(pageNumString);
+    }
+
+    Paging paging = new Paging();
+    paging.makeBlock(pageNum);
+    int blockStartNum = paging.getBlockStartNum();
+    int blockLastNum = paging.getBlockLastNum();
+    paging.makeLastPageNum();
+    int lastPageNum = paging.getLastPageNum();
+    System.out.println("blockStartNum : " + blockStartNum);
+    System.out.println("blackLastNum : " + blockLastNum);
+    System.out.println("lastPageNum : " + lastPageNum);
+%>
 <html>
 <head>
     <title>userList</title>
@@ -33,19 +54,14 @@
                 UserDAO userDao = new UserDAO_Impl();
                 List<UserVO> userList = userDao.findAll();
                 int i = 1;
-                for(UserVO vo : userList){
+                for(int j = blockStartNum-1; j< blockLastNum;j++){
+                    UserVO vo = userList.get(i);
                     if(vo.getPermission() == 2){
             %>
             <tr>
                 <td> <%=i%></td>
                 <td> <%=vo.getName()%></td>
                 <td> <%=vo.getTell()%></td>
-<%--                <td><input type="button" value = "수정" class="btn_modify"/></td>--%>
-<%--                <td>--%>
-<%--                    <form action="./modify_userInfo_admin.jsp?uuid=<%=vo.getUuid()%>" method="post">--%>
-<%--                        <input type="submit" value = "수정" class="btn_modify">--%>
-<%--                    </form>--%>
-<%--                </td>--%>
                 <td>
                     <a href="./modify_userInfo_admin.jsp?uuid=<%=vo.getUuid()%>">수정하기</a>
                 </td>
@@ -58,8 +74,9 @@
         </table>
     </div>
 </main>
-<%@include file="../pagination.jsp"%>
+<%@include file="../paginationTest.jsp"%>
 <%@include file="../footer.jsp"%>
 </body>
     <link rel="stylesheet" type="text/css", href="<%=cssDir%>/userList.css">
+    <script type="text/javascript" src="../js/pagination_admin.js"></script>
 </html>
