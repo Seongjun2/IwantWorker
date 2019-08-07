@@ -10,7 +10,7 @@
     error = (String)session.getAttribute("error");
     if ( error != null ) {
         if ( error.equals("id") ) {
-            out.print("<script>alert('이미 등록된 전화번호 입니다.'); </script>");
+            out.print("<script>alert('이미 등록된 전화번호 입니다.');</script>");
         } else if ( session.getAttribute("error").equals("pw")) {
             out.print("<script>alert('비밀번호가 일치하지 않습니다.'); </script>");
         }
