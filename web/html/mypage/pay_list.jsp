@@ -1,5 +1,21 @@
+<%@ page import="DAO.PayLogDAO" %>
+<%@ page import="DAO.PayLogDAO_Impl" %>
+<%@ page import="VO.PayLogVO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@include file="../header.jsp"%>
+<%
+    Integer uuid = (Integer) session.getAttribute("uuid");
+    List<PayLogVO> payLogs = new ArrayList<PayLogVO>();
+
+    if ( uuid == null ) {
+        response.sendRedirect(router.main.index);
+    } else {
+        PayLogDAO dao = new PayLogDAO_Impl();
+        payLogs = dao.findByUUID(uuid);
+    }
+%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/mypage.css">
 <main>
     <div class="div_pageName">
@@ -17,41 +33,23 @@
                 </tr>
             </thead>
             <tbody class="table_body">
+            <% for (PayLogVO payLog: payLogs) { %>
                 <tr>
-                    <td>10</td>
-                    <td>+500</td>
-                    <td>5,000</td>
-                    <td class="td_date">2019.07.20</td>
-                    <td>처리됨</td>
+                    <td><%= payLog.getPay_id() %></td>
+                    <td><%= payLog.getPoint() %></td>
+                    <td><%= payLog.getPrice() %>원</td>
+                    <td class="td_date"><%= payLog.getRequestTime().substring(2, 11) %></td>
+                    <td>
+                        <% if ( payLog.getStatus().equals("Wait") ) { %>
+                        입금확인중
+                        <% } else if ( payLog.getStatus().equals("Success") ) { %>
+                        결제완료
+                        <% } else if ( payLog.getStatus().equals("Expire") ) { %>
+                        결제취소
+                        <% } %>
+                    </td>
                 </tr>
-                <tr>
-                    <td>10</td>
-                    <td>+500</td>
-                    <td>5,000</td>
-                    <td class="td_date">2019.07.20</td>
-                    <td>취소됨</td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>+500</td>
-                    <td>5,000</td>
-                    <td class="td_date">2019.07.20</td>
-                    <td>입금확인중</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+            <% } %>
             </tbody>
         </table>
     </div>

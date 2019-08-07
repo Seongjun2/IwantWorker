@@ -36,6 +36,20 @@ public class PayLogDAO_Impl implements PayLogDAO, RowMapper<PayLogVO> {
     }
 
     @Override
+    public List<PayLogVO> findByUUID(Integer uuid) throws Exception {
+        template = new JdbcTemplate();
+        List<PayLogVO> list = new ArrayList<PayLogVO>();
+        String sql = "SELECT " +
+                "pay_id, uuid, tell, point, price, status, requestTime, updateTime " +
+                "FROM paylog " +
+                "WHERE uuid=?";
+
+        list = template.query(sql, this, uuid);
+
+        return list;
+    }
+
+    @Override
     public PayLogVO mapRow(ResultSet rs) throws Exception {
 
         PayLogVO vo = new PayLogVO();
