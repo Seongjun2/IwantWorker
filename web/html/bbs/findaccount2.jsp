@@ -49,7 +49,7 @@
             <input type="button" id="input_submit"  value="제출" onclick="submit()">
         </form>
         <h1>관리자에게 문의 : </h1>
-        <p>전화번호 : 010-9946-6703</p>
+        <p><a href="tel:010-9946-6703">전화번호 : 010-9946-6703</a></p>
         <p>담당자 명 : LeagueDori</p>
         <p>카카오톡 아이디 : Team2</p>
     </div>
