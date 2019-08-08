@@ -39,7 +39,7 @@
         <% } else { %>
         <div class="board_wrapper">
             <% for ( BoardVO board : boards ) { %>
-            <div class="board_post">
+            <div class="board_post" onclick="location.href='<%=router.board.post_view%>?bo_id=<%=board.getBoard_id()%>'" >
                 <div class="board_title"> <%= board.getText() %> </div>
                 <div class="board_content">
                     <ul>
