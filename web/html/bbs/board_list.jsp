@@ -44,7 +44,7 @@
                 </div>
             <%}%>
         <%}%>
-        <%@include file="./../pagination.jsp"%>
+<%--        <%@include file="./../pagination.jsp"%>--%>
     </div>
 </main>
 <%@include file="./../footer.jsp"%>

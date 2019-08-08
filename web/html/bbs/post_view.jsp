@@ -50,7 +50,7 @@
         <div style="width: 100%">
             <% if(session.getAttribute("uuid")!=null) {%>
                 <% if ((session.getAttribute("uuid").toString()).equals(vo.getUuid().toString())) {%>
-                    <button class="button_writer">수정하기</button>
+                    <button class="button_writer" onclick="location.href='<%=router.board.post_change%>?bo_id=<%=vo.getBoard_id()%>>수정하기</button>
                     <button class="button_writer">삭제하기</button>
                     <button class="button_writer" onclick=location.href='<%=router.board.board_list%>'>게시판</button>
                 <% } else { %>

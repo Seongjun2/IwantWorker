@@ -1,7 +1,22 @@
+<%@ page import="DAO.BoardDAO" %>
+<%@ page import="DAO.BoardDAO_Impl" %>
+<%@ page import="VO.BoardVO" %><%--
+  Created by IntelliJ IDEA.
+  User: ddang
+  Date: 2019-08-08
+  Time: 10:14
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" %>
 <%
-    session.setAttribute("uuid", 23);
+
+    Integer bo_id = Integer.parseInt(request.getParameter("bo_id"));
+    BoardDAO dao = new BoardDAO_Impl();
+
+    BoardVO vo = dao.findByBoID(bo_id);
+    String money = String.format("%.1f", vo.getMoney()/10000.0);
 %>
+
 <%@include file="./../header.jsp"%>
 <%--header에 head, footer에 body, html 태그 들어가 있음. 쓰면 안됨--%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/post_write.css">
@@ -31,35 +46,35 @@
                     <ul>
                         <li>
                             <div style="width: 100%; float: left">
-                                <input type="text" size="100px" name="title" style="width: 80%"/>
+                                <input type="text" size="100px" name="title" value="<%=vo.getText()%>" style="width: 80%"/>
                             </div>
                             <br />
                         </li>
                         <li>
                             <div>
-                                <input type="date" name="startDate" class="date"/>
-                                 ~ <input type="date" name="endDate" class="date"/>
+                                <input type="date" name="startDate" class="date" value="<%=vo.getStartDate().substring(0, 10)%>"/>
+                                 ~ <input type="date" name="endDate" class="date" value="<%=vo.getEndDate().substring(0, 10)%>"/>
                             </div>
                         </li>
                         <li>
                             <div style="width: 100%;">
                                 <div style="width: 100%; float: left;">
-                                    <input type="time" size="100px" name="startTime" style="width: 35%"/>
-                                     ~ <input type="time" size="100px" name="endTime" style="width: 35%"/>
+                                    <input type="time" size="100px" name="startTime" value="<%=vo.getWorkTime().substring(0, 5)%>" style="width: 35%"/>
+                                     ~ <input type="time" size="100px" name="endTime" value="<%=vo.getWorkTime().substring(8)%>" style="width: 35%"/>
                                 </div>
                                 <br />
                             </div>
                         </li>
                         <li>
                             <div style="width: 100%; float: left">
-                                <input type="text" size="50px" name="money" id="pay" style="text-align:right; width: 50%"/> 원
+                                <span> <%=money%> 만 원 </span>
                                 <button type="button" class="money" style="font-size:0.8em; width:30%; height: 70px; padding-top: 10px" onclick="confirm_money()">가격 확인</button>
                             </div>
                             <br />
                         </li>
                         <li>
                             <div style="width: 100%; float: left">
-                                <input type="text" size="100px" name="location" style="width: 80%" placeholder="읍면리"/>
+                                <input type="text" value="<%=vo.getAddress()%>" size="100px" name="location" style="width: 80%" placeholder="읍면리"/>
                             </div>
                             <br />
                         </li>
@@ -70,7 +85,7 @@
                 <div class="content">
                     <span>내용</span>
                     <div style="padding-top: 30px">
-                        <textarea wrap="hard" name="content"></textarea>
+                        <textarea wrap="hard" name="content" value="<%=vo.getContent()%>"></textarea>
                     </div>
                 </div>
                 <div style="text-align: center">
