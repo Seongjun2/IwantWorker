@@ -10,11 +10,11 @@
     String tell = request.getParameter("tell");
     String pw = request.getParameter("pw");
 
-    Integer uuid = (Integer) session.getAttribute("uuid");
+    Integer uuid = Integer.parseInt(request.getParameter("uuid"));
     Integer user_level = (Integer) session.getAttribute("user_level");
 %>
 <%
-    String enc_pw = Util.md5("admin");
+    String enc_pw = Util.md5(pw);
     UserDAO dao = new UserDAO_Impl();
     dao.update(tell, enc_pw, uuid);
 

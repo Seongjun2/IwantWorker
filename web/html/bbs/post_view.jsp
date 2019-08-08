@@ -35,6 +35,9 @@
         e.printStackTrace();
     }
     money = String.format("%.1f", vo.getMoney() / 10000.0);
+
+    BoardDAO dao2 = new BoardDAO_Impl();
+    String name = dao2.findNameByBoID(vo.getBoard_id());
 %>
 <%--header에 head, footer에 body, html 태그 들어가 있음. 쓰면 안됨--%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/post_view.css">
@@ -64,6 +67,7 @@
         <hr color="black" style="width: 100%">
         <div class="etc">
             <ul>
+                <li>작성자 | <%=name%></li>
                 <li>모집기간 | <%=vo.getStartDate().substring(0, 10) + "~" + vo.getEndDate().substring(0, 10)%></li>
             </ul>
         </div>
