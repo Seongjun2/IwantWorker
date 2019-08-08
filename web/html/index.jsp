@@ -19,6 +19,16 @@
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/main.css">
 <script type="text/javascript" src="<%= jsDir %>/main.js"></script>
 <main id="main">
+    <div id="main_search">
+        <span id="main_search_span">
+            <form id="main_search_form" action="<%=router.board.board_search%>" method="get">
+                <input id="main_search_text" type="text" name="search" placeholder="검색어를 입력하세요" onclick="onFocusSearch()" />
+            </form>
+            <div id="main_search_icon">
+                <img src="<%= imgDir %>/lenz.png"/>
+            </div>
+        </span>
+    </div>
     <div id="main_head">
         <div id="main_head_div">
             <%
@@ -33,9 +43,9 @@
         </div>
     </div>
     <div id="main_content_menu">
-        <a><img class="main_content_menu_item" src="<%=imgDir%>/menu_user_icon.png" /></a>
-        <a><img class="main_content_menu_item" src="<%=imgDir%>/menu_board_icon.png" /></a>
-        <a><img class="main_content_menu_item" src="<%=imgDir%>/menu_help_icon.png" /></a>
+        <a href="<%=__PATH__%>/mypage/modify_myInfo.jsp"><img class="main_content_menu_item" src="<%=imgDir%>/menu_user_icon.png" /></a>
+        <a href="<%=router.board.board_list%>"><img class="main_content_menu_item" src="<%=imgDir%>/menu_board_icon.png" /></a>
+        <a href="tel:01077379685"><img class="main_content_menu_item" src="<%=imgDir%>/menu_help_icon.png" /></a>
     </div>
     <div id="main_content">
         <article>
