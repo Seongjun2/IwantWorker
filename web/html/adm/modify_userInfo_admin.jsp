@@ -63,6 +63,19 @@
                 <p class = "p_userInfo">변경할 비밀번호 확인</p>
                 <input id = "pw_check" type="password"  class="input_userInfo" name="pw_check"/>
             </div>
+
+            <div class = "div_userInfo">
+                <p class = "p_userInfo">본인확인 찾기 질문</p>
+                <select name="questions" style="border-radius:30px; height: 6%; font-size: 2em;">
+
+                    <option id ="1">당신의 첫번째 자식 이름은?</option>
+                    <option id ="2">당신의 반려자 의 이름은?</option>
+                    <option id ="3">당신의 고향은?</option>
+                    <option id ="4">당신의 주 언어는?</option>
+                </select>
+                <input type="text"  class="input_userInfo" name="answer" id="access_key" value ="<%=vo.getAnswer()%>"/>
+            </div>
+            <input type="hidden" id ="hidden_question" value = "<%=vo.getQuestion()%>"/>
             <input type="hidden" value="<%=uuid%>" name = "uuid">
             <div id = "div_submit">
                 <input id = "btn_modify" type="submit" value="변경하기" onclick="check_PW()"/>
