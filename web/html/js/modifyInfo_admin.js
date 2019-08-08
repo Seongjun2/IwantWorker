@@ -25,3 +25,14 @@ function SetNum(obj){
     obj.value=val.replace(re,"");
 
 }
+window.onload = function(){
+    var question = document.getElementById("hidden_question").value;
+    var selects = document.getElementsByName("questions")[0];
+
+    for(var i = 0; i< selects.length;i++){
+        if(selects[i].value == question){
+            selects.selectedIndex = i;
+            break;
+        }
+    }
+}
