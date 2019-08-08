@@ -9,16 +9,14 @@
     String imgDir = "../imgs";
 %>
 <%
-    String level = (String)session.getAttribute("user_level");
+    Integer level = (Integer)session.getAttribute("user_level");
 
-    if( level ==null ||!level.equals("10")){
+    if( level == null || level != 10){
         response.sendRedirect(Router.getInstance(request.getContextPath()).main.index);
     }
     String _uri = request.getRequestURI();
     String searchName = null;
-
     searchName = request.getParameter("search");
-
     String pageNumString = request.getParameter("pageNum");
 
     int pageNum = 0;
@@ -29,13 +27,18 @@
         pageNum = Integer.parseInt(pageNumString);
     }
 
-    Paging paging = new Paging();
-    paging.makeBlock(pageNum);
-    int blockStartNum = paging.getBlockStartNum();
-    int blockLastNum = paging.getBlockLastNum();
-    paging.makeLastPageNum_userList();
-    int lastPageNum = paging.getLastPageNum();
-
+    Paging paging = null;
+    UserDAO userDAO2 = new UserDAO_Impl();
+    List<UserVO> userList = null;
+    if(searchName == null || searchName.equals("")){
+        userList = userDAO2.getUsers();
+        paging = new Paging(pageNum, userList.size());
+    }
+    else{
+        userList = userDAO2.getSearchInfo(searchName);
+        System.out.println(userList.size());
+        paging = new Paging(pageNum, userList.size());
+    }
 
 %>
 <html>
@@ -68,19 +71,26 @@
                     <th>¼öÁ¤</th>
                 </tr>
             </thead>
-            <%
-                if(searchName == null || searchName.equals("")){%>
-                <%@include file="./tbody_totalUsers.jsp"%>
-            <%
-                }else{%>
-                <%@include file="./tbody_searchUser.jsp"%>
-            <%
-                }
-            %>
+<%--            <%--%>
+<%--                if(searchName == null || searchName.equals("")){%>--%>
+<%--                <%@include file="./tbody_totalUsers.jsp"%>--%>
+<%--            <%--%>
+<%--                }else{%>--%>
+<%--                <%@include file="./tbody_searchUser.jsp"%>--%>
+<%--            <%--%>
+<%--                }--%>
+<%--            %>--%>
+            <%@include file="./tbody_totalUsers.jsp"%>
         </table>
     </div>
+
+
+    <jsp:include page="../pagination.jsp">
+        <jsp:param name="pageNum" value="<%= pageNum %>"/>
+        <jsp:param name="lastPageNum" value="<%= paging.getLastPageNum() %>"/>
+    </jsp:include>
+
 </main>
-<%@include file="../pagination.jsp"%>
 <%@include file="../footer.jsp"%>
 </body>
     <link rel="stylesheet" type="text/css", href="<%=cssDir%>/userList.css">
