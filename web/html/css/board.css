@@ -64,7 +64,7 @@
 }
 
 .board_title{
-    font-size: 2.5em;
+    font-size: 60px;
     font-weight: bold;
     text-align: center;
 }
@@ -74,7 +74,7 @@
 }
 
 .board_content li {
-    font-size: 1.3em;
+    font-size: 50px;
 }
 
 .order_button{
