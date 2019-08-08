@@ -15,10 +15,10 @@ background-color: var(main-color-light)
 
 /*	사이트 기본 CSS - 변경금지	*/
 * {
-	-webkit-appearance: none;
-	-webkit-user-select : auto;
-	-moz-user-select    : none;
-	-ms-user-select     : none;
+	/*-webkit-appearance: none;*/
+	/*-webkit-user-select : auto;*/
+	/*-moz-user-select    : none;*/
+	/*-ms-user-select     : none;*/
 	margin: 0;
 	padding: 0;
 	font-family: 'Noto Sans Kannada', sans-serif;

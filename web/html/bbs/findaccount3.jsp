@@ -8,23 +8,23 @@
     String imgDir = "imgs";
 %>
 <%
-    String tell = request.getParameter("tell");
+    String answer = request.getParameter("answer");
     String ctxPath = request.getContextPath();
+    String tell = null;
 
     if ( session.getAttribute("uuid") != null ) {
         response.sendRedirect(ctxPath + "/index.jsp");
         return;
     }
-    if ( ctxPath == null || tell == null ) {
+    if ( ctxPath == null || tell == null || answer == null ) {
         response.sendRedirect(ctxPath + "/html/bbs/findaccount.jsp");
         return;
     }
+    tell = (String)session.getAttribute("tell");
     UserDAO dao = new UserDAO_Impl();
     UserVO vo = null;
     try{
         vo = dao.getUserInfo2(tell);
-        session.setAttribute("tell", tell);
-        return;
     } catch (Exception e){}
 
 %>
@@ -37,7 +37,7 @@
         <h3 class = "h3_pageName">계정찾기</h3>
     </div>
     <div class="div_mainDiv">
-        <h1>질문에 답변해주세요</h1>
+        <h1></h1>
         <form method="post" action="findaccount2.jsp">
             <h4><%=vo.getQuestion()%></h4>
             <input type="text" name="answer"/>

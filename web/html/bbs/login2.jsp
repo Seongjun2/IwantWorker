@@ -6,11 +6,16 @@
 <%
     String ctxPath = request.getContextPath();
     String tell = request.getParameter("tell");
-    String pw = Util.md5( request.getParameter("pw") );
+    String pw = request.getParameter("pw");
     UserDAO dao = new UserDAO_Impl();
+
+    if ( ctxPath == null || tell == null || pw == null ) {
+        response.sendRedirect(ctxPath + "/html/bbs/login.jsp");
+        return;
+    }
     try {
         UserVO vo = dao.getUserInfo2(tell);
-        if ( vo.getPw().equals(pw) ) {
+        if ( vo.getPw().equals(Util.md5(pw)) ) {
             session.setAttribute("uuid" , vo.getUuid());
             session.setAttribute("user_level" ,vo.getPermission());
             out.print("<script>alert('로그인에 성공하였습니다.'); </script>");
