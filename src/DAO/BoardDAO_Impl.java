@@ -36,7 +36,7 @@ public class BoardDAO_Impl implements BoardDAO, RowMapper<BoardVO> {
         template = new JdbcTemplate();
         RowMapper<BoardVO> rowMapper = new BoardDAO_Impl();
 
-        String sql = "select * from Board order by WriteTime desc";
+        String sql = "select * from Board where EndDate > (now()-1) order by WriteTime desc";
         boardList = template.query(sql, rowMapper);
 
         return boardList;
