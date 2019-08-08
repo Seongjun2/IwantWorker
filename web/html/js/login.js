@@ -1,6 +1,7 @@
 function login() {
     var tell = document.getElementById("tell");
     var pw = document.getElementById("pw");
+
     if ( tell.value == "admin" && pw.value == "admin" ) {
         alert('로그인에 성공하였습니다.');
         document.getElementById("login_form").submit();
@@ -23,8 +24,7 @@ function login() {
         alert("전화번호 11자리를 입력해주세요");
         event.preventDefault();
         return;
-    }
-    else {
+    } else {
         document.getElementById("login_form").submit();
     }
 };
