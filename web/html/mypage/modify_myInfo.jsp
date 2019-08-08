@@ -49,20 +49,25 @@
 
             <div class = "div_userInfo">
                 <p class = "p_userInfo">본인확인 찾기 질문</p>
-                <select name="question" class="select_hint">
+                <select name="questions" class="select_hint">
                     <option id ="1">당신의 첫번째 자식 이름은?</option>
                     <option id ="2">당신의 반려자 의 이름은?</option>
                     <option id ="3">당신의 고향은?</option>
                     <option id ="4">당신의 어머님 성함은?</option>
-                    <option id ="5">당신의 부모님 성함은?</option>
+                    <option id ="5">당신의 아버님 성함은?</option>
                     <option id ="6">당신의 주 언어는?</option>
                 </select>
                 <input type="text"  class="input_userInfo" name="answer" id="access_key" value ="<%=vo.getAnswer()%>"/>
             </div>
+            <input type="hidden" id ="hidden_question" value = "<%=vo.getQuestion()%>"/>
 
             <div id = "div_submit">
                 <input id = "input_submit" type="submit" value="변경하기" onclick="check_PW()"/>
             </div>
+            <hr size="1" noshade style="margin-top: 3em">
+            <a href="<%= router.mypage.leave %>">
+                <input type="button" class="btn_leave" value="회원탈퇴" onclick="leave()"/>
+            </a>
 
         </form>
     </div>
