@@ -52,6 +52,19 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
         return vo;
     }
 
+
+    @Override
+    public List<UserVO> getSearchInfo(String name) throws Exception {
+        template = new JdbcTemplate();
+        name = "%" + name + "%";
+        RowMapper<UserVO> rowMapper = new UserDAO_Impl();
+        String sql = "select * from user where name LIKE ?";
+
+        List<UserVO> list = template.query(sql, rowMapper, name);
+
+        return list;
+    }
+
     @Override
     public void update(Object... args) throws Exception {
         template = new JdbcTemplate();

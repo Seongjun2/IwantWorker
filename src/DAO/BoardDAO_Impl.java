@@ -31,12 +31,14 @@ public class BoardDAO_Impl implements BoardDAO, RowMapper<BoardVO> {
     }
 
     @Override
-    public List<BoardVO> findAll() throws Exception {
+    public List<BoardVO> findAll(String search) throws Exception {
         boardList = new ArrayList<BoardVO>();
         template = new JdbcTemplate();
         RowMapper<BoardVO> rowMapper = new BoardDAO_Impl();
 
-        String sql = "select * from Board where EndDate > (now()-1) order by WriteTime desc";
+        search = "%"+search+"%";
+
+        String sql = "select * from Board where EndDate > (now()-1) and (Title LIKE '%" +  search  + "%' or Addr LIKE '%" + search + "%') order by WriteTime desc";
         boardList = template.query(sql, rowMapper);
 
         return boardList;

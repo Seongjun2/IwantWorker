@@ -1,8 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    //loginCheck(request,response);
-%>
 <%@include file="../header.jsp"%>
+<%
+    if(session.getAttribute("uuid") == null) {
+        out.print("<script>alert('먼저 로그인을 해주세요');location.href='"+router.main.login+"'</script>");
+        return;
+    }
+%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/shop.css">
 <script type="text/javascript" src="<%= jsDir %>/shop.js"></script>
 <main id="shop">
@@ -33,10 +36,18 @@
                 </li>
                 <li id="shop_list_item_3" onclick="chose_item(3)">
                     <div class="shop_list_item_point">
-                        <span id="shop_list_item_point_3">40000</span>봉
+                        <span id="shop_list_item_point_3">26000</span>봉
                     </div>
                     <div class="shop_list_item_price">
-                        <span id="shop_list_item_price_3">30000</span>원
+                        <span id="shop_list_item_price_3">20000</span>원
+                    </div>
+                </li>
+                <li id="shop_list_item_4" onclick="chose_item(4)">
+                    <div class="shop_list_item_point">
+                        <span id="shop_list_item_point_4">40000</span>봉
+                    </div>
+                    <div class="shop_list_item_price">
+                        <span id="shop_list_item_price_4">30000</span>원
                     </div>
                 </li>
             </ul>
