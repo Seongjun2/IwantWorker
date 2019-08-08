@@ -4,6 +4,16 @@
 <%--%>--%>
 <%@include file="./../header.jsp"%>
 <%--header에 head, footer에 body, html 태그 들어가 있음. 쓰면 안됨--%>
+<%
+    Integer uuid = (Integer) session.getAttribute("uuid");
+    if (uuid == null) { %>
+<script>
+        alert('먼저 로그인을 해주세요.');
+        location.href = '<%= router.board.login %>';
+</script>
+<%
+    }
+%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/post_write.css">
 <script type="text/javascript">
     function confirm_money(){
