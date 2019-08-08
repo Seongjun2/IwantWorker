@@ -72,6 +72,18 @@ public class BoardDAO_Impl implements BoardDAO, RowMapper<BoardVO> {
     }
 
     @Override
+    public int getCount() throws Exception{
+        template = new JdbcTemplate();
+        String sql = "SELECT COUNT(*) as cnt FROM board";
+        int rc = template.rowCount(sql);
+
+        if(rc == -1){
+            System.out.println("Error : fail get rowCount");
+        }
+
+        return rc;
+    }
+    @Override
     public BoardVO mapRow(ResultSet rs) throws Exception {
         BoardVO vo = new BoardVO();
 

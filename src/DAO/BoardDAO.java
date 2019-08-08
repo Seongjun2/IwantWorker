@@ -10,4 +10,5 @@ public interface BoardDAO{
   List<BoardVO> findByUUID(Integer Uuid) throws Exception;
   BoardVO findByBoID(Integer Boid) throws Exception;
   void deleteByBoID(Integer Boid) throws Exception;
+  public int getCount() throws Exception;
 }

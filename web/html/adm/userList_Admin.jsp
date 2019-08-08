@@ -8,6 +8,25 @@
     String jsDir = "../js";
     String imgDir = "../imgs";
 %>
+<%
+    String pageNumString = request.getParameter("pageNum");
+
+    int pageNum = 0;
+    if(pageNumString == null){
+        pageNum = 1;
+    }
+    else{
+        pageNum = Integer.parseInt(pageNumString);
+    }
+
+    Paging paging = new Paging();
+    paging.makeBlock(pageNum);
+    int blockStartNum = paging.getBlockStartNum();
+    int blockLastNum = paging.getBlockLastNum();
+    paging.makeLastPageNum_userList();
+    int lastPageNum = paging.getLastPageNum();
+
+%>
 <html>
 <head>
     <title>userList</title>
@@ -15,6 +34,17 @@
 <body>
 <%@include file="../header.jsp"%>
 <main>
+    <div id="main_search">
+        <span id="main_search_span">
+            <form id="main_search_form">
+                <input id="main_search_text" type="text" name="search" placeholder="검색어를 입력하세요" onclick="onFocusSearch()" />
+            </form>
+            <div id="main_search_icon">
+                <img src="<%= imgDir %>/lenz.png" />
+            </div>
+        </span>
+        <div id="search_blank" onclick="disFocusSearch()"></div>
+    </div>
     <div class="div_pageName">
         <h3 class="h3_pageName">회원목록 조회</h3>
     </div>
@@ -28,30 +58,35 @@
                     <th>수정</th>
                 </tr>
             </thead>
-            <tbody align="center">
+            <tbody align="center" class = "tbody_list">
+
             <%
                 UserDAO userDao = new UserDAO_Impl();
-                List<UserVO> userList = userDao.findAll();
-                int i = 1;
-                for(UserVO vo : userList){
-                    if(vo.getPermission() == 2){
+                List<UserVO> userList = userDao.getUsers();
+                int i = ((pageNum-1) * 10)+1;
+                int lastIdx = 0;
+                int startIdx = i-1;
+
+                if(pageNum == lastPageNum) lastIdx = userList.size();
+                else{
+                    lastIdx = startIdx+10;
+                }
+                System.out.println(startIdx);
+                System.out.println(lastIdx);
+                for(int j = startIdx; j<lastIdx;j++){
+                    if(userList.size() == 0)break;
+                    UserVO vo = userList.get(j);
             %>
             <tr>
                 <td> <%=i%></td>
                 <td> <%=vo.getName()%></td>
                 <td> <%=vo.getTell()%></td>
-<%--                <td><input type="button" value = "수정" class="btn_modify"/></td>--%>
-<%--                <td>--%>
-<%--                    <form action="./modify_userInfo_admin.jsp?uuid=<%=vo.getUuid()%>" method="post">--%>
-<%--                        <input type="submit" value = "수정" class="btn_modify">--%>
-<%--                    </form>--%>
-<%--                </td>--%>
                 <td>
-                    <a href="./modify_userInfo_admin.jsp?uuid=<%=vo.getUuid()%>">수정하기</a>
+                    <a href="<%=router.admin.modify_userInfo%>?uuid=<%=vo.getUuid()%>">수정하기</a>
                 </td>
             </tr>
             <%
-                    i++;}
+                    i++;
                 }
             %>
             </tbody>
@@ -62,4 +97,6 @@
 <%@include file="../footer.jsp"%>
 </body>
     <link rel="stylesheet" type="text/css", href="<%=cssDir%>/userList.css">
+<link rel="stylesheet" type="text/css", href="<%=cssDir%>/main.css">
+    <script type="text/javascript" src="../js/pagination_admin.js"></script>
 </html>

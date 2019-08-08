@@ -50,6 +50,19 @@ public class PayLogDAO_Impl implements PayLogDAO, RowMapper<PayLogVO> {
     }
 
     @Override
+    public int getCount() throws Exception{
+        template = new JdbcTemplate();
+        String sql = "SELECT COUNT(*) as cnt FROM paylog";
+        int rc = template.rowCount(sql);
+
+        if(rc == -1){
+            System.out.println("Error : fail get rowCount");
+        }
+
+        return rc;
+    }
+
+    @Override
     public PayLogVO mapRow(ResultSet rs) throws Exception {
 
         PayLogVO vo = new PayLogVO();
