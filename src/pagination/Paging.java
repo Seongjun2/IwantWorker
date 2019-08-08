@@ -1,10 +1,14 @@
 package pagination;
 
-import DAO.UserDAO;
-import DAO.UserDAO_Impl;
+import DAO.*;
+import VO.BoardVO;
+import VO.UserVO;
 
-public class Paging {
-    private final static int pageCount = 5;
+import java.util.List;
+
+public class Paging <T extends Object>{
+    private final static int pageCount = 10;
+    private final static int rangeCount = 5;
     private int blockStartNum = 0;
     private int blockLastNum = 0;
     private int lastPageNum = 0;
@@ -43,9 +47,31 @@ public class Paging {
     }
 
     //userDAO 기준 테스트
-    public void makeLastPageNum() throws Exception{
+    public void makeLastPageNum_userList(T vo) throws Exception{
         UserDAO dao = new UserDAO_Impl();
         int total = dao.getCount();
+
+        if(total % pageCount == 0){
+            lastPageNum = (int)Math.floor(total/pageCount);
+        }
+        else{
+            lastPageNum = (int)Math.floor(total/pageCount)+1;
+        }
+    }
+    public void makeLastPageNum_board() throws Exception{
+        BoardDAO boardDAO = new BoardDAO_Impl();
+        int total = boardDAO.getCount();
+        if(total % pageCount == 0){
+            lastPageNum = (int)Math.floor(total/pageCount);
+        }
+        else{
+            lastPageNum = (int)Math.floor(total/pageCount)+1;
+        }
+    }
+    public void makeLastPageNum_payList() throws Exception{
+        PayLogDAO payLogDAO = new PayLogDAO_Impl();
+        payLogDAO.findAll();
+        int total = payLogDAO.getCount();
 
         if(total % pageCount == 0){
             lastPageNum = (int)Math.floor(total/pageCount);
