@@ -11,8 +11,6 @@
 
     List<BoardVO> list = null;
     list = dao.findAll();
-
-    String ctxPath = request.getContextPath();
 %>
 <%--<% System.out.println(router.board.post_get); %>--%>
 <%--header에 head, footer에 body, html 태그 들어가 있음. 쓰면 안됨--%>
@@ -32,12 +30,13 @@
             </div>
         <% } else { %>
             <% for(BoardVO vo : list) { %>
+                <% String money = String.format("%.1f", vo.getMoney()/10000.0); %>
                 <div class="board_post" onclick="location.href='<%=router.board.post_view%>?bo_id=<%=vo.getBoard_id()%>'">
                     <div class="board_title"><%=vo.getText()%></div>
                     <div class="board_content">
                         <ul>
                             <li>기간 : <%=vo.getStartDate().substring(0, 10) + "~" + vo.getEndDate().substring(0, 10)%></li>
-                            <li>비용 : <%=vo.getMoney()%>
+                            <li>비용 : <%=money%> 만 원
                             <li><%=vo.getAddress()%></li>
                         </ul>
                     </div>

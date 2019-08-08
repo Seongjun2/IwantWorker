@@ -75,7 +75,7 @@ public class BoardDAO_Impl implements BoardDAO, RowMapper<BoardVO> {
     @Override
     public void deleteByBoID(Integer bo_id) throws Exception{
         String sql = "delete from board where Bo_Id = ?";
-
+        template.update(sql, bo_id);
     }
 
     @Override
