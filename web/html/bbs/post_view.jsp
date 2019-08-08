@@ -24,7 +24,7 @@
         <h3 class = "h3_pageName">구 인</h3>
     </div>
     <div class="div_mainDiv">
-        <div class="title">여기는 제목입니다</div>
+        <div class="title"><%=vo.getText()%></div>
         <hr>
         <div class="main_content">
             <div style="width: 100%; height: 100%;">
@@ -50,8 +50,8 @@
         <div style="width: 100%">
             <% if(session.getAttribute("uuid")!=null) {%>
                 <% if ((session.getAttribute("uuid").toString()).equals(vo.getUuid().toString())) {%>
-                    <button class="button_writer" onclick="location.href='<%=router.board.post_change%>?bo_id=<%=vo.getBoard_id()%>>수정하기</button>
-                    <button class="button_writer">삭제하기</button>
+                    <button class="button_writer" onclick="location.href='<%=router.board.post_change%>?bo_id=<%=vo.getBoard_id()%>'">수정하기</button>
+                    <button class="button_writer" onclick="location.href='<%=router.board.post_delete%>?bo_id=<%=vo.getBoard_id()%>'">삭제하기</button>
                     <button class="button_writer" onclick=location.href='<%=router.board.board_list%>'>게시판</button>
                 <% } else { %>
                     <button class="button_guest" onclick=location.href='<%=router.board.board_list%>'>게시판</button>
