@@ -30,3 +30,14 @@ function signUp_enter (event) {
         login();
     }
 };
+
+function max_length( event ) {
+    if ( event.keyCode === 9 || event.keyCode === 13 || event.keyCode === 116 || event.keyCode === 17 || event.keyCode === 8 || event.keyCode === 16 ) {
+        return true;
+    }
+    if (document.getElementById("tell").value.length >=  11 ) {
+        return false;
+    } else {
+        return true;
+    }
+}

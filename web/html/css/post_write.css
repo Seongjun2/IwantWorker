@@ -28,12 +28,12 @@ div.content{
     padding: 30px 50px;
 }
 
-ul{
+#posting form div ul {
     list-style:none;
     text-align: center;
 }
 
-li{
+#posting form div ul li{
     margin-bottom: 0.7em;
 }
 
@@ -68,10 +68,16 @@ textarea{
 /*}*/
 
 /*.cancel{*/
-/*    width: 4.5em;*/
+/*    width: 5em;*/
 /*    padding: 20px;*/
 /*}*/
+#cancel {
+    width: 5em;
+    padding: 20px;
+}
 
-
-
-
+.write {
+    background: #ec8032;
+    color: #ffffff;
+    border-radius: 30px;
+}

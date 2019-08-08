@@ -35,18 +35,30 @@
 }
 
 .etc{
-    margin: 3em 0em 3em 4em;
+    margin: 3em 0em 2em 0em;
+}
+.etc ul {
+    list-style: none;
 }
 
 .etc li {
-    font-size: 2.6em;
+    font-size: 2.5em;
 }
 
 .memo{
-    font-size: 2.6em;
+    display: block;
+    white-space: pre-line;
+    font-size: 3em;
     padding-left : 0.5em;
     padding-bottom : 30px;
     width: 100%;
+    min-height: 10em;
+}
+#memo_text {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
 }
 
 p{
@@ -75,31 +87,57 @@ ul{
 }
 
 /* 게스트일 때 사용할 거*/
-.button_guest{
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+/*.button_guest{*/
+/*    position: relative;*/
+/*    top: 50%;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%);*/
 
-    font-size: 2em;
-    margin-top: 70px;
-    padding: 10px 0px 10px 0px;
-    text-align: center;
-    width: 20%;
-}
+/*    font-size: 2em;*/
+/*    margin-top: 70px;*/
+/*    padding: 10px 0px 10px 0px;*/
+/*    text-align: center;*/
+/*    width: 20%;*/
+/*}*/
 
 /* 작성자일 때 볼 거 */
 
-.button_writer{
-    position: relative;
-    top: 50%;
-    /*left: 20%;*/
-    transform: translate(50%, -50%);
+/*.button_writer{*/
+/*    position: relative;*/
+/*    top: 50%;*/
+/*    !*left: 20%;*!*/
+/*    transform: translate(50%, -50%);*/
 
-    font-size: 2em;
-    margin-top: 70px;
-    margin-right: 10%;
-    padding: 10px 0px 10px 0px;
+/*    font-size: 2em;*/
+/*    margin-top: 70px;*/
+/*    margin-right: 10%;*/
+/*    padding: 10px 0px 10px 0px;*/
+/*    text-align: center;*/
+/*    width: 20%;*/
+/*}*/
+
+.button_guest {
+    font-size: 3em;
     text-align: center;
-    width: 20%;
+    width: 65%;
+    height: 100px;
+    margin-bottom: 1em;
+    background: #ec8032;
+    color: #ffffff;
+    border-radius: 30px;
+}
+
+.button_writer {
+    position: relative;
+    /*left: 50%;*/
+    font-size: 3em;
+    text-align: center;
+    width: 30%;
+    height: 100px;
+    margin-bottom: 1em;
+    margin-left: 3%;
+    background: #ec8032;
+    color: #ffffff;
+    border-radius: 30px;
+    /*transform: translate(-50%, 0%);*/
 }

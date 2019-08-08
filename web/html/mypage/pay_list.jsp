@@ -15,12 +15,18 @@
     List<PayLogVO> payLogs = new ArrayList<PayLogVO>();
 
     if ( uuid == null ) {
-        response.sendRedirect(router.main.index);
+%>
+<script>
+    alert('먼저 로그인을 해주세요.');
+    location.href = '<%= router.board.login %>'
+</script>
+<%
     } else {
-        if ( status == null ) {
-            payLogs = dao.findByUUID(uuid);
-        } else {
+        if ( status != null && (status.equals("Wait") || status.equals("Success") || status.equals("Expire"))) {
             payLogs = dao.findByUUIDAndStatus(uuid, status);
+        } else {
+            payLogs = dao.findByUUID(uuid);
+            status = "All";
         }
     }
 
@@ -36,6 +42,13 @@
         <h3 class = "h3_pageName">내 결제 목록</h3>
     </div>
     <div class="div_mainDiv">
+        <select id="paystate" class="select_paystate" onchange="filterState('<%=router.mypage.pay_list%>')">
+            <option value="All">전체</option>
+            <option value="Wait">입금확인중</option>
+            <option value="Success">결제완료</option>
+            <option value="Expire">결제취소</option>
+        </select>
+        <input type="hidden" id ="hidden_status" value = "<%= status %>"/>
         <% if (payLogs.size() == 0) { %>
         <p class="empty_table">
             아직 결제를 한 적이 없습니다. <br>
@@ -47,12 +60,6 @@
             </a>
         </div>
         <% } else { %>
-        <select id="paystate" class="select_paystate" onchange="filterState('<%=router.mypage.pay_list%>')">
-            <option>전체</option>
-            <option value="Wait">입금확인중</option>
-            <option value="Success">결제완료</option>
-            <option value="Expire">결제취소</option>
-        </select>
         <table class="table_list">
             <thead class="table_head">
                 <tr>

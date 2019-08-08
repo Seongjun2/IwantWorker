@@ -1,6 +1,7 @@
 function login() {
     var tell = document.getElementById("tell");
     var pw = document.getElementById("pw");
+
     if ( tell.value == "admin" && pw.value == "admin" ) {
         alert('로그인에 성공하였습니다.');
         document.getElementById("login_form").submit();
@@ -23,8 +24,7 @@ function login() {
         alert("전화번호 11자리를 입력해주세요");
         event.preventDefault();
         return;
-    }
-    else {
+    } else {
         document.getElementById("login_form").submit();
     }
 };
@@ -33,3 +33,14 @@ function login_enter(event) {
         login();
     }
 };
+
+function max_length( event ) {
+    if ( event.keyCode === 9 || event.keyCode === 13 || event.keyCode === 116 || event.keyCode === 17 || event.keyCode === 8 || event.keyCode === 16 ) {
+        return true;
+    }
+    if (document.getElementById("tell").value.length >=  11 ) {
+        return false;
+    } else {
+        return true;
+    }
+}

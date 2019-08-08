@@ -1,7 +1,11 @@
 <%@ page import="DAO.BoardDAO" %>
 <%@ page import="VO.BoardVO" %>
 <%@ page import="DAO.BoardDAO_Impl" %>
-<%@ page import="Util.PreventSQLInjection" %><%--
+<%@ page import="Util.PreventSQLInjection" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %><%--
   Created by IntelliJ IDEA.
   User: ddang
   Date: 2019-08-04
@@ -37,7 +41,20 @@
     money = String.format("%.1f", vo.getMoney() / 10000.0);
 
     BoardDAO dao2 = new BoardDAO_Impl();
-    String name = dao2.findNameByBoID(vo.getBoard_id());
+    //String name = dao2.findNameByBoID(vo.getBoard_id());
+    Integer uuid = vo.getUuid();
+    String name = null;
+    try {
+        Class.forName("com.mysql.jdbc.Driver");
+
+        Connection conn = DriverManager.getConnection("jdbc:mysql://15.164.79.177:3306/worker?serverTimezone=UTC", "leaguelugas", "8426753190");
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("select name from user where uuid = "+uuid);
+        rs.next();
+        name = rs.getString("name");
+        rs.close();
+        conn.close();
+    } catch (Exception e) {}
 %>
 <%--header에 head, footer에 body, html 태그 들어가 있음. 쓰면 안됨--%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/post_view.css">
@@ -69,12 +86,13 @@
             <ul>
                 <li>작성자 | <%=name%></li>
                 <li>모집기간 | <%=vo.getStartDate().substring(0, 10) + "~" + vo.getEndDate().substring(0, 10)%></li>
+                <li>내용 | </li>
             </ul>
         </div>
         <div class="memo">
-            <%=vo.getContent()%>
+            <p id="memo_text"><%=vo.getContent()%></p>
         </div>
-        <div style="width: 100%">
+        <div style="width: 100%; display: flex; justify-content: center;">
             <% if(session.getAttribute("uuid")!=null) {%>
                 <% if ((session.getAttribute("uuid").toString()).equals(vo.getUuid().toString())) {%>
                     <button class="button_writer" onclick="location.href='<%=router.board.post_change%>?bo_id='+param">수정하기</button>

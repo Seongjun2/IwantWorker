@@ -4,6 +4,23 @@
 <%--%>--%>
 <%@include file="./../header.jsp"%>
 <%--header에 head, footer에 body, html 태그 들어가 있음. 쓰면 안됨--%>
+<%
+    Integer uuid = (Integer) session.getAttribute("uuid");
+    if (uuid == null) { %>
+<script>
+        alert('먼저 로그인을 해주세요.');
+        location.href = '<%= router.board.login %>';
+</script>
+<%
+    }
+
+    Integer point = userVO.getPoint();
+    if(point < 400) {
+        out.print("<script>alert('"+(400-point)+"한라봉이 부족합니다');location.href='shop.jsp'</script>");
+        return;
+    }
+    session.setAttribute("vo", userVO);
+%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/post_write.css">
 <script type="text/javascript">
     function confirm_money(){
@@ -74,9 +91,9 @@
                     </div>
                 </div>
                 <div style="text-align: center">
-                    <input type="submit" class="submit" value="올리기" style="width: 4em; padding: 20px;"/>
-                    <input type="button" id="cancel" value="뒤로 가기"
-                           style="width: 4.5em; padding: 20px;" onclick="history.back()"/>
+                    <input type="submit" class="submit, write" value="올리기" style="width: 4em; padding: 20px;"/>
+                    <input type="button" id="cancel" class="write" value="뒤로 가기"
+                           onclick="history.back()"/>
                 </div>
             </form>
 <%--            <div class="cancel" style="text-align: center">--%>

@@ -19,8 +19,8 @@
             if ( vo.getPw().equals(Util.md5(pw)) ) {
                 session.setAttribute("uuid" , vo.getUuid());
                 session.setAttribute("user_level" ,vo.getPermission());
-                out.print("<script>alert('로그인에 성공하였습니다.'); </script>");
-                response.sendRedirect(ctxPath + "/index.jsp");
+                out.print("<script>alert('로그인에 성공하였습니다.');</script>");
+                out.print("<script>location.href=\"" + ctxPath + "/index.jsp\";</script>");
                 return;
             } else {
                 session.setAttribute("error", "pw");

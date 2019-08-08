@@ -9,13 +9,13 @@
 %>
 <%
     String tell = request.getParameter("tell");
-    String ctxPath = request.getContextPath();
+    String ctxPath = request.getContextPath() + "/html";
     if ( session.getAttribute("uuid") != null ) {
-        response.sendRedirect(ctxPath + "/html/index.jsp");
+        response.sendRedirect(ctxPath + "/index.jsp");
         return;
     }
     if ( ctxPath == null || tell == null ) {
-        response.sendRedirect(ctxPath + "/html/bbs/findaccount.jsp");
+        response.sendRedirect(ctxPath + "/bbs/findaccount.jsp");
         return;
     }
     UserDAO dao = new UserDAO_Impl();
@@ -27,7 +27,7 @@
     }
     if ( vo == null ){
         out.print("<script>alert('등록된 전화번호가 없습니다.');</script>");
-        out.print("<script>location.href=\"" + ctxPath + "/html/bbs/findaccount.jsp\";</script>");
+        out.print("<script>location.href=\"" + ctxPath + "/bbs/findaccount.jsp\";</script>");
         return;
     }
 
@@ -35,7 +35,7 @@
 %>
 
 <%@include file="../header.jsp"%>
-<script type="text/javascript" src="../js/modifyInfo_admin.js"></script>
+<script type="text/javascript" src="../js/findaccount2.js"></script>
 <link rel="stylesheet" type="text/css" , href="<%=cssDir%>/findaccount.css">
 <main>
     <div class="div_pageName">
@@ -43,28 +43,15 @@
     </div>
     <div class="div_mainDiv">
         <h1 style="font-size: 3.5em">질문에 답변해주세요</h1>
-        <form method="post" action="findaccount3.jsp">
+        <form method="post" action="findaccount3.jsp" id="login_form">
             <p style="font-size: 3em">질문:<%=vo.getQuestion()%></p>
-            <input  style="
-    font-size: 4em;
-    text-align: center;
-    width: 100%;
-    height: 10%;
-    margin-bottom: 1em;
-    border-radius: 30px;" type="text" placeholder="답변을 입력해 주세요" name="answer"/>
-            <input type="submit" style="
-    font-size: 3em;
-    text-align: center;
-    width: 100%;
-    height: 10%;
-    margin-bottom: 1em;
-    background: #ec8032;
-    color: #ffffff;
-    border-radius: 30px;" >
+            <input type="text" id="text" placeholder="답변을 입력해 주세요" name="answer" onkeypress="submit_enter(event)"/>
+            <input type="button" id="input_submit"  value="제출" onclick="submit()">
         </form>
-        <h1 style="font-size: 3.5em">관리자에게 문의 : </h1>
-        <p style="font-size: 3em;">전화번호 : 010-1234-1234</p>
-        <p style="font-size: 3em;">LEAGUELUGAS</p>
+        <h1>관리자에게 문의 : </h1>
+        <p><a href="tel:010-9946-6703">전화번호 : 010-9946-6703</a></p>
+        <p>담당자 명 : LeagueDori</p>
+        <p>카카오톡 아이디 : Team2</p>
     </div>
 </main>
 <%@include file="../footer.jsp"%>

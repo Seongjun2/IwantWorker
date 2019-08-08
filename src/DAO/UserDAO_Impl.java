@@ -37,7 +37,7 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
         RowMapper<UserVO> rowMapper = new UserDAO_Impl();
 
         String sql = "select * from user where uuid = ?";
-        vo = template.qeuryForObject(sql, rowMapper, uuid);;
+        vo = template.qeuryForObject(sql, rowMapper, uuid);
 
         return vo;
     }
@@ -69,7 +69,7 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
     public void update(Object... args) throws Exception {
         template = new JdbcTemplate();
 
-        String sql = "update user set tell = ?, pw = ? where uuid = ?";
+        String sql = "update user set tell = ?, pw = ?, question = ?, answer = ? where uuid = ?";
         int result = template.update(sql, args);
 
         if(result < 1){
@@ -97,6 +97,18 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
        }
 
        return rc;
+    }
+
+    @Override
+    public void deleteByUUID(int uuid) throws Exception {
+        template = new JdbcTemplate();
+
+        String sql = "DELETE FROM user WHERE uuid = ?";
+        int result = template.update(sql, uuid);
+
+        if(result < 1){
+            System.out.println("유저가 삭제되지 않았습니다.");
+        }
     }
 
     @Override

@@ -8,6 +8,7 @@
 <%@include file="../header.jsp"%>
 <%
     String search = request.getParameter("search");
+    Integer uuid = (Integer) session.getAttribute("uuid");
 
     if(search==null) search = "";
     BoardDAO_Impl dao = new BoardDAO_Impl();
@@ -41,6 +42,12 @@
         document.getElementById('main_search_span').style.height = '60%';
         document.getElementById('main_search_span').style.width = '90%';
     }
+    function board_write() {
+        let check = confirm("게시글 작성시 400한라봉이 차감됩니다\n진행 하시겠습니까?");
+        if(check) {
+            location.href='${pageContext.request.contextPath}/html/bbs/post_write.jsp';
+        }
+    }
 </script>
 <main>
     <div id="main_search">
@@ -58,29 +65,39 @@
     </div>
     <div class="div_mainDiv" style="align-content: center; z-index: 2">
         <% if (list.size() == 0) { %>
-            <p class="empty_table">
-                아직 게시글이 없습니다. <br><br>
-                <span class="text-emphasis">구인 게시글을 작성</span>하고 <br>
-                간편하게 단기 알바를 구해보세요!
-            </p>
-            <div class="redirect_wrapper">
-                <a href="<%= router.board.post_write %>">
-                    <button class="btn_redirect" type="button"> 게시글 작성하러 가기 </button>
-                </a>
-            </div>
+            <% if (uuid != null) { %>
+                <p class="empty_table">
+                    아직 게시글이 없습니다. <br><br>
+                    <span class="text-emphasis">구인 게시글을 작성</span>하고 <br>
+                    간편하게 단기 알바를 구해보세요!
+                </p>
+                <div class="redirect_wrapper">
+                    <a href="<%= router.board.post_write %>">
+                        <button class="btn_redirect" type="button" onclick="board_write()"> 게시글 작성하러 가기 </button>
+                    </a>
+                </div>
+            <% } else { %>
+                <p class="empty_table">
+                    아직 게시글이 없습니다. <br><br>
+                    구인 게시글이 올라올 때 까지 기다려주세요!
+                </p>
+                <div class="redirect_wrapper">
+                    <a href="<%= router.main.index %>">
+                        <button class="btn_redirect" type="button"> 홈으로 돌아가기 </button>
+                    </a>
+                </div>
+            <% } %>
         <% } else { %>
-            <% if(session.getAttribute("uuid")!=null) {%>
-                <button class="write_button" onclick="location.href='${pageContext.request.contextPath}/html/bbs/post_write.jsp'"> 글쓰기 </button>
+            <% if( uuid !=null) {%>
+                <button class="write_button" onclick="board_write()"> 글쓰기 </button>
             <% } %>
             <% for(BoardVO vo : list) { %>
                 <% BoardDAO dao2 = new BoardDAO_Impl();
                     String name = null;
-                    try {
-                        name = dao2.findNameByBoID(vo.getBoard_id());
-                    } catch (Exception e) {
-                        e.getMessage();
-                        e.printStackTrace();
-                    } %>
+                    UserDAO userboardDAO = new UserDAO_Impl();
+                    UserVO userboardVO = userboardDAO.getUserInfo(vo.getUuid());
+                    name = userboardVO.getName();
+                %>
                 <% String money = String.format("%.1f", vo.getMoney()/10000.0); %>
                 <div class="board_post" onclick="location.href='<%=router.board.post_view%>?bo_id=<%=vo.getBoard_id()%>'">
                     <div class="board_title"><%=vo.getText()%></div>
