@@ -49,9 +49,9 @@
             <input type="button" id="input_submit"  value="제출" onclick="submit()">
         </form>
         <h1>관리자에게 문의 : </h1>
-        <p>전화번호 : 010-1234-1234</p>
-        <p>담당자 명 : LEAGUELUGAS</p>
-        <p>카카오톡 아이디 : LEAGUELUGAS</p>
+        <p>전화번호 : 010-9946-6703</p>
+        <p>담당자 명 : LeagueDori</p>
+        <p>카카오톡 아이디 : Team2</p>
     </div>
 </main>
 <%@include file="../footer.jsp"%>
