@@ -1,0 +1,34 @@
+#new_main {
+    width: 100%;
+}
+#new_main_banner {
+    height: 35%;
+    width: 100%;
+    overflow: hidden;
+}
+#new_main_banner_div {
+    display: flex;
+    position: relative;
+    height: 100%;
+    width: 300%;
+    transition: 1s;
+}
+#new_main_banner_div img {
+    width: 100vw;
+}
+#new_main_content {
+    height: 50%;
+    padding: 3em 1em;
+    overflow-y: scroll;
+    background-color: #dbdbdb;
+}
+.new_main_content_area {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 20em;
+    width: 90%;
+    margin-bottom: 3em;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+}
