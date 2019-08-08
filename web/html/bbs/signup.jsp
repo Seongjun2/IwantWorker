@@ -34,7 +34,6 @@
 %>
 <%@include file="../header.jsp"%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/signup.css">
-<script type="text/javascript" src="../js/modifyInfo_admin.js"></script>
 <script type="text/javascript" src="../js/signUp.js"></script>
 <main>
     <div class="div_pageName">
