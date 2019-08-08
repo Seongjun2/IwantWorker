@@ -14,7 +14,7 @@
 %>
 <%@include file="../header.jsp"%>
 <script type="text/javascript" src="../js/modifyInfo_admin.js"></script>
-<script type="text/javascript" src="../js/findaccount.js.js"></script>
+<script type="text/javascript" src="../js/findaccount.js"></script>
 <link rel="stylesheet" type="text/css" , href="<%=cssDir%>/findaccount.css">
 <main>
     <div class="div_pageName">
@@ -23,8 +23,8 @@
     <div class="div_mainDiv">
         <h1>본인의 전화번호를 입력해주세요</h1>
         <form method="post" action="findaccount2.jsp">
-            <input id="text" max="9" min="0" pattern="\d*" onkeydown="return max_length();" type="number" name="tell" placeholder="(-) 하이폰 없이 숫자만 입력" />
-            <input type="submit" id="input_submit">
+            <input id="text" pattern="\d*" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" onkeydown="return max_length( event );" onkeypress="submit_enter(event)" type="number" name="tell" placeholder="(-) 하이폰 없이 숫자만 입력" />
+            <input type="button" id="input_submit" value="제출" onclick="submit()">
         </form>
 
     </div>
