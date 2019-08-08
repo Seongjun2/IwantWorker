@@ -130,6 +130,7 @@
     height: 1.5em;
     width: 100%;
     z-index: 1;
+	overflow: hidden;
 }
 #main_content_content ul li a .main_content_title {
 	width: 65%;
