@@ -47,3 +47,30 @@
 .select_paystate option {
     font-size: 1em;
 }
+
+.empty_table {
+    width: 100%;
+    margin: 2em 0;
+    text-align: center;
+    font-size: 2.3em;
+}
+
+.redirect_wrapper {
+    text-align: center;
+}
+
+.btn_redirect {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+    width: 70%;
+    padding: 0.5em 1em;
+    background: #ec8032;
+    color: #ffffff;
+    border-radius: 30px;
+}
+
+.text-emphasis {
+    color: #ec8032;
+    font-weight: bold;
+}

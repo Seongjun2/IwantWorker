@@ -88,7 +88,7 @@
     <div class="div_login_menu">
         <div class="login_menu">
             <a href="<%=ctxPath + "/bbs/signup.jsp"%>">
-                <p>- 앗! 아직 계정이 없나요? 회원가입을 해보세요!</p>
+                <p class = "p_loginExplain">앗! 아직 계정이 없나요? 회원가입을 해보세요!</p>
             </a>
             </div>
             <div class="login_menu">
@@ -96,7 +96,7 @@
             </div>
             <div class="login_menu">
                 <a href="<%=ctxPath + "/bbs/findaccount.jsp"%>">
-                    <p>- 계정을 잊어버리셨나요? 계정찾기 버튼을 눌러주세요!</p>
+                    <p class = "p_loginExplain">계정을 잊어버리셨나요? 계정찾기 버튼을 눌러주세요!</p>
                 </a>
             </div>
             <div class="login_menu">
