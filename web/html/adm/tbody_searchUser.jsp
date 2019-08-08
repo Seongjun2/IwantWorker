@@ -3,7 +3,8 @@
 
 <%
     UserDAO userDao = new UserDAO_Impl();
-    List<UserVO> userList = userDao.getUsers();
+    List<UserVO> userList = userDao.getSearchInfo(searchName);
+
     int i = ((pageNum-1) * 10)+1;
     int lastIdx = 0;
     int startIdx = i-1;

@@ -9,7 +9,7 @@
 <%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
 <%
     String uploadPath = request.getServletContext().getRealPath("/uploadImg");
-    System.out.println(("절대경로 : " + uploadPath));
+    System.out.println(uploadPath);
 
     BannerDAO bannerDAO = new BannerDAO_Impl();
     BannerVO bannerVO = new BannerVO();
@@ -28,8 +28,6 @@
         String strName = (String) e.nextElement();
         String fileName= mpr.getFilesystemName(strName);
         if (fileName != null) {
-            System.out.println("strName : " +strName);
-            System.out.println("fileName : " + fileName);
             bannerVO.setImage(fileName);
         }
         bannerDAO.add(bannerVO);

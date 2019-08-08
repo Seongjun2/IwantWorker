@@ -8,8 +8,10 @@
     UserDAO userDAO = new UserDAO_Impl();
     UserVO userVO = null;
     boolean isUser = false;
+    Integer user_level = 0;
     if(session.getAttribute("uuid") != null) {
         isUser = true;
+        user_level = (Integer) session.getAttribute("user_level");
         try {
             userVO = userDAO.getUserInfo((Integer) session.getAttribute("uuid"));
         } catch (Exception e) {
@@ -64,7 +66,12 @@
             </div>
         </div>
         <ul id="header_sidebar_menu">
-            <% if(isUser) { %>
+            <% if(user_level == 10) { %>
+            <a href="<%= router.admin.userlist %>"><li>회원 리스트</li></a>
+            <a href="<%= router.board.board_list %>"><li>게시판</li></a>
+            <a href="<%= router.admin.wating_pay %>"><li>결제 목록</li></a>
+            <a href="<%=__PATH__%>/bbs/logout.jsp"><li>로그아웃</li></a>
+            <% } else if(user_level >= 1) { %>
             <a href="<%= router.mypage.modify_myInfo %>"><li>내정보 수정</li></a>
             <a href="<%= router.board.board_list %>"><li>게시판</li></a>
             <a href="<%= router.mypage.my_posts %>"><li>나의 글</li></a>
@@ -72,6 +79,7 @@
             <a href="<%= router.mypage.point_list %>"><li>포인트 내역</li></a>
             <a href="<%=__PATH__%>/bbs/logout.jsp"><li>로그아웃</li></a>
             <% } else { %>
+            <a href="<%= router.board.board_list %>"><li>게시판</li></a>
             <a href="<%=__PATH__%>/bbs/login.jsp"><li>로그인</li></a>
             <% } %>
         </ul>
