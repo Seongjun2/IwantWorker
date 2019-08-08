@@ -1,0 +1,24 @@
+#error_img {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 90%;
+    margin-top: 10em;
+}
+#go_main {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 3em;
+    width: 80%;
+    color: #FFFFFF;
+    font-size: 3em;
+    font-weight: bold;
+    margin-top: 2.5em;
+    border: 0;
+    border-radius: 20px;
+    background-color: #ec6632;
+}
+#go_main:hover {
+    background-color: #ec3c08;
+}
