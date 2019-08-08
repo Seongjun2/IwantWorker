@@ -11,21 +11,19 @@
     try {
         UserVO vo = dao.getUserInfo2(tell);
         if ( vo.getPw().equals(pw) ) {
-//            System.out.println(vo.getUuid());
-            session.setAttribute("uuid" , (Integer)vo.getUuid());
-            session.setAttribute("user_level" ,(Integer)vo.getPermission());
-            System.out.println("error");
-        } // else {
-//            session.setAttribute("error", "pw");
-//            out.print("<script>location.href=\"" + ctxPath + "/html/bbs/login.jsp\";</script>");
-//            return;
-//        }
+            session.setAttribute("uuid" , vo.getUuid());
+            session.setAttribute("user_level" ,vo.getPermission());
+            response.sendRedirect(ctxPath + "/html/index.jsp");
+            return;
+        } else {
+            session.setAttribute("error", "pw");
+            out.print("<script>location.href=\"" + ctxPath + "/html/bbs/login.jsp\";</script>");
+            return;
+        }
 
     } catch ( Exception e ) {
-//        session.setAttribute("error", "id");
+        session.setAttribute("error", "id");
         out.print("<script>location.href=\"" + ctxPath + "/html/bbs/login.jsp\";</script>");
         return;
     }
-
-    response.sendRedirect(ctxPath + "/html/index.jsp");
 %>
