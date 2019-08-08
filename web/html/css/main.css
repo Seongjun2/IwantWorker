@@ -58,23 +58,17 @@
 }
 #main_head {
 	background-color: #FFFFFF;
-	display: flex;
-	justify-content: center;
-	width: 100%;
 	height: 35%;
-	overflow: hidden;
+	overflow-x: hidden;
 }
-#main_head div {
-	display: flex;
-	position: relative;
+#main_head_div {
 	height: 100%;
 	width: 300%;
 	transition: 1s;
 }
-#main_head div img {
-	display: inline;
+#main_head_div img {
 	height: 100%;
-	width: 100%;
+	width: 100vw;
 }
 #main_content_menu {
 	display: flex;

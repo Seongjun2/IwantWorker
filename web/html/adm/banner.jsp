@@ -44,8 +44,9 @@
                 <img class="img_addImg" id="add_button3" src="../imgs/plus_icon.png"/>
                 <img id = "image_section3" class="img_show" src="#" style="display: none"/>
             </div>
-
-            <input type="submit" value="업로드" id = "submit_upload"/>
+            <div class="button_wrapper">
+                <input type="submit" value="업로드" id = "submit_upload"/>
+            </div>
         </form>
     </div>
 </main>

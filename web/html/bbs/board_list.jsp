@@ -44,6 +44,12 @@
         document.getElementById('main_search_span').style.height = '60%';
         document.getElementById('main_search_span').style.width = '90%';
     }
+    function board_write() {
+        let check = confirm("게시글 작성시 400한라봉이 차감됩니다\n진행 하시겠습니까?");
+        if(check) {
+            location.href='${pageContext.request.contextPath}/html/bbs/post_write.jsp';
+        }
+    }
 </script>
 <main>
     <div id="main_search">
@@ -69,7 +75,7 @@
                 </p>
                 <div class="redirect_wrapper">
                     <a href="<%= router.board.post_write %>">
-                        <button class="btn_redirect" type="button"> 게시글 작성하러 가기 </button>
+                        <button class="btn_redirect" type="button" onclick="board_write()"> 게시글 작성하러 가기 </button>
                     </a>
                 </div>
             <% } else { %>
@@ -85,7 +91,7 @@
             <% } %>
         <% } else { %>
             <% if( uuid !=null) {%>
-                <button class="write_button" onclick="location.href='${pageContext.request.contextPath}/html/bbs/post_write.jsp'"> 글쓰기 </button>
+                <button class="write_button" onclick="board_write()"> 글쓰기 </button>
             <% } %>
             <% for(BoardVO vo : list) { %>
                 <% BoardDAO dao2 = new BoardDAO_Impl();

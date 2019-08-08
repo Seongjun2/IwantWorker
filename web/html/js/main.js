@@ -4,7 +4,7 @@ setInterval(function () {
         bannerCount = 1;
         document.getElementById('main_head_div').style.transform = 'translate(0, 0)';
     } else {
-        document.getElementById('main_head_div').style.transform = 'translate(-'+(bannerCount*100)+'%, 0)';
+        document.getElementById('main_head_div').style.transform = 'translate(-'+(bannerCount*33.33)+'%, 0)';
         bannerCount++;
     }
 }, 10000);
