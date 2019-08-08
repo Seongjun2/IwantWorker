@@ -26,7 +26,6 @@
 %>
 <%@include file="../header.jsp"%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/login.css">
-<script type="text/javascript" src="../js/modifyInfo_admin.js"></script>
 <script type="text/javascript" src="../js/login.js"></script>
 <main>
 
