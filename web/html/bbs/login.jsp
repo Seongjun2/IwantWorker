@@ -53,7 +53,6 @@
                 return;
             }
             else {
-                alert("로그인에 성공하였습니다.");
                 document.getElementById("login_form").submit();
             }
         };
