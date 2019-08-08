@@ -10,6 +10,8 @@
 
     String tell = request.getParameter("tell");
     String pw = request.getParameter("pw");
+    String question = request.getParameter("question");
+    String answer = request.getParameter("answer");
 
     Integer uuid = -1;
     Integer user_level = (Integer) session.getAttribute("user_level");
@@ -26,8 +28,10 @@
 
     if (tell == null || tell.equals("")) tell = beforeUser.getTell();
     if (pw == null || pw.equals("")) pw = beforeUser.getPw();
+    if (question == null || question.equals("")) question = beforeUser.getQuestion();
+    if (answer == null || answer.equals("")) answer = beforeUser.getAnswer();
 
-    dao.update(tell, enc_pw, uuid);
+    dao.update(tell, enc_pw, question, answer, uuid);
 
 %>
 <html>
