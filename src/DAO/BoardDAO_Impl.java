@@ -7,6 +7,7 @@ import database.RowMapper;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class BoardDAO_Impl implements BoardDAO, RowMapper<BoardVO> {
     private JdbcTemplate template = null;
@@ -19,7 +20,13 @@ public class BoardDAO_Impl implements BoardDAO, RowMapper<BoardVO> {
     @Override
     public void add(Object... args) throws Exception {
 
-        String sql = "insert into board values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "insert into board values (default, ?, ?, ?, ?, ?, ?, ?, ?, now())";
+        template.update(sql, args);
+    }
+
+    @Override
+    public void update(Object... args) throws Exception{
+        String sql = "update board set Title=?, Content=?, StartDate=?, EndDate=?, WorkTime=?, Addr=?, WriteTime=now() where Bo_Id=?";
         template.update(sql, args);
     }
 
@@ -29,7 +36,7 @@ public class BoardDAO_Impl implements BoardDAO, RowMapper<BoardVO> {
         template = new JdbcTemplate();
         RowMapper<BoardVO> rowMapper = new BoardDAO_Impl();
 
-        String sql = "select * from Board";
+        String sql = "select * from Board where EndDate > (now()-1) order by WriteTime desc";
         boardList = template.query(sql, rowMapper);
 
         return boardList;
@@ -68,7 +75,7 @@ public class BoardDAO_Impl implements BoardDAO, RowMapper<BoardVO> {
     @Override
     public void deleteByBoID(Integer bo_id) throws Exception{
         String sql = "delete from board where Bo_Id = ?";
-
+        template.update(sql, bo_id);
     }
 
     @Override
