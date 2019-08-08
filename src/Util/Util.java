@@ -30,4 +30,9 @@ public class Util {
            return defaultNum;
        }
    }
+
+   public static String pw (){
+       String rand[] = "0123456789".split("");
+       return rand[(int)(Math.random() * 10)] + rand[(int)(Math.random() * 10)] + rand[(int)(Math.random() * 10)] + rand[(int)(Math.random() * 10)];
+   }
 }
