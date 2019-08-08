@@ -1,23 +1,6 @@
-#th_payNo{
-    width:2em;
-
-}
-#td_date{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width:15%;
-    word-break: break-all;
-}
 .td_statusSuccess {
     color: blue;
 }
 .td_statusExpire{
     color:red;
-}
-
-.select_paystate {
-    font-size: 2em;
-    width: 6em;
-    float: right;
-    padding: 0.2em;
 }
