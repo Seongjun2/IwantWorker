@@ -35,21 +35,30 @@
 }
 
 .etc{
-    margin: 3em 0em 3em 4em;
+    margin: 3em 0em 2em 0em;
+}
+.etc ul {
+    list-style: none;
 }
 
 .etc li {
-    font-size: 2.6em;
+    font-size: 2.5em;
 }
 
 .memo{
     display: block;
     white-space: pre-line;
-    font-size: 2.6em;
+    font-size: 3em;
     padding-left : 0.5em;
     padding-bottom : 30px;
     width: 100%;
     min-height: 10em;
+}
+#memo_text {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
 }
 
 p{
