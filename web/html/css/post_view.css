@@ -117,8 +117,6 @@ ul{
 /*}*/
 
 .button_guest {
-    position: relative;
-    left: 50%;
     font-size: 3em;
     text-align: center;
     width: 65%;
@@ -127,7 +125,6 @@ ul{
     background: #ec8032;
     color: #ffffff;
     border-radius: 30px;
-    transform: translate(-50%, 0%);
 }
 
 .button_writer {
