@@ -64,15 +64,14 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
     }
 
     @Override
-    public void pointUpdate(Object... args) throws Exception {
+    public List<UserVO> getUsers() throws Exception {
         template = new JdbcTemplate();
-        String sql = "update user set point=point+? where uuid = ?";
-        int result = template.update(sql, args);
+        String sql = "select * from user where permission=2";
+        List<UserVO> list = template.query(sql,this);
 
-        if(result < 1){
-            System.out.println("변경된 것이 없습니다.");
-        }
+        return list;
     }
+
     @Override
     public int getCount() throws Exception{
        template = new JdbcTemplate();
