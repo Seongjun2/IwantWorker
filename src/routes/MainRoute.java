@@ -11,6 +11,6 @@ public class MainRoute {
         baseURL = ctxPath + "/html" + prefix;
 
         index = baseURL + "/index.jsp";
-        login = baseURL + "/login.html";
+        login = baseURL + "/bbs/login.jsp";
     }
 }

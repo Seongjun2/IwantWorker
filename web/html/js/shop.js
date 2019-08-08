@@ -1,7 +1,7 @@
-var point;
-var price;
+let point;
+let price;
 function chose_item(item) {
-    var count;
+    let count;
     point = document.getElementById('shop_list_item_point_'+item).innerText;
     price = document.getElementById('shop_list_item_price_'+item).innerText;
     for(count = 1; document.getElementById('shop_list_item_'+count) != null; count++) {
