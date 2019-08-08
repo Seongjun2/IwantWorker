@@ -36,7 +36,7 @@
                     out.print("<img id=\"banner_1\" src=\""+imgDir+"/noImage.png\" />");
                 } else {
                     for(int i = 0; i < banner_list.size(); i++) {
-                        out.print("<img id=\"banner_"+(i+1)+"\" src=\""+__PATH__+"/uploadImg/"+ banner_list.get(i).getImage() +"\" />");
+                        out.print("<img id=\"banner_"+(i+1)+"\" src=\""+request.getContextPath()+"/uploadImg/"+ banner_list.get(i).getImage() +"\" />");
                     }
                 }
             %>

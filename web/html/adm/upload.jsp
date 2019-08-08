@@ -8,8 +8,10 @@
 <%@ page import="com.oreilly.servlet.MultipartRequest" %>
 <%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
 <%
-    String uploadPath = request.getServletContext().getRealPath("/html");
-    uploadPath = uploadPath + "/../../../../web/html/uploadImg/";
+    System.out.println("asdasdasd");
+    //String uploadPath = request.getServletContext().getRealPath("/html");
+    //uploadPath = uploadPath + "/../../../../web/html/uploadImg/";
+    String uploadPath = request.getServletContext().getRealPath("/uploadImg/");
     System.out.println(uploadPath);
 
     BannerDAO bannerDAO = new BannerDAO_Impl();
