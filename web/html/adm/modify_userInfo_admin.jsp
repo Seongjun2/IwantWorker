@@ -2,12 +2,7 @@
 <%@ page import="DAO.UserDAO_Impl" %>
 <%@ page import="VO.UserVO" %>
 <%@ page import="java.util.List" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding ="EUC-KR"%>
-<%!
-    String cssDir = "../css";
-    String jsDir = "../js";
-    String imgDir = "../imgs";
-%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding ="utf-8"%>
 <%
     Integer level = (Integer)session.getAttribute("user_level");
 
@@ -15,70 +10,56 @@
         response.sendRedirect(Router.getInstance(request.getContextPath()).main.index);
     }
 
-    String uuid = null;
-    uuid = request.getParameter("uuid");
-    if(uuid == null) {
+    String userUUID = request.getParameter("uuid");
+    if(userUUID == null) {
         response.sendRedirect("./userList_Admin.jsp");
         return;
     }
 
     UserDAO dao = new UserDAO_Impl();
-    UserVO vo = dao.getUserInfo(Integer.parseInt(uuid));
-//    session.setAttribute("uuid", vo.getUuid());
+    UserVO vo = dao.getUserInfo(Integer.parseInt(userUUID));
 %>
-<html>
-<head>
-    <title>ModifyInfo</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-    <link rel="stylesheet" type="text/css", href="<%= cssDir %>/main.css">
-    <link rel="stylesheet" type="text/css", href="<%= cssDir %>/common.css">
-    <script type="text/javascript" src="<%= jsDir %>/common.js"></script>
-
-
-    <script type="text/javascript" src="../js/common.js"></script>
-</head>
-<body>
 <%@include file="../header.jsp"%>
 <main>
     <div class="div_pageName">
-        <h3 class = "h3_pageName">ȸ������ ����</h3>
+        <h3 class = "h3_pageName">회원정보 수정</h3>
     </div>
     <div class="div_mainDiv">
         <form action="./userInfoUpdate.jsp" method="post" onsubmit="this.hand">
             <div class = "div_userInfo">
-                <p class = "p_userInfo">�޴��� ��ȣ</p>
+                <p class = "p_userInfo">휴대폰 번호</p>
                 <input type="number" maxlength="11" id="input_tell" style="ime-mode:disabled;" onkeyup="SetNum(this)" onkeypress="NumObj(this)" class="input_userInfo" name="tell" value="<%=vo.getTell()%>"/>
-                <p id = "explain_inputTell"> * ���ڸ� �Է�</p>
+                <p id = "explain_inputTell"> * 숫자만 입력</p>
             </div>
             <div class = "div_userInfo">
-                <p class = "p_userInfo">�̸�</p>
+                <p class = "p_userInfo">이름</p>
                 <p id ="p_name"><%=vo.getName()%></p>
             </div>
             <div class = "div_userInfo">
-                <p class = "p_userInfo">������ ��й�ȣ</p>
+                <p class = "p_userInfo">변경할 비밀번호</p>
                 <input id = "pw" type="password"  class="input_userInfo" name="pw"/>
             </div>
             <div class = "div_userInfo">
-                <p class = "p_userInfo">������ ��й�ȣ Ȯ��</p>
+                <p class = "p_userInfo">변경할 비밀번호 확인</p>
                 <input id = "pw_check" type="password"  class="input_userInfo" name="pw_check"/>
             </div>
 
             <div class = "div_userInfo">
-                <p class = "p_userInfo">����Ȯ�� ã�� ����</p>
-                <select name="questions" style="border-radius:30px; height: 6%; font-size: 2em;">
-
-                    <option id ="1">����� ù��° �ڽ� �̸���?</option>
-                    <option id ="2">����� �ݷ��� �� �̸���?</option>
-                    <option id ="3">����� ������?</option>
-                    <option id ="4">����� �� ����?</option>
+                <p class = "p_userInfo">본인확인 찾기 질문</p>
+                <select name="questions" class="select_hint">
+                    <option id ="1">당신의 첫번째 자식 이름은?</option>
+                    <option id ="2">당신의 반려자 의 이름은?</option>
+                    <option id ="3">당신의 고향은?</option>
+                    <option id ="4">당신의 어머님 성함은?</option>
+                    <option id ="5">당신의 아버님 성함은?</option>
+                    <option id ="6">당신의 주 언어는?</option>
                 </select>
                 <input type="text"  class="input_userInfo" name="answer" id="access_key" value ="<%=vo.getAnswer()%>"/>
             </div>
             <input type="hidden" id ="hidden_question" value = "<%=vo.getQuestion()%>"/>
-            <input type="hidden" value="<%=uuid%>" name = "uuid">
+            <input type="hidden" value="<%=userUUID%>" name = "uuid">
             <div id = "div_submit">
-                <input id = "btn_modify" type="submit" value="�����ϱ�" onclick="check_PW()"/>
+                <input id = "input_submit" type="submit" value="변경하기" onclick="check_PW()"/>
             </div>
         </form>
     </div>
