@@ -72,11 +72,11 @@ public class JdbcTemplate {
                 }
             }
             else{
-                throw new Exception("no record");
+//                throw new Exception("no record");
             }
         }catch(Exception e){
-            e.printStackTrace();
-            return null;
+//                return null;
+//            e.printStackTrace();
         }
         finally{
             if(rs != null) rs.close();
