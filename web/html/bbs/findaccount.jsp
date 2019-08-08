@@ -28,7 +28,7 @@
     width: 100%;
     height: 10%;
     margin-bottom: 1em;
-    border-radius: 30px;
+    border-radius: 30px;"
                    type="text" name="tell" placeholder="(-) 하이폰 없이 숫자만 입력" />
             <input type="submit" style="
     font-size: 3em;
