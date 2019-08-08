@@ -1,3 +1,16 @@
 #th_payNo{
     width:2em;
+
+}
+#td_date{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width:15%;
+    word-break: break-all;
+}
+.td_statusSuccess {
+    color: blue;
+}
+.td_statusExpire{
+    color:red;
 }
