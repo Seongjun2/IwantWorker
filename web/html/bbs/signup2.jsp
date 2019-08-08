@@ -17,6 +17,11 @@
     String question = request.getParameter("question");
     String answer = request.getParameter("answer");
     UserDAO dao = new UserDAO_Impl();
+    if ( session.getAttribute("uuid") != null ) {
+        response.sendRedirect(ctxPath + "/html/index.jsp");
+        session.removeAttribute("tell");
+        return;
+    }
     if ( ctxPath == null || tell == null || name == null || pw == null || question == null || answer == null ) {
         response.sendRedirect(ctxPath + "/html/bbs/signup.jsp");
         return;

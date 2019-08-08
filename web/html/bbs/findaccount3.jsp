@@ -15,7 +15,7 @@
     tell = (String)session.getAttribute("tell");
 
     if ( session.getAttribute("uuid") != null ) {
-        response.sendRedirect(ctxPath + "/html  /index.jsp");
+        response.sendRedirect(ctxPath + "/html/index.jsp");
         session.removeAttribute("tell");
         return;
     }
