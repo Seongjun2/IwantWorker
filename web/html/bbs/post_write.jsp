@@ -13,6 +13,13 @@
 </script>
 <%
     }
+
+    Integer point = userVO.getPoint();
+    if(point < 400) {
+        out.print("<script>alert('"+(point-400)+"한라봉이 부족합니다');location.href='shop.jsp'</script>");
+        return;
+    }
+    session.setAttribute("vo", userVO);
 %>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/post_write.css">
 <script type="text/javascript">
