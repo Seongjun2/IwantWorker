@@ -92,9 +92,11 @@
 
             <div class = "div_userInfo">
                 <p class = "p_userInfo">본인확인 찾기 질문</p>
-                <select name="question">
-                    <option>fisst?</option>
-                    <option>second?</option>
+                <select name="question" style="border-radius:30px; height: 6%; font-size: 2em;">
+                    <option>당신의 첫번째 자식 이름은?</option>
+                    <option>당신의 반려자 의 이름은?</option>
+                    <option>당신의 고향은?</option>
+                    <option>당신의 주 언어는?</option>
                 </select>
                 <input type="text"  class="input_userInfo" name="answer" id="access_key" placeholder="답변 입력"/>
             </div>
