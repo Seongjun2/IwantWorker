@@ -25,6 +25,15 @@ function SetNum(obj){
     obj.value=val.replace(re,"");
 
 }
+
+function leave() {
+    var noti_message = "정말로 회원탈퇴 하시겠습니까? 삭제된 계정은 복구할 수 없습니다.";
+    if (!confirm(noti_message)) {
+        alert('회원탈퇴가 취소되었습니다.');
+        event.preventDefault();
+    }
+}
+
 window.onload = function(){
     var question = document.getElementById("hidden_question").value;
     var selects = document.getElementsByName("questions")[0];

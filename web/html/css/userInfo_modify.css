@@ -73,3 +73,17 @@
     margin-top: 1em;
     font-size: 2.5em;
 }
+
+.btn_leave {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    padding: 0.5em 1em;
+    margin-top: 2em;
+    background: #ffffff;
+    border-color: #FF0000;
+    color: #FF0000;
+    border-width: thick;
+    border-radius: 30px;
+}

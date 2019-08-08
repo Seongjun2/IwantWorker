@@ -35,8 +35,7 @@
 %>
 
 <%@include file="../header.jsp"%>
-<script type="text/javascript" src="../js/modifyInfo_admin.js"></script>
-<script type="text/javascript" src="../js/findaccount.js"></script>
+<script type="text/javascript" src="../js/findaccount2.js"></script>
 <link rel="stylesheet" type="text/css" , href="<%=cssDir%>/findaccount.css">
 <main>
     <div class="div_pageName">
@@ -44,9 +43,9 @@
     </div>
     <div class="div_mainDiv">
         <h1 style="font-size: 3.5em">질문에 답변해주세요</h1>
-        <form method="post" action="findaccount3.jsp">
+        <form method="post" action="findaccount3.jsp" id="login_form">
             <p style="font-size: 3em">질문:<%=vo.getQuestion()%></p>
-            <input type="text" id="text" placeholder="답변을 입력해 주세요" name="answer" onkeypress="submit_enter()"/>
+            <input type="text" id="text" placeholder="답변을 입력해 주세요" name="answer" onkeypress="submit_enter(event)"/>
             <input type="button" id="input_submit"  value="제출" onclick="submit()">
         </form>
         <h1>관리자에게 문의 : </h1>

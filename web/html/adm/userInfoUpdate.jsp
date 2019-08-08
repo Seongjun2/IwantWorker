@@ -10,7 +10,7 @@
 
     String tell = request.getParameter("tell");
     String pw = request.getParameter("pw");
-    String question = request.getParameter("question");
+    String question = request.getParameter("questions");
     String answer = request.getParameter("answer");
 
     Integer uuid = -1;
@@ -27,7 +27,7 @@
     UserVO beforeUser = dao.getUserInfo(uuid);
 
     if (tell == null || tell.equals("")) tell = beforeUser.getTell();
-    if (pw == null || pw.equals("")) pw = beforeUser.getPw();
+    if (pw == null || pw.equals("")) enc_pw = beforeUser.getPw();
     if (question == null || question.equals("")) question = beforeUser.getQuestion();
     if (answer == null || answer.equals("")) answer = beforeUser.getAnswer();
 
@@ -42,6 +42,8 @@
         if (<%= user_level == Permission.ADMIN.getLevel() %>) {
             location.href='<%= router.admin.userlist %>';
         } else if ( <%= user_level == Permission.MEMBER.getLevel() %>) {
+            location.href='<%= router.mypage.modify_myInfo %>';
+        } else {
             location.href='<%= router.main.index %>';
         }
     </script>
