@@ -19,6 +19,16 @@
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/main.css">
 <script type="text/javascript" src="<%= jsDir %>/main.js"></script>
 <main id="main">
+    <div id="main_search">
+        <span id="main_search_span">
+            <form id="main_search_form" action="<%=router.board.board_search%>" method="get">
+                <input id="main_search_text" type="text" name="search" placeholder="검색어를 입력하세요" onclick="onFocusSearch()" />
+            </form>
+            <div id="main_search_icon">
+                <img src="<%= imgDir %>/lenz.png"/>
+            </div>
+        </span>
+    </div>
     <div id="main_head">
         <div id="main_head_div">
             <%
