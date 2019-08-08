@@ -25,15 +25,7 @@
             return;
         }
     } catch ( Exception e ) {
-        System.out.println(tell);
-        System.out.println(name);
-        System.out.println(pw);
-        System.out.println(question);
-        System.out.println(answer);
-
-
-
+        dao.add( tell, name , Util.md5(pw), question, answer );
     }
-    dao.add( tell, name , Util.md5(pw), question, answer );
     response.sendRedirect( ctxPath + "/html/bbs/login.jsp");
 %>
