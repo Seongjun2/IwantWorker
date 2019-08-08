@@ -32,10 +32,6 @@ public class BannerDAO_Impl implements BannerDAO, RowMapper<BannerVO> {
         String sql = "select * from banner";
         list = template.query(sql,rowMapper);
 
-        for(BannerVO vo :list){
-            System.out.println(vo.getImage());
-        }
-
         return list;
     }
 

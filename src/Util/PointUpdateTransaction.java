@@ -27,7 +27,6 @@ public class PointUpdateTransaction {
             if(status.equals("Success")){
                 String sql = "update user set point=point+"+chargePoint+" where uuid ="+uuid;
                 stmt.executeUpdate(sql);
-                System.out.println("here");
                 sql = "update paylog set Status='"+status+"', UpdateTime=now() where pay_id="+pay_id;
                 stmt.executeUpdate(sql);
             }

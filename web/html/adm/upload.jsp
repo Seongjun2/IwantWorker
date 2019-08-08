@@ -28,8 +28,6 @@
         String strName = (String) e.nextElement();
         String fileName= mpr.getFilesystemName(strName);
         if (fileName != null) {
-            System.out.println("strName : " +strName);
-            System.out.println("fileName : " + fileName);
             bannerVO.setImage(fileName);
         }
         bannerDAO.add(bannerVO);
