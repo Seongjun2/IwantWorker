@@ -90,7 +90,7 @@
             </ul>
         </div>
         <div class="memo">
-            <p><%=vo.getContent()%></p>
+            <p id="memo_text"><%=vo.getContent()%></p>
         </div>
         <div style="width: 100%; display: flex; justify-content: center;">
             <% if(session.getAttribute("uuid")!=null) {%>
