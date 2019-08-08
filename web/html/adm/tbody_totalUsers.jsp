@@ -1,6 +1,6 @@
 <%@ page import="pagination.Paging" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding ="EUC-KR"%>
-<tbody align="center" class = "tbody_list">
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding ="UTF-8"%>
+<tbody class="table_body">
 
 <%
 
@@ -15,8 +15,8 @@
     <td> <%=vo.getUuid()%></td>
     <td> <%=vo.getName()%></td>
     <td> <%=vo.getTell()%></td>
-    <td>
-        <a href="<%=router.admin.modify_userInfo%>?uuid=<%=vo.getUuid()%>">¼öÁ¤ÇÏ±â</a>
+    <td style="text-decoration-line: underline">
+        <a href="<%=router.admin.modify_userInfo%>?uuid=<%=vo.getUuid()%>">ìˆ˜ì •í•˜ê¸°</a>
     </td>
 </tr>
 <%
