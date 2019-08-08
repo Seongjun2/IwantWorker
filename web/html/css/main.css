@@ -1,66 +1,14 @@
 ﻿#main {
 	height: auto;
 	width: 100%;
-}
-#main_search {
-    display: flex;
-    justify-content: center;
-    height: 175px;
-    width: 100%;
-	-webkit-user-select : auto;
-	background-color: #EC8032;
-}
-#main_search_span {
-    display: flex;
-    height: 60%;
-    width: 90%;
-    transition: 0.5s;
-    background-color: #FFFFFF;
-    z-index: 2;
-    border-radius: 20px;
-}
-#main_search_form {
-    position: relative;
-    height: 99%;
-    width: 90%;
-    top: 1%;
-}
-#main_search_form input {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    font-size: 40px;
-    border: 0;
-    letter-spacing: -0.05em;
-    left: 30px;
-}
-#main_search_form input:focus {
-    outline: none;
-}
-#main_search_icon {
-    height: 100%;
-    width: 15%;
-}
-#main_search_icon img {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 85%;
-}
-#search_blank {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    transform: translate(0, -175px);
-    z-index: 1;
+	background-color: #F2F2F2;
 }
 #main_head {
 	background-color: #FFFFFF;
 	display: flex;
 	justify-content: center;
 	width: 100%;
-	height: 30%;
+	height: 35%;
 	overflow: hidden;
 }
 #main_head div {
@@ -75,10 +23,29 @@
 	height: 100%;
 	width: 100%;
 }
+#main_content_menu {
+	display: flex;
+	justify-content: center;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%, 0);
+	height: 15em;
+	width: 90%;
+	margin-top: 3em;
+	border-radius: 20px;
+	background-color: #ffe0e0;
+}
+.main_content_menu_item {
+	position: relative;
+	top: 50%;
+	transform: translate(0, -50%);
+	margin: 0 2em 0 2em;
+	height: 90%;
+}
 #main_content {
 	display: flex;
 	justify-content: center;
-	height: 40%;
+	height: 50%;
 	width: 100%;
 	background-color: #F2F2F2;
 }
@@ -128,10 +95,10 @@
 	border-bottom: 3px solid #808080;
 }
 #main_content_content ul li a {
-    display: flex;
-    height: 1.5em;
-    width: 100%;
-    z-index: 1;
+	display: flex;
+	height: 1.5em;
+	width: 100%;
+	z-index: 1;
 	overflow: hidden;
 }
 #main_content_content ul li a .main_content_title {
@@ -143,6 +110,6 @@
 }
 #main_content_content ul li a .main_content_date {
 	width: 35%;
-    line-height: 2em;
+	line-height: 2em;
 	text-align: center;
 }
