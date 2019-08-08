@@ -13,6 +13,12 @@
     String imgDir = "../imgs";
 %>
 <%
+    Integer level = (Integer)session.getAttribute("user_level");
+
+    if( level == null || level != 10){
+        response.sendRedirect(Router.getInstance(request.getContextPath()).main.index);
+    }
+
     String pageNumString = request.getParameter("pageNum");
 
     int pageNum = 0;
