@@ -5,7 +5,12 @@
 <%@include file="./../header.jsp"%>
 <%--header에 head, footer에 body, html 태그 들어가 있음. 쓰면 안됨--%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/post_write.css">
-<script type="text/javascript" src="<%=jsDir%>/post.js"></script>
+<script type="text/javascript">
+    function confirm_money(){
+        var money = document.getElementById('pay').value;
+        alert((money/10000.0).toFixed(1) + "만 원");
+    };
+</script>
 <main>
     <div class="div_pageName">
         <h3 class = "h3_pageName">구인 게시글 작성</h3>
@@ -47,7 +52,8 @@
                         </li>
                         <li>
                             <div style="width: 100%; float: left">
-                                <input type="text" size="100px" name="money" style="text-align:right; width: 73%"/> 원
+                                <input type="text" size="50px" name="money" id="pay" style="text-align:right; width: 50%"/> 원
+                                <button type="button" class="money" style="font-size:0.8em; width:30%; height: 70px; padding-top: 10px" onclick="confirm_money()">가격 확인</button>
                             </div>
                             <br />
                         </li>
