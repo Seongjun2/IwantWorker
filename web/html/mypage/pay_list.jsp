@@ -4,6 +4,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="pagination.Paging" %>
+<%@ page import="Util.Util" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@include file="../header.jsp"%>
 <%
@@ -17,7 +18,7 @@
         payLogs = dao.findByUUID(uuid);
     }
 
-    int pageNum = Integer.parseInt( request.getParameter("pageNum") );
+    int pageNum = Util.parseIntOr( request.getParameter("pageNum"), 1 );
     Paging paging = new Paging(pageNum, payLogs.size());
 
 %>

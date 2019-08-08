@@ -1,10 +1,17 @@
-<%@ page import="pagination.Paging" %>
+<%@ page import="Util.Util" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
     String uri = request.getRequestURI();
-    int pageNum = Integer.parseInt( request.getParameter("pageNum") );
-    int lastPageNum = Integer.parseInt( request.getParameter("lastPageNum") );
+    int pageNum = 0;
+    int lastPageNum = 0;
+
+    try {
+        pageNum = Integer.parseInt( request.getParameter("pageNum") );
+        lastPageNum = Integer.parseInt( request.getParameter("lastPageNum") );
+    } catch ( Exception e ) {
+        return;
+    }
 %>
 
 <link rel="stylesheet" type="text/css", href="../css/pagination.css">

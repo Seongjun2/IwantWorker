@@ -22,4 +22,12 @@ public class Util {
        }
        return strENCData;
    }
+
+   public static int parseIntOr(String str, int defaultNum) {
+       try {
+           return Integer.parseInt(str);
+       } catch ( NumberFormatException e ) {
+           return defaultNum;
+       }
+   }
 }
