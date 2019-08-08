@@ -37,7 +37,7 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
         RowMapper<UserVO> rowMapper = new UserDAO_Impl();
 
         String sql = "select * from user where uuid = ?";
-        vo = template.qeuryForObject(sql, rowMapper, uuid);;
+        vo = template.qeuryForObject(sql, rowMapper, uuid);
 
         return vo;
     }
@@ -69,7 +69,7 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
     public void update(Object... args) throws Exception {
         template = new JdbcTemplate();
 
-        String sql = "update user set tell = ?, pw = ? where uuid = ?";
+        String sql = "update user set tell = ?, pw = ?, question = ?, answer = ? where uuid = ?";
         int result = template.update(sql, args);
 
         if(result < 1){
