@@ -36,6 +36,7 @@
 
 <%@include file="../header.jsp"%>
 <script type="text/javascript" src="../js/modifyInfo_admin.js"></script>
+<script type="text/javascript" src="../js/findaccount.js"></script>
 <link rel="stylesheet" type="text/css" , href="<%=cssDir%>/findaccount.css">
 <main>
     <div class="div_pageName">
@@ -45,8 +46,8 @@
         <h1 style="font-size: 3.5em">질문에 답변해주세요</h1>
         <form method="post" action="findaccount3.jsp">
             <p style="font-size: 3em">질문:<%=vo.getQuestion()%></p>
-            <input type="text" id="text" placeholder="답변을 입력해 주세요" name="answer"/>
-            <input type="submit" id="input_submit" >
+            <input type="text" id="text" placeholder="답변을 입력해 주세요" name="answer" onkeypress="submit_enter()"/>
+            <input type="button" id="input_submit"  value="제출" onclick="submit()">
         </form>
         <h1>관리자에게 문의 : </h1>
         <p>전화번호 : 010-1234-1234</p>
