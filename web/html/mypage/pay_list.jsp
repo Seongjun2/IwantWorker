@@ -3,18 +3,23 @@
 <%@ page import="VO.PayLogVO" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="pagination.Paging" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@include file="../header.jsp"%>
 <%
     Integer uuid = (Integer) session.getAttribute("uuid");
+    PayLogDAO dao = new PayLogDAO_Impl();
     List<PayLogVO> payLogs = new ArrayList<PayLogVO>();
 
     if ( uuid == null ) {
         response.sendRedirect(router.main.index);
     } else {
-        PayLogDAO dao = new PayLogDAO_Impl();
         payLogs = dao.findByUUID(uuid);
     }
+
+    int pageNum = 1;
+    Paging paging = new Paging(pageNum, payLogs.size());
+
 %>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/mypage.css">
 <main>

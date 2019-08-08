@@ -12,31 +12,18 @@ public class Paging{
     private int blockStartNum = 0;
     private int blockLastNum = 0;
     private int lastPageNum = 0;
+    private int total = 0;
 
-    public int getBlockStartNum() {
-        return blockStartNum;
+    public Paging(int curPage, int total) {
+        this.total = total;
+
+        makeBlock(curPage);
+        this.lastPageNum = makeLastPageNum(total);
     }
 
-    public void setBlockStartNum(int blockStartNum) {
-        this.blockStartNum = blockStartNum;
+    @Deprecated
+    public Paging() {
     }
-
-    public int getBlockLastNum() {
-        return blockLastNum;
-    }
-
-    public void setBlockLastNum(int blockLastNum) {
-        this.blockLastNum = blockLastNum;
-    }
-
-    public int getLastPageNum() {
-        return lastPageNum;
-    }
-
-    public void setLastPageNum(int lastPageNum) {
-        this.lastPageNum = lastPageNum;
-    }
-
 
     public void makeBlock(int curPage){
         int blockNum = 0;
@@ -46,7 +33,18 @@ public class Paging{
         blockLastNum = blockStartNum + (pageCount-1);
     }
 
+    private int makeLastPageNum(int total) {
+
+        if(total % pageCount == 0){
+            return (int) (total/pageCount);
+        }
+        else{
+            return (int) (total/pageCount) + 1;
+        }
+    }
+
     //userDAO 기준 테스트
+    @Deprecated
     public void makeLastPageNum_userList() throws Exception{
         UserDAO dao = new UserDAO_Impl();
         int total = dao.getCount();
@@ -58,6 +56,7 @@ public class Paging{
             lastPageNum = (int)Math.floor(total/pageCount)+1;
         }
     }
+    @Deprecated
     public void makeLastPageNum_board() throws Exception{
         BoardDAO boardDAO = new BoardDAO_Impl();
         int total = boardDAO.getCount();
@@ -68,6 +67,7 @@ public class Paging{
             lastPageNum = (int)Math.floor(total/pageCount)+1;
         }
     }
+    @Deprecated
     public void makeLastPageNum_payList() throws Exception{
         PayLogDAO payLogDAO = new PayLogDAO_Impl();
         payLogDAO.findAll();
@@ -93,4 +93,29 @@ public class Paging{
         }
     }
      */
+
+    public int getBlockStartNum() {
+        return blockStartNum;
+    }
+
+    public void setBlockStartNum(int blockStartNum) {
+        this.blockStartNum = blockStartNum;
+    }
+
+    public int getBlockLastNum() {
+        return blockLastNum;
+    }
+
+    public void setBlockLastNum(int blockLastNum) {
+        this.blockLastNum = blockLastNum;
+    }
+
+    public int getLastPageNum() {
+        return lastPageNum;
+    }
+
+    public void setLastPageNum(int lastPageNum) {
+        this.lastPageNum = lastPageNum;
+    }
+
 }
