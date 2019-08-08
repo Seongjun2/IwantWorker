@@ -26,6 +26,17 @@
     paging.makeLastPageNum_userList();
     int lastPageNum = paging.getLastPageNum();
 
+    UserDAO userDao = new UserDAO_Impl();
+    List<UserVO> userList = userDao.getUsers();
+    int i = ((pageNum-1) * 10)+1;
+    int lastIdx = 0;
+    int startIdx = i-1;
+
+    if(pageNum == lastPageNum) lastIdx = userList.size();
+    else{
+        lastIdx = startIdx+10;
+    }
+
 %>
 <html>
 <head>
@@ -36,7 +47,7 @@
 <main>
     <div id="main_search">
         <span id="main_search_span">
-            <form id="main_search_form">
+            <form id="main_search_form" action="<%=request.getRequestURI()%>">
                 <input id="main_search_text" type="text" name="search" placeholder="검색어를 입력하세요" onclick="onFocusSearch()" />
             </form>
             <div id="main_search_icon">
@@ -58,38 +69,13 @@
                     <th>수정</th>
                 </tr>
             </thead>
-            <tbody align="center" class = "tbody_list">
-
             <%
-                UserDAO userDao = new UserDAO_Impl();
-                List<UserVO> userList = userDao.getUsers();
-                int i = ((pageNum-1) * 10)+1;
-                int lastIdx = 0;
-                int startIdx = i-1;
-
-                if(pageNum == lastPageNum) lastIdx = userList.size();
-                else{
-                    lastIdx = startIdx+10;
-                }
-                System.out.println(startIdx);
-                System.out.println(lastIdx);
-                for(int j = startIdx; j<lastIdx;j++){
-                    if(userList.size() == 0)break;
-                    UserVO vo = userList.get(j);
-            %>
-            <tr>
-                <td> <%=i%></td>
-                <td> <%=vo.getName()%></td>
-                <td> <%=vo.getTell()%></td>
-                <td>
-                    <a href="<%=router.admin.modify_userInfo%>?uuid=<%=vo.getUuid()%>">수정하기</a>
-                </td>
-            </tr>
+                if(userList.size() > 0 ){%>
+            <%@include file="./tbody_totalUsers.jsp"%>
             <%
-                    i++;
                 }
             %>
-            </tbody>
+
         </table>
     </div>
 </main>
