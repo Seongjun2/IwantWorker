@@ -199,6 +199,7 @@ main {
 
 .div_mainDiv{
 	padding : 3em;
+	min-height: 60%;
 }
 
 /*	하단 CSS 변경금지	*/

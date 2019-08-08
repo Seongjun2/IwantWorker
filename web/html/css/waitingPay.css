@@ -14,3 +14,10 @@
 .td_statusExpire{
     color:red;
 }
+
+.select_paystate {
+    font-size: 2em;
+    width: 6em;
+    float: right;
+    padding: 0.2em;
+}

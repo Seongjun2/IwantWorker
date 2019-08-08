@@ -77,6 +77,15 @@ public class PayLogDAO_Impl implements PayLogDAO, RowMapper<PayLogVO> {
     }
 
     @Override
+    public List<PayLogVO> findStatus(String status) throws Exception {
+        List<PayLogVO> list = new ArrayList<PayLogVO>();
+        String sql = "SELECT * from paylog where status = ?";
+
+        list = template.query(sql, this, status);
+        return list;
+    }
+
+    @Override
     public PayLogVO mapRow(ResultSet rs) throws Exception {
 
         PayLogVO vo = new PayLogVO();
@@ -89,6 +98,7 @@ public class PayLogDAO_Impl implements PayLogDAO, RowMapper<PayLogVO> {
         vo.setStatus(rs.getString("status"));
         vo.setRequestTime(rs.getString("requestTime"));
         vo.setUpdateTime(rs.getString("updateTime"));
+        vo.setName(rs.getString("name"));
 
         return vo;
     }

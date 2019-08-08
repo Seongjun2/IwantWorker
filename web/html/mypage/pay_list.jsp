@@ -36,6 +36,17 @@
         <h3 class = "h3_pageName">내 결제 목록</h3>
     </div>
     <div class="div_mainDiv">
+        <% if (payLogs.size() == 0) { %>
+        <p class="empty_table">
+            아직 결제를 한 적이 없습니다. <br>
+            <span class="text-emphasis">포인트를 결제</span>하고 다양한 기능을 사용해보세요!
+        </p>
+        <div class="redirect_wrapper">
+            <a href="<%= router.board.shop %>">
+                <button class="btn_redirect" type="button"> 포인트 결제하러 가기 </button>
+            </a>
+        </div>
+        <% } else { %>
         <select id="paystate" class="select_paystate" onchange="filterState('<%=router.mypage.pay_list%>')">
             <option>전체</option>
             <option value="Wait">입금확인중</option>
@@ -78,6 +89,7 @@
         <jsp:param name="pageNum" value="<%= pageNum %>"/>
         <jsp:param name="lastPageNum" value="<%= paging.getLastPageNum() %>"/>
     </jsp:include>
+    <% } %>
 </main>
 
 <%@include file="../footer.jsp"%>
