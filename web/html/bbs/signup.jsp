@@ -10,6 +10,11 @@
     String error = null;
     success = (String)session.getAttribute("success");
     error = (String)session.getAttribute("error");
+    if ( session.getAttribute("uuid") != null ) {
+        response.sendRedirect(ctxPath + "/index.jsp");
+        session.removeAttribute("tell");
+        return;
+    }
     if ( error != null ) {
         if ( error.equals("id") ) {
             out.print("<script>alert('이미 등록된 전화번호 입니다.');</script>");
