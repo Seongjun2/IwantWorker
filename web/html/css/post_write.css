@@ -28,12 +28,12 @@ div.content{
     padding: 30px 50px;
 }
 
-ul{
+#posting form div ul {
     list-style:none;
     text-align: center;
 }
 
-li{
+#posting form div ul li{
     margin-bottom: 0.7em;
 }
 
