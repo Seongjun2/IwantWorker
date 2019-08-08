@@ -17,7 +17,7 @@
         payLogs = dao.findByUUID(uuid);
     }
 
-    int pageNum = 1;
+    int pageNum = Integer.parseInt( request.getParameter("pageNum") );
     Paging paging = new Paging(pageNum, payLogs.size());
 
 %>
@@ -38,7 +38,8 @@
                 </tr>
             </thead>
             <tbody class="table_body">
-            <% for (PayLogVO payLog: payLogs) { %>
+            <% for (int i = paging.getStartIdx()-1; i < paging.getLastIdx(); i++) { %>
+                <% PayLogVO payLog = payLogs.get(i); %>
                 <tr>
                     <td><%= payLog.getPay_id() %></td>
                     <td><%= payLog.getPoint() %></td>
@@ -58,7 +59,10 @@
             </tbody>
         </table>
     </div>
-    <%@include file="../pagination.jsp"%>
+    <jsp:include page="../pagination.jsp">
+        <jsp:param name="pageNum" value="<%= pageNum %>"/>
+        <jsp:param name="lastPageNum" value="<%= paging.getLastPageNum() %>"/>
+    </jsp:include>
 </main>
 
 <%@include file="../footer.jsp"%>

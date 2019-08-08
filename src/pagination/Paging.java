@@ -12,12 +12,14 @@ public class Paging{
     private int blockStartNum = 0;
     private int blockLastNum = 0;
     private int lastPageNum = 0;
+    private int curPageNum = 0;
     private int total = 0;
 
     public Paging(int curPage, int total) {
         this.total = total;
+        this.curPageNum = curPage;
 
-        makeBlock(curPage);
+        makeBlock(this.curPageNum);
         this.lastPageNum = makeLastPageNum(total);
     }
 
@@ -25,10 +27,20 @@ public class Paging{
     public Paging() {
     }
 
+    public int getStartIdx() {
+        return ((this.curPageNum - 1) * pageCount)+1;
+    }
+
+    public int getLastIdx() {
+        int startIdx = getStartIdx();
+
+        return Math.min(startIdx+(pageCount-1), total);
+    }
+
     public void makeBlock(int curPage){
         int blockNum = 0;
 
-        blockNum =(int)Math.floor((curPage-1)/pageCount);
+        blockNum = (int) ((curPage-1)/pageCount);
         blockStartNum = (pageCount * blockNum )+1;
         blockLastNum = blockStartNum + (pageCount-1);
     }

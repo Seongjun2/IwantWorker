@@ -3,6 +3,8 @@
 
 <%
     String uri = request.getRequestURI();
+    int pageNum = Integer.parseInt( request.getParameter("pageNum") );
+    int lastPageNum = Integer.parseInt( request.getParameter("lastPageNum") );
 %>
 
 <link rel="stylesheet" type="text/css", href="../css/pagination.css">
@@ -11,7 +13,7 @@
         <div>
             <a class="prev page-numbers" href="javascript:;">prev</a>
             <%
-                for(int j = 0; j<lastPageNum;j++){
+                for(int j = 0; j < lastPageNum;j++){
                     if(pageNum == j+1){%>
             <span aria-current="page" class="page-numbers current"><%=j+1%></span>
             <%
