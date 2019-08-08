@@ -45,18 +45,30 @@
     </div>
     <div id="main_content">
         <article>
-            <div id="main_content_header">
+            <div id="main_content_header" onclick="goBoard()">
                 <span><strong>구인 게시판</strong></span>
                 <img src="./imgs/plus_icon.png" />
             </div>
-            <div id="main_content_content" onclick="goBoard()">
+            <div id="main_content_content">
                 <ul>
                     <% for(int i = 0; i < 3; i++) { %>
                     <li>
-                        <a href="<%= (boardVOList.get(i) != null)?"bbs/post_view.jsp?bo_id="+boardVOList.get(i).getBoard_id():"" %>">
-                        <div class="main_content_title"><%= (boardVOList.get(i) != null)?boardVOList.get(i).getText():"게시글이 없습니다" %></div>
-                        <div class="main_content_date"><%= (boardVOList.get(i) != null)?boardVOList.get(i).getWriteTime().split(" ")[0]:"" %></div>
-                        </a>
+                        <% try { %>
+                            <%
+                                Integer bo_id = boardVOList.get(i).getBoard_id();
+                                String title = boardVOList.get(i).getText();
+                                String date = boardVOList.get(i).getWriteTime().split(" ")[0];
+                            %>
+                            <a href="bbs/post_view.jsp?bo_id=<%=bo_id%>">
+                            <div class="main_content_title"><%=title%></div>
+                            <div class="main_content_date"><%=date%></div>
+                            </a>
+                        <% } catch (Exception e) {%>
+                            <a>
+                            <div class="main_content_title">게시글이 없습니다...</div>
+                            <div class="main_content_date"></div>
+                            </a>
+                        <% } %>
                     </li>
                     <% } %>
                 </ul>
