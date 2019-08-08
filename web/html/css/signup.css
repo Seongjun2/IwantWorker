@@ -1,0 +1,87 @@
+main{
+    height: auto;
+}
+
+.div_mainDiv {
+    padding: 3em;
+}
+
+.div_userInfo{
+    margin-bottom: 5em;
+    width:80%;
+}
+
+.p_userInfo{
+    font-size : 3em;
+    /*opacity: 0.5;*/
+    margin-bottom: 0.3em;
+}
+
+.input_userInfo{
+    border : 0;
+    border-bottom:2px solid #aaa;
+    border-radius:4px;
+    margin:8px 0;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition:.3s;
+    font-size: 3em;
+}
+
+select {
+
+    width: 100%; /* 원하는 너비설정 */
+    padding: .8em .5em; /* 여백으로 높이 설정 */
+    font-family: inherit;  /* 폰트 상속 */
+    border: 1px solid #999;
+    border-radius: 0px; /* iOS 둥근모서리 제거 */
+    appearance: auto;
+    margin-bottom: 1em;
+}
+
+
+#div_submit {
+    height: 120px;
+}
+
+#input_submit{
+    position: absolute;
+    left: 50%;
+    font-size: 3em;
+    text-align: center;
+    width: 65%;
+    height:100px;
+    margin-bottom: 1em;
+    background: #ec8032;
+    color: #ffffff;
+    border-radius: 30px;
+    transform: translate(-50%, 0%);
+}
+
+
+.input_userInfo:focus{
+    border-color:#ffb362;
+    box-shadow:0 0 8px 0 #ffb362;
+}
+
+#explain_inputTell{
+    font-size: 2em;
+    color: red;
+
+}
+
+p {
+    font-size : 3em;
+    /*opacity: 0.5;*/
+    margin-bottom: 0.3em;
+}
+
+#pw, #pw_check {
+    ime-mode:inactive;
+}
+
+#name , #answer {
+    ime-mode:active;
+}
+
