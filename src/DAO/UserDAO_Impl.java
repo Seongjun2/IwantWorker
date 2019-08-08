@@ -100,6 +100,18 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
     }
 
     @Override
+    public void deleteByUUID(int uuid) throws Exception {
+        template = new JdbcTemplate();
+
+        String sql = "DELETE FROM user WHERE uuid = ?";
+        int result = template.update(sql, uuid);
+
+        if(result < 1){
+            System.out.println("유저가 삭제되지 않았습니다.");
+        }
+    }
+
+    @Override
     public UserVO mapRow(ResultSet rs) throws Exception{
         UserVO vo = new UserVO();
 
