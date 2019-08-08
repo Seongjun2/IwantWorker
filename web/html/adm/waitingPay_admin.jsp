@@ -28,10 +28,16 @@
     else{
         pageNum = Integer.parseInt(pageNumString);
     }
+    String status = request.getParameter("status");
 
     PayLogDAO payLogDAO = new PayLogDAO_Impl();
-    List<PayLogVO> payLogList = payLogDAO.findAll();
-
+    List<PayLogVO> payLogList = null;
+    if(status == null || status.equals("전체")){
+         payLogList = payLogDAO.findAll();
+    }
+    else{
+        payLogList = payLogDAO.findStatus(status);
+    }
     Paging paging = new Paging(pageNum, payLogList.size());
 
 %>
@@ -44,6 +50,12 @@
     </div>
     <div class="div_mainDiv">
 
+        <select id="paystate" class="select_paystate" onchange="filterState('<%=router.admin.wating_pay%>')">
+            <option>전체</option>
+            <option value="Wait">입금확인중</option>
+            <option value="Success">결제완료</option>
+            <option value="Expire">결제취소</option>
+        </select>
         <table id = "userTable">
             <thead align="center">
             <tr>
@@ -62,12 +74,18 @@
                 int num = ((pageNum-1)*10)+1;
                 for(int i = startIdx-1; i< lastIdx; i++){
                     if(i > payLogList.size()-1 )break;
-                    PayLogVO vo =payLogList.get(i);
+                    PayLogVO vo = payLogList.get(i);
                     int uuid = vo.getUuid();
                     UserDAO userDAO2 = new UserDAO_Impl();
                     UserVO userVO2 = userDAO2.getUserInfo(uuid);
+                    if(userVO2 == null){%>
+                        <td colspan="4">test</td>
+                    <%
+                        continue;
+                    }
+
                     String userName = userVO2.getName();
-                    String status = vo.getStatus();
+                    String vo_status = vo.getStatus();
                     String day = (vo.getRequestTime()).substring(0,10);
             %>
             <tr>
@@ -76,11 +94,11 @@
                 <td><%=vo.getPoint()%></td>
                 <td><%=vo.getPrice()%></td>
                 <td id = "td_date"><%=day%></td>
-                <%if(status.equals("Success")){%>
+                <%if(vo_status.equals("Success")){%>
                 <td class = "td_statusSuccess">승인</td>
-                <%}else if(status.equals("Expire")){%>
+                <%}else if(vo_status.equals("Expire")){%>
                 <td class = "td_statusExpire">거절</td>
-                <%}else if(status.equals("Wait")){%>
+                <%}else if(vo_status.equals("Wait")){%>
                 <td><a href="./updatePoint.jsp?status=Success&uuid=<%=uuid%>&chargePoint=<%=vo.getPoint()%>&pay_id=<%=vo.getPay_id()%>">승인</a><br/>
                     <a href="./updatePoint.jsp?status=Expire&uuid=<%=uuid%>&chargePoint=<%=vo.getPoint()%>&pay_id=<%=vo.getPay_id()%>">거절</a></td>
                 <%}%>
@@ -99,5 +117,6 @@
 
     <link rel="stylesheet" type="text/css", href="<%=cssDir%>/userList.css">
     <link rel="stylesheet" type="text/css", href="<%=cssDir%>/waitingPay.css">
-
+    <script type="text/javascript" src="<%= jsDir %>/mypage.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 </html>

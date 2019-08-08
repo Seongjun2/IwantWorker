@@ -1,23 +1,27 @@
 .login_menu button{
-    height: 120px;
-    width: 100%;
+    height: 100px;
+    width: 65%;
     border-radius:30px;
     background: #ffffff;
     border: 4px solid #ec8032;
-    font-size: 3.5em;
+    font-size: 3em;
+    margin-left : 50%;
+    transform: translate(-50%, 0%);
 }
 #div_submit {
     height: 120px;
 }
 #input_submit{
+    margin-left: 50%;
     font-size: 3em;
     text-align: center;
-    width:100%;
-    height: 100%;
+    width: 65%;
+    height:100px;
     margin-bottom: 1em;
     background: #ec8032;
     color: #ffffff;
     border-radius: 30px;
+    transform: translate(-50%, 0%);
 }
 
 input {
@@ -29,6 +33,7 @@ input {
 }
 .div_userInfo{
     margin-bottom: 5em;
+    width:80%;
 }
 .p_userInfo{
     font-size : 3em;
@@ -81,7 +86,7 @@ p {
 }
 
 .login_menu {
-    margin-bottom: 5em;
+    margin-bottom: 1em;
 }
 .login_menu div {
     width: 100%;
@@ -90,4 +95,8 @@ p {
 .login_menu div button {
     background: #ec8032;
     color: #ffffff;
+}
+
+.p_loginExplain{
+    font-size: 2.8em;
 }
