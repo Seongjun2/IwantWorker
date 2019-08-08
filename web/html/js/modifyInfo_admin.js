@@ -25,6 +25,11 @@ function SetNum(obj){
     obj.value=val.replace(re,"");
 
 }
+
+function leave() {
+    confirm("정말로 회원탈퇴 하시겠습니까? 삭제된 계정은 복구할 수 없습니다.");
+}
+
 window.onload = function(){
     var question = document.getElementById("hidden_question").value;
     var selects = document.getElementsByName("questions")[0];
