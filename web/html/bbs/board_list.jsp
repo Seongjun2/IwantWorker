@@ -1,6 +1,7 @@
 <%@ page import="VO.BoardVO" %>
 <%@ page import="java.util.List" %>
 <%@ page import="DAO.BoardDAO_Impl" %>
+<%@ page import="Util.PreventSQLInjection" %>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" %>
 <%@include file="../header.jsp"%>
 <%
@@ -14,6 +15,10 @@
         list = dao.findAll(search);
     } catch (Exception e) {
         e.printStackTrace();
+    }
+
+    if (!PreventSQLInjection.passOrNot(search)) {
+        response.sendRedirect(router.board.board_list);
     }
 %>
 <%--<% System.out.println(router.board.post_get); %>--%>
