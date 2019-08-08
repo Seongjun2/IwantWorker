@@ -3,6 +3,7 @@
 <%@ page import="routes.Router" %>
 <%@ page import="enums.Permission" %>
 <%@ page import="Util.Util" %>
+<%@ page import="VO.UserVO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     Router router = Router.getInstance(request.getContextPath());
@@ -21,6 +22,11 @@
 <%
     String enc_pw = Util.md5(pw);
     UserDAO dao = new UserDAO_Impl();
+    UserVO beforeUser = dao.getUserInfo(uuid);
+
+    if (tell == null || tell.equals("")) tell = beforeUser.getTell();
+    if (pw == null || pw.equals("")) pw = beforeUser.getPw();
+
     dao.update(tell, enc_pw, uuid);
 
 %>
