@@ -12,7 +12,12 @@
     Integer bo_id = Integer.parseInt(request.getParameter("bo_id"));
     BoardDAO dao = new BoardDAO_Impl();
 
-    BoardVO vo = dao.findByBoID(bo_id);
+    BoardVO vo = null;
+    try {
+        vo = dao.findByBoID(bo_id);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
     String money = String.format("%.1f", vo.getMoney()/10000.0);
 %>
 

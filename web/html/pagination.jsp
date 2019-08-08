@@ -1,8 +1,17 @@
-<%@ page import="pagination.Paging" %>
+<%@ page import="Util.Util" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
     String uri = request.getRequestURI();
+    int pageNum = 0;
+    int lastPageNum = 0;
+
+    try {
+        pageNum = Integer.parseInt( request.getParameter("pageNum") );
+        lastPageNum = Integer.parseInt( request.getParameter("lastPageNum") );
+    } catch ( Exception e ) {
+        return;
+    }
 %>
 
 <link rel="stylesheet" type="text/css", href="../css/pagination.css">
@@ -11,7 +20,7 @@
         <div>
             <a class="prev page-numbers" href="javascript:;">prev</a>
             <%
-                for(int j = 0; j<lastPageNum;j++){
+                for(int j = 0; j < lastPageNum;j++){
                     if(pageNum == j+1){%>
             <span aria-current="page" class="page-numbers current"><%=j+1%></span>
             <%
