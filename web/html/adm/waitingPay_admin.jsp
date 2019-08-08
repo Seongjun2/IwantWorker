@@ -1,22 +1,18 @@
-<%@ page import="DAO.UserDAO" %>
-<%@ page import="DAO.UserDAO_Impl" %>
-<%@ page import="VO.UserVO" %>
 <%@ page import="java.util.List" %>
 <%@ page import="DAO.PayLogDAO" %>
 <%@ page import="DAO.PayLogDAO_Impl" %>
 <%@ page import="VO.PayLogVO" %>
 <%@ page import="pagination.Paging" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding ="EUC-KR"%>
-<%!
-    String cssDir = "../css";
-    String jsDir = "../js";
-    String imgDir = "../imgs";
-%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding ="UTF-8"%>
+<%@include file="../header.jsp"%>
+
 <%
     Integer level = (Integer)session.getAttribute("user_level");
+    Integer uuid = (Integer) session.getAttribute("uuid");
 
-    if( level == null || level != 10){
-        response.sendRedirect(Router.getInstance(request.getContextPath()).main.index);
+    if( level == null || uuid == null || level != 10){
+        response.sendRedirect(router.main.index);
     }
 
     String pageNumString = request.getParameter("pageNum");
@@ -31,40 +27,39 @@
     String status = request.getParameter("status");
 
     PayLogDAO payLogDAO = new PayLogDAO_Impl();
-    List<PayLogVO> payLogList = null;
-    if(status == null || status.equals("ÀüÃ¼")){
-         payLogList = payLogDAO.findAll();
-    }
-    else{
+    List<PayLogVO> payLogList = new ArrayList<PayLogVO>();
+
+    if ( status != null && (status.equals("Wait") || status.equals("Success") || status.equals("Expire"))) {
         payLogList = payLogDAO.findStatus(status);
+    } else {
+        payLogList = payLogDAO.findAll();
+        status = "All";
     }
+
     Paging paging = new Paging(pageNum, payLogList.size());
 
 %>
-<html>
-<body>
-<%@include file="../header.jsp"%>
 <main>
     <div class="div_pageName">
-        <h3 class="h3_pageName">°áÁ¦ ´ë±â ¸ñ·Ï</h3>
+        <h3 class="h3_pageName">ê²°ì œ ëŒ€ê¸° ëª©ë¡</h3>
     </div>
     <div class="div_mainDiv">
-
         <select id="paystate" class="select_paystate" onchange="filterState('<%=router.admin.wating_pay%>')">
-            <option>ÀüÃ¼</option>
-            <option value="Wait">ÀÔ±İÈ®ÀÎÁß</option>
-            <option value="Success">°áÁ¦¿Ï·á</option>
-            <option value="Expire">°áÁ¦Ãë¼Ò</option>
+            <option value="All">ì „ì²´</option>
+            <option value="Wait">ì…ê¸ˆí™•ì¸ì¤‘</option>
+            <option value="Success">ê²°ì œì™„ë£Œ</option>
+            <option value="Expire">ê²°ì œì·¨ì†Œ</option>
         </select>
+        <input type="hidden" id ="hidden_status" value = "<%= status %>"/>
         <table id = "userTable">
             <thead align="center">
             <tr>
-                <th id ="th_payNo">°áÁ¦<br/>¹øÈ£</th>
-                <th id = "th_name">ÀÌ¸§</th>
-                <th id = "th_point">ÃæÀü</br>Æ÷ÀÎÆ®</th>
-                <th id = "th_price">°¡°İ</th>
-                <th id = "th_date">³¯Â¥</th>
-                <th id = "th_status">»óÅÂ</th>
+                <th id ="th_payNo">ê²°ì œ<br/>ë²ˆí˜¸</th>
+                <th id = "th_name">ì´ë¦„</th>
+                <th id = "th_point">ì¶©ì „</br>í¬ì¸íŠ¸</th>
+                <th id = "th_price">ê°€ê²©</th>
+                <th id = "th_date">ë‚ ì§œ</th>
+                <th id = "th_status">ìƒíƒœ</th>
             </tr>
             </thead>
             <tbody align="center">
@@ -75,7 +70,7 @@
                 for(int i = startIdx-1; i< lastIdx; i++){
                     if(i > payLogList.size()-1 )break;
                     PayLogVO vo = payLogList.get(i);
-                    int uuid = vo.getUuid();
+                    int userUUID = vo.getUuid();
                     String vo_status = vo.getStatus();
                     String day = (vo.getRequestTime()).substring(0,10);
             %>
@@ -86,12 +81,12 @@
                 <td><%=vo.getPrice()%></td>
                 <td id = "td_date"><%=day%></td>
                 <%if(vo_status.equals("Success")){%>
-                <td class = "td_statusSuccess">½ÂÀÎ</td>
+                <td class = "td_statusSuccess">ìŠ¹ì¸</td>
                 <%}else if(vo_status.equals("Expire")){%>
-                <td class = "td_statusExpire">°ÅÀı</td>
+                <td class = "td_statusExpire">ê±°ì ˆ</td>
                 <%}else if(vo_status.equals("Wait")){%>
-                <td><a href="./updatePoint.jsp?status=Success&uuid=<%=uuid%>&chargePoint=<%=vo.getPoint()%>&pay_id=<%=vo.getPay_id()%>">½ÂÀÎ</a><br/>
-                    <a href="./updatePoint.jsp?status=Expire&uuid=<%=uuid%>&chargePoint=<%=vo.getPoint()%>&pay_id=<%=vo.getPay_id()%>">°ÅÀı</a></td>
+                <td><a href="./updatePoint.jsp?status=Success&uuid=<%=userUUID%>&chargePoint=<%=vo.getPoint()%>&pay_id=<%=vo.getPay_id()%>">ìŠ¹ì¸</a><br/>
+                    <a href="./updatePoint.jsp?status=Expire&uuid=<%=userUUID%>&chargePoint=<%=vo.getPoint()%>&pay_id=<%=vo.getPay_id()%>">ê±°ì ˆ</a></td>
                 <%}%>
             </tr>
             <%num++;}%>
