@@ -35,7 +35,6 @@
 %>
 
 <%@include file="../header.jsp"%>
-<script type="text/javascript" src="../js/modifyInfo_admin.js"></script>
 <script type="text/javascript" src="../js/findaccount.js"></script>
 <link rel="stylesheet" type="text/css" , href="<%=cssDir%>/findaccount.css">
 <main>
