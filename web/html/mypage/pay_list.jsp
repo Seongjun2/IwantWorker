@@ -42,7 +42,9 @@
             <span class="text-emphasis">포인트를 결제</span>하고 다양한 기능을 사용해보세요!
         </p>
         <div class="redirect_wrapper">
-            <button class="btn_redirect" type="button"> 포인트 결제하러 가기 </button>
+            <a href="<%= router.board.shop %>">
+                <button class="btn_redirect" type="button"> 포인트 결제하러 가기 </button>
+            </a>
         </div>
         <% } else { %>
         <select id="paystate" class="select_paystate" onchange="filterState('<%=router.mypage.pay_list%>')">
