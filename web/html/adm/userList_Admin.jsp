@@ -9,6 +9,16 @@
     String imgDir = "../imgs";
 %>
 <%
+    String level = (String)session.getAttribute("user_level");
+
+    if( level ==null ||!level.equals("10")){
+        response.sendRedirect(Router.getInstance(request.getContextPath()).main.index);
+    }
+    String _uri = request.getRequestURI();
+    String searchName = null;
+
+    searchName = request.getParameter("search");
+
     String pageNumString = request.getParameter("pageNum");
 
     int pageNum = 0;
@@ -26,16 +36,6 @@
     paging.makeLastPageNum_userList();
     int lastPageNum = paging.getLastPageNum();
 
-    UserDAO userDao = new UserDAO_Impl();
-    List<UserVO> userList = userDao.getUsers();
-    int i = ((pageNum-1) * 10)+1;
-    int lastIdx = 0;
-    int startIdx = i-1;
-
-    if(pageNum == lastPageNum) lastIdx = userList.size();
-    else{
-        lastIdx = startIdx+10;
-    }
 
 %>
 <html>
@@ -48,13 +48,12 @@
     <div id="main_search">
         <span id="main_search_span">
             <form id="main_search_form">
-                <input id="user_search_text" type="text" name="search" placeholder="검색어를 입력하세요" onclick="onFocusSearch()" />
+                <input id="user_search_text" type="text" name="search" placeholder="이름을 입력하세요" onclick="onFocusSearch(<%=_uri%>)" />
             </form>
             <div id="main_search_icon">
                 <img src="<%= imgDir %>/lenz.png" />
             </div>
         </span>
-        <div id="search_blank" onclick="disFocusSearch()"></div>
     </div>
     <div class="div_pageName">
         <h3 class="h3_pageName">회원목록 조회</h3>
@@ -70,12 +69,14 @@
                 </tr>
             </thead>
             <%
-                if(userList.size() > 0 ){%>
-            <%@include file="./tbody_totalUsers.jsp"%>
+                if(searchName == null || searchName.equals("")){%>
+                <%@include file="./tbody_totalUsers.jsp"%>
+            <%
+                }else{%>
+                <%@include file="./tbody_searchUser.jsp"%>
             <%
                 }
             %>
-
         </table>
     </div>
 </main>
@@ -85,4 +86,5 @@
     <link rel="stylesheet" type="text/css", href="<%=cssDir%>/userList.css">
 <link rel="stylesheet" type="text/css", href="<%=cssDir%>/main.css">
     <script type="text/javascript" src="../js/pagination_admin.js"></script>
+    <script type="text/javascript" src="../js/userList.js"></script>
 </html>
