@@ -8,8 +8,9 @@
     String ctxPath = request.getContextPath()+"/html";
     String error = null;
     error = (String)session.getAttribute("error");
+
+
     if ( session.getAttribute("uuid") != null ) {
-        System.out.println("뺴얘얘얭");
         response.sendRedirect(ctxPath + "/index.jsp");
         return;
     }
