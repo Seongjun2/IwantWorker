@@ -28,11 +28,19 @@
 }
 
 #submit_upload{
-    transform: translate(-50%, 0%);
-    position: relative;
-    left: 50%;
+    position:relative;
+    left:50%;
     font-size: 3em;
+    text-align: center;
+    width: 65%;
+    height:100px;
+    margin-bottom: 1em;
+    background: #ec8032;
+    color: #ffffff;
+    border-radius: 30px;
+    transform: translate(-50%, 0%);
 }
+
 .img_show{
     width : 100%;
 }

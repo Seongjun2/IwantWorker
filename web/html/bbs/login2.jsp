@@ -17,7 +17,6 @@
         UserVO vo = dao.getUserInfo2(tell);
         if ( vo != null ) {
             if ( vo.getPw().equals(Util.md5(pw)) ) {
-                System.out.println("???");
                 session.setAttribute("uuid" , vo.getUuid());
                 session.setAttribute("user_level" ,vo.getPermission());
                 out.print("<script>alert('로그인에 성공하였습니다.');</script>");
