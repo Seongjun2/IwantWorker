@@ -1,11 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.oreilly.servlet.MultipartRequest" %>
-<%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
+
 <%@ page import="java.util.Enumeration" %>
 <%@ page import="file.FileManager" %>
 <%@ page import="DAO.BannerDAO" %>
 <%@ page import="DAO.BannerDAO_Impl" %>
 <%@ page import="VO.BannerVO" %>
+<%@ page import="com.oreilly.servlet.MultipartRequest" %>
+<%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
 <%
     String uploadPath = request.getServletContext().getRealPath("/uploadImg");
     System.out.println(("절대경로 : " + uploadPath));
