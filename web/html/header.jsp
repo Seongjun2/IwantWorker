@@ -70,6 +70,7 @@
             <a href="<%= router.admin.userlist %>"><li>회원 리스트</li></a>
             <a href="<%= router.board.board_list %>"><li>게시판</li></a>
             <a href="<%= router.admin.wating_pay %>"><li>결제 목록</li></a>
+            <a href="<%= router.admin.banner %>"><li>배너 관리</li></a>
             <a href="<%=__PATH__%>/bbs/logout.jsp"><li>로그아웃</li></a>
             <% } else if(user_level >= 1) { %>
             <a href="<%= router.mypage.modify_myInfo %>"><li>내정보 수정</li></a>
