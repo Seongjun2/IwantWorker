@@ -9,7 +9,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" %>
 <%
-
     Integer bo_id = Integer.parseInt(request.getParameter("bo_id"));
     BoardDAO dao = new BoardDAO_Impl();
 
@@ -32,7 +31,7 @@
     </div>
     <span class="div_mainDiv">
         <div id="posting">
-            <form method="POST" action="post_add.jsp">
+            <form method="POST" action="<%=router.board.post_update%>?bo_id=<%=bo_id%>">
                 <div style="width: 30%; float: left">
                     <ul>
                         <li>제목</li>
@@ -85,7 +84,7 @@
                 <div class="content">
                     <span>내용</span>
                     <div style="padding-top: 30px">
-                        <textarea wrap="hard" name="content" value="<%=vo.getContent()%>"></textarea>
+                        <textarea wrap="hard" name="content"><%=vo.getContent()%></textarea>
                     </div>
                 </div>
                 <div style="text-align: center">

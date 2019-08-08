@@ -7,6 +7,7 @@ import database.RowMapper;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class BoardDAO_Impl implements BoardDAO, RowMapper<BoardVO> {
     private JdbcTemplate template = null;
@@ -20,6 +21,12 @@ public class BoardDAO_Impl implements BoardDAO, RowMapper<BoardVO> {
     public void add(Object... args) throws Exception {
 
         String sql = "insert into board values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        template.update(sql, args);
+    }
+
+    @Override
+    public void update(Object... args) throws Exception{
+        String sql = "update board set Title=?, Content=?, StartDate=?, EndDate=?, WorkTime=?, Addr=?, WriteTime=? where Bo_Id=?";
         template.update(sql, args);
     }
 

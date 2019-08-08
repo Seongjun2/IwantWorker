@@ -10,6 +10,7 @@ public class BoardRoute {
     public final String post_write;
     public final String post_get;
     public final String post_change;
+    public final String post_update;
     public final String shop;
 
     public BoardRoute( String ctxPath ) {
@@ -21,6 +22,7 @@ public class BoardRoute {
         post_write = baseURL + "/post_write.jsp";
         post_get = baseURL + "/post_get.jsp";
         post_change = baseURL + "/post_change.jsp";
+        post_update = baseURL + "/post_update.jsp";
         shop = baseURL + "/shop.jsp";
     }
 }

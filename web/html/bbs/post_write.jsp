@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" %>
-<%
-    session.setAttribute("uuid", 23);
-%>
+<%--<%--%>
+<%--    session.setAttribute("uuid", 23);--%>
+<%--%>--%>
 <%@include file="./../header.jsp"%>
 <%--header에 head, footer에 body, html 태그 들어가 있음. 쓰면 안됨--%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/post_write.css">
