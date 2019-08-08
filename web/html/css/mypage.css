@@ -36,3 +36,14 @@
 .btn_modify{
     font-size: 1em;
 }
+
+.select_paystate {
+    font-size: 2em;
+    width: 6em;
+    float: right;
+    padding: 0.2em;
+}
+
+.select_paystate option {
+    font-size: 1em;
+}

@@ -23,12 +23,10 @@
         pageNum = Integer.parseInt(pageNumString);
     }
 
-    Paging paging = new Paging();
-    paging.makeBlock(pageNum);
-    int blockStartNum = paging.getBlockStartNum();
-    int blockLastNum = paging.getBlockLastNum();
-    paging.makeLastPageNum_userList();
-    int lastPageNum = paging.getLastPageNum();
+    PayLogDAO payLogDAO = new PayLogDAO_Impl();
+    List<PayLogVO> payLogList = payLogDAO.findAll();
+
+    Paging paging = new Paging(pageNum, payLogList.size());
 
 %>
 <html>
@@ -44,30 +42,19 @@
             <thead align="center">
             <tr>
                 <th id ="th_payNo">결제<br/>번호</th>
-                <th>이름</th>
-                <th>충전</br>포인트</th>
-                <th>가격</th>
-                <th>날짜</th>
-                <th>상태</th>
+                <th id = "th_name">이름</th>
+                <th id = "th_point">충전</br>포인트</th>
+                <th id = "th_price">가격</th>
+                <th id = "th_date">날짜</th>
+                <th id = "th_status">상태</th>
             </tr>
             </thead>
             <tbody align="center">
             <%
-
-
-                PayLogDAO payLogDAO = new PayLogDAO_Impl();
-                List<PayLogVO> payLogList = payLogDAO.findAll();
-
-                int num = ((pageNum-1) * 10)+1;
-                int lastIdx = 0;
-                int startIdx = num-1;
-
-                if(pageNum == lastPageNum) lastIdx = payLogList.size();
-                else{
-                    lastIdx = startIdx+10;
-                }
-
-                for(int i = startIdx; i< lastIdx; i++){
+                int startIdx = paging.getStartIdx();
+                int lastIdx = paging.getLastIdx();
+                int num = ((pageNum-1)*10)+1;
+                for(int i = startIdx-1; i< lastIdx; i++){
                     if(i > payLogList.size()-1 )break;
                     PayLogVO vo =payLogList.get(i);
                     int uuid = vo.getUuid();
@@ -79,14 +66,14 @@
             %>
             <tr>
                 <td><%=num%></td>
-                <td><%=userName%></td>
+                <td id = "td_name"><%=userName%></td>
                 <td><%=vo.getPoint()%></td>
                 <td><%=vo.getPrice()%></td>
-                <td><%=day%></td>
+                <td id = "td_date"><%=day%></td>
                 <%if(status.equals("Success")){%>
-                <td>승인</td>
+                <td class = "td_statusSuccess">승인</td>
                 <%}else if(status.equals("Expire")){%>
-                <td>거절</td>
+                <td class = "td_statusExpire">거절</td>
                 <%}else if(status.equals("Wait")){%>
                 <td><a href="./updatePoint.jsp?status=Success&uuid=<%=uuid%>&chargePoint=<%=vo.getPoint()%>&pay_id=<%=vo.getPay_id()%>">승인</a><br/>
                     <a href="./updatePoint.jsp?status=Expire&uuid=<%=uuid%>&chargePoint=<%=vo.getPoint()%>&pay_id=<%=vo.getPay_id()%>">거절</a></td>
@@ -97,9 +84,14 @@
         </table>
     </div>
 </main>
-<%@include file="../pagination.jsp"%>
+<jsp:include page="../pagination.jsp">
+    <jsp:param name="pageNum" value="<%= pageNum %>"/>
+    <jsp:param name="lastPageNum" value="<%= paging.getLastPageNum() %>"/>
+</jsp:include>
 <%@include file="../footer.jsp"%>
 </body>
 
     <link rel="stylesheet" type="text/css", href="<%=cssDir%>/userList.css">
+    <link rel="stylesheet" type="text/css", href="<%=cssDir%>/waitingPay.css">
+
 </html>

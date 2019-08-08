@@ -15,6 +15,10 @@ public class PayLogDAO_Impl implements PayLogDAO, RowMapper<PayLogVO> {
     private JdbcTemplate template = null;
     private Connection conn;
 
+    public PayLogDAO_Impl() {
+        this.template = new JdbcTemplate();
+    }
+
     @Override
     public void add(PayLogVO vo) throws Exception {
 
@@ -23,7 +27,6 @@ public class PayLogDAO_Impl implements PayLogDAO, RowMapper<PayLogVO> {
     @Override
     public List<PayLogVO> findAll() throws Exception {
         List<PayLogVO> list = new ArrayList<>();
-        template = new JdbcTemplate();
         RowMapper<PayLogVO> rowMapper = new PayLogDAO_Impl();
 
         conn = sqlConnector.connect();
@@ -37,7 +40,6 @@ public class PayLogDAO_Impl implements PayLogDAO, RowMapper<PayLogVO> {
 
     @Override
     public List<PayLogVO> findByUUID(Integer uuid) throws Exception {
-        template = new JdbcTemplate();
         List<PayLogVO> list = new ArrayList<PayLogVO>();
         String sql = "SELECT " +
                 "pay_id, uuid, tell, point, price, status, requestTime, updateTime " +
@@ -51,7 +53,6 @@ public class PayLogDAO_Impl implements PayLogDAO, RowMapper<PayLogVO> {
 
     @Override
     public int getCount() throws Exception{
-        template = new JdbcTemplate();
         String sql = "SELECT COUNT(*) as cnt FROM paylog";
         int rc = template.rowCount(sql);
 
@@ -60,6 +61,19 @@ public class PayLogDAO_Impl implements PayLogDAO, RowMapper<PayLogVO> {
         }
 
         return rc;
+    }
+
+    @Override
+    public List<PayLogVO> findByUUIDAndStatus(Integer uuid, String state) throws Exception {
+        List<PayLogVO> list = new ArrayList<PayLogVO>();
+        String sql = "SELECT " +
+                "pay_id, uuid, tell, point, price, status, requestTime, updateTime " +
+                "FROM paylog " +
+                "WHERE uuid=? and status=?";
+
+        list = template.query(sql, this, uuid, state);
+
+        return list;
     }
 
     @Override
