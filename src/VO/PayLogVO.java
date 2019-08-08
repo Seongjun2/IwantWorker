@@ -9,6 +9,7 @@ public class PayLogVO{
    private String status = null;
    private String requestTime = null;
    private String updateTime = null;
+   private String name = null;
 
    public Integer getPay_id() {
       return pay_id;
@@ -74,6 +75,10 @@ public class PayLogVO{
       this.updateTime = updateTime;
    }
 
+   public String getName() { return name; }
+
+   public void setName(String name) {this.name = name; }
+
    @Override
    public String toString() {
       return "PayLogVO{" +
@@ -85,6 +90,7 @@ public class PayLogVO{
               ", status='" + status + '\'' +
               ", requestTime='" + requestTime + '\'' +
               ", updateTime='" + updateTime + '\'' +
+              ", name='" + name + '\'' +
               '}';
    }
 }

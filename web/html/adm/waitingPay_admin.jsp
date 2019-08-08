@@ -62,10 +62,16 @@
                 int num = ((pageNum-1)*10)+1;
                 for(int i = startIdx-1; i< lastIdx; i++){
                     if(i > payLogList.size()-1 )break;
-                    PayLogVO vo =payLogList.get(i);
+                    PayLogVO vo = payLogList.get(i);
                     int uuid = vo.getUuid();
                     UserDAO userDAO2 = new UserDAO_Impl();
                     UserVO userVO2 = userDAO2.getUserInfo(uuid);
+                    if(userVO2 == null){%>
+                        <td colspan="4">test</td>
+                    <%
+                        continue;
+                    }
+
                     String userName = userVO2.getName();
                     String status = vo.getStatus();
                     String day = (vo.getRequestTime()).substring(0,10);

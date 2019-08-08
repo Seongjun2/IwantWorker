@@ -89,6 +89,7 @@ public class PayLogDAO_Impl implements PayLogDAO, RowMapper<PayLogVO> {
         vo.setStatus(rs.getString("status"));
         vo.setRequestTime(rs.getString("requestTime"));
         vo.setUpdateTime(rs.getString("updateTime"));
+        vo.setName(rs.getString("name"));
 
         return vo;
     }
