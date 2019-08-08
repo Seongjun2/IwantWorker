@@ -1,9 +1,6 @@
 <%@ page import="VO.BoardVO" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="DAO.UserDAO_Impl" %>
 <%@ page import="DAO.BoardDAO_Impl" %>
-<%@ page import="java.util.Date" %>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" %>
 <%@include file="../header.jsp"%>
 <%
@@ -13,7 +10,11 @@
     BoardDAO_Impl dao = new BoardDAO_Impl();
 
     List<BoardVO> list = null;
-    list = dao.findAll(search);
+    try {
+        list = dao.findAll(search);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
 %>
 <%--<% System.out.println(router.board.post_get); %>--%>
 <%--header에 head, footer에 body, html 태그 들어가 있음. 쓰면 안됨--%>
