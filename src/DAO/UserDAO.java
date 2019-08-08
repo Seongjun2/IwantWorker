@@ -14,5 +14,6 @@ public interface UserDAO{
   void update(Object... args) throws Exception;
   List<UserVO> getUsers() throws Exception;
   int getCount() throws Exception;
+  void deleteByUUID(int uuid) throws Exception;
 
 }

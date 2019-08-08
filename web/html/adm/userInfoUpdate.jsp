@@ -10,7 +10,7 @@
 
     String tell = request.getParameter("tell");
     String pw = request.getParameter("pw");
-    String question = request.getParameter("question");
+    String question = request.getParameter("questions");
     String answer = request.getParameter("answer");
 
     Integer uuid = -1;
@@ -42,6 +42,8 @@
         if (<%= user_level == Permission.ADMIN.getLevel() %>) {
             location.href='<%= router.admin.userlist %>';
         } else if ( <%= user_level == Permission.MEMBER.getLevel() %>) {
+            location.href='<%= router.mypage.modify_myInfo %>';
+        } else {
             location.href='<%= router.main.index %>';
         }
     </script>
