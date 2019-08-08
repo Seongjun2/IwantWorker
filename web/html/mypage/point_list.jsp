@@ -12,7 +12,12 @@
     List<PointLogVO> pointLogs = new ArrayList<PointLogVO>();
 
     if (uuid == null) {
-        response.sendRedirect(router.main.index);
+%>
+    <script>
+        alert('먼저 로그인을 해주세요.');
+        location.href = '<%= router.board.login %>'
+    </script>
+<%
     } else {
         PointLogDAO dao = new PointLogDAO_Impl();
         pointLogs = dao.findByUUID(uuid);

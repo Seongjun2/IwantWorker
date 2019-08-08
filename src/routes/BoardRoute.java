@@ -14,6 +14,7 @@ public class BoardRoute {
     public final String post_delete;
     public final String board_search;
     public final String shop;
+    public final String login;
 
     public BoardRoute( String ctxPath ) {
         baseURL = ctxPath + "/html" + prefix;
@@ -28,5 +29,6 @@ public class BoardRoute {
         post_delete = baseURL + "/post_delete.jsp";
         board_search = baseURL + "/board_search.jsp";
         shop = baseURL + "/shop.jsp";
+        login = baseURL + "/login.jsp";
     }
 }

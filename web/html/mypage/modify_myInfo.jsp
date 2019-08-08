@@ -6,9 +6,13 @@
     Integer uuid = null;
     uuid = (Integer) session.getAttribute("uuid");
     if(uuid == null) {
-        response.sendRedirect(router.main.index);
-        return;
-    }
+%>
+<script>
+    alert('먼저 로그인을 해주세요.');
+    location.href = '<%= router.board.login %>'
+</script>
+<%
+    } else {
 
     UserDAO dao = new UserDAO_Impl();
     UserVO vo = dao.getUserInfo(uuid);
@@ -62,6 +66,7 @@
 
         </form>
     </div>
+    <% } %>
 </main>
 
 <%@include file="../footer.jsp"%>
