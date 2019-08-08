@@ -52,12 +52,12 @@
                 </li>
             </ul>
         </div>
-        <div id="shop_des">결제는 무통장 입금으로 진행되며,<br />결재하기 버튼을 누르시면 계좌번호를 알려드립니다</div>
+        <div id="shop_des">결제는 무통장 입금으로 진행되며,<br />결제하기 버튼을 누르시면 계좌번호를 알려드립니다</div>
         <form id="shop_form" action="payment.jsp" method="post">
             <p id="shop_button_price"></p>
             <input id="shop_pay_point" type="hidden" name="point" value="">
             <input id="shop_pay_price" type="hidden" name="price" value="">
-            <button type="button" onclick="pay()">결재하기</button>
+            <button type="button" onclick="pay()">결제하기</button>
         </form>
     </div>
 </main>
