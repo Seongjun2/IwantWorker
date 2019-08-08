@@ -75,6 +75,7 @@ public class JdbcTemplate {
                 throw new Exception("no record");
             }
         }catch(Exception e){
+            e.printStackTrace();
             return null;
         }
         finally{

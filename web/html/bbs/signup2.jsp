@@ -6,6 +6,7 @@
 <%@ page import="java.sql.PreparedStatement" %>
 <%@ page import="database.ConnectDB" %>
 <%@ page import="Util.Util" %>
+<%@ page import="com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding ="utf-8"%>
 <%
     request.setCharacterEncoding("UTF-8");
@@ -17,7 +18,7 @@
     String answer = request.getParameter("answer");
     UserDAO dao = new UserDAO_Impl();
     try {
-        UserVO vo = dao.getUserInfo(tell);
+        UserVO vo = dao.getUserInfo2(tell);
         if ( tell.equals( vo.getTell() ) ) {
             session.setAttribute("error", "id");
             out.print("<script>location.href=\"" + ctxPath + "/html/bbs/signup.jsp\";</script>");

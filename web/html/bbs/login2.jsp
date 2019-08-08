@@ -9,7 +9,7 @@
     String pw = Util.md5( request.getParameter("pw") );
     UserDAO dao = new UserDAO_Impl();
     try {
-        UserVO vo = dao.getUserInfo(tell);
+        UserVO vo = dao.getUserInfo2(tell);
         if ( vo.getPw().equals(pw) ) {
 //            System.out.println(vo.getUuid());
             session.setAttribute("uuid" , (Integer)vo.getUuid());
