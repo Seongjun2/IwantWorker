@@ -14,7 +14,7 @@
     }
 
     BoardDAO boardDAO = new BoardDAO_Impl();
-    List<BoardVO> boardVOList = boardDAO.findAll();
+    List<BoardVO> boardVOList = boardDAO.findAll("");
 %>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/main.css">
 <script type="text/javascript" src="<%= jsDir %>/main.js"></script>

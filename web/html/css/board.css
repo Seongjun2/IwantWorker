@@ -1,3 +1,60 @@
+/* 검색창~*/
+
+#main_search {
+    display: flex;
+    justify-content: center;
+    height: 175px;
+    width: 100%;
+    -webkit-user-select : auto;
+    background-color: #EC8032;
+}
+#main_search_span {
+    display: flex;
+    height: 60%;
+    width: 90%;
+    transition: 0.5s;
+    background-color: #FFFFFF;
+    z-index: 2;
+    border-radius: 20px;
+}
+#main_search_form {
+    position: relative;
+    height: 99%;
+    width: 90%;
+    top: 1%;
+}
+#main_search_form input {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    font-size: 40px;
+    border: 0;
+    letter-spacing: -0.05em;
+    left: 30px;
+}
+#main_search_form input:focus {
+    outline: none;
+}
+#main_search_icon {
+    height: 100%;
+    width: 15%;
+}
+#main_search_icon img {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 85%;
+}
+#search_blank {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform: translate(0, -175px);
+    z-index: 1;
+}
+
+/*그렇습니다~*/
 .board_wrapper {
     height: 45%;
 }

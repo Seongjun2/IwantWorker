@@ -12,6 +12,7 @@ public class BoardRoute {
     public final String post_change;
     public final String post_update;
     public final String post_delete;
+    public final String board_search;
     public final String shop;
 
     public BoardRoute( String ctxPath ) {
@@ -25,6 +26,7 @@ public class BoardRoute {
         post_change = baseURL + "/post_change.jsp";
         post_update = baseURL + "/post_update.jsp";
         post_delete = baseURL + "/post_delete.jsp";
+        board_search = baseURL + "/board_search.jsp";
         shop = baseURL + "/shop.jsp";
     }
 }
