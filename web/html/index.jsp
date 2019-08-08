@@ -43,7 +43,11 @@
         </div>
     </div>
     <div id="main_content_menu">
-        <a href="<%=__PATH__%>/mypage/modify_myInfo.jsp"><img class="main_content_menu_item" src="<%=imgDir%>/menu_user_icon.png" /></a>
+        <% if(user_level == 0) { %>
+            <a href="<%=router.main.login%>"><img class="main_content_menu_item" src="<%=imgDir%>/menu_user_icon_login.png" /></a>
+        <% } else { %>
+            <a href="<%=__PATH__%>/mypage/modify_myInfo.jsp"><img class="main_content_menu_item" src="<%=imgDir%>/menu_user_icon.png" /></a>
+        <% } %>
         <a href="<%=router.board.board_list%>"><img class="main_content_menu_item" src="<%=imgDir%>/menu_board_icon.png" /></a>
         <a href="tel:01077379685"><img class="main_content_menu_item" src="<%=imgDir%>/menu_help_icon.png" /></a>
     </div>
