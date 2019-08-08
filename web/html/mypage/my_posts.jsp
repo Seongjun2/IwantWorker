@@ -11,7 +11,12 @@
     List<BoardVO> boards = new ArrayList<BoardVO>();
 
     if (uuid == null) {
-        response.sendRedirect(router.main.index);
+%>
+<script>
+    alert('먼저 로그인을 해주세요.');
+    location.href = '<%= router.board.login %>';
+</script>
+<%
     } else {
         BoardDAO dao = new BoardDAO_Impl();
         boards = dao.findByUUID(uuid);

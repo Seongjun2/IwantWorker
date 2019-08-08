@@ -5,13 +5,12 @@
     String imgDir = "imgs";
 %>
 <%
-    session.removeAttribute("error");
-    session.removeAttribute("success");
     String ctxPath = request.getContextPath()+"/html";
     String success = null;
     String error = null;
     success = (String)session.getAttribute("success");
     error = (String)session.getAttribute("error");
+
     if ( session.getAttribute("uuid") != null ) {
         response.sendRedirect(ctxPath + "/index.jsp");
         return;
@@ -23,7 +22,11 @@
     }
     else if ( success != null ){
         if ( success.equals("success") ){
+            session.removeAttribute("error");
+            session.removeAttribute("success");
             out.print("<script>alert('회원가입에 성공하였습니다.'); </script>");
+            out.print("<script>location.href=\"" + ctxPath + "/bbs/login.jsp\";</script>");
+            return;
         }
     }
     session.removeAttribute("error");
@@ -41,7 +44,7 @@
         <form action="signup2.jsp" method="POST" id="login_form">
             <div class = "div_userInfo">
                 <p class = "p_userInfo">휴대폰 번호</p>
-                <input type="text" maxlength="11" pattern="\d*" class="input_userInfo" name="tell" id="tell" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" onkeypress="signup_enter()" placeholder="휴대폰 번호 입력"/>
+                <input type="number" min="0" max="9" pattern="\d*" class="input_userInfo" name="tell" id="tell" onkeydown="return max_length();" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" onkeypress="signup_enter()" placeholder="휴대폰 번호 입력"/>
                 <p id = "explain_inputTell"> * (-) 하이폰 없이 숫자만 입력</p>
             </div>
             <div class = "div_userInfo">

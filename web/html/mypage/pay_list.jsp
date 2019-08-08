@@ -15,7 +15,12 @@
     List<PayLogVO> payLogs = new ArrayList<PayLogVO>();
 
     if ( uuid == null ) {
-        response.sendRedirect(router.main.index);
+%>
+<script>
+    alert('먼저 로그인을 해주세요.');
+    location.href = '<%= router.board.login %>'
+</script>
+<%
     } else {
         if ( status == null ) {
             payLogs = dao.findByUUID(uuid);

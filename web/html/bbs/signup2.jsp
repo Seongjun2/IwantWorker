@@ -29,6 +29,6 @@
     } catch ( Exception e ) {
         dao.add( tell, name , Util.md5(pw), question, answer );
         session.setAttribute("success", "success");
+        out.print("<script>location.href=\"" + ctxPath + "/bbs/signup.jsp\";</script>");
     }
-    response.sendRedirect( ctxPath + "/bbs/login.jsp");
 %>

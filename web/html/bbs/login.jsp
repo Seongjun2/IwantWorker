@@ -5,7 +5,6 @@
     String imgDir = "imgs";
 %>
 <%
-    session.removeAttribute("error");
     String ctxPath = request.getContextPath()+"/html";
     String error = null;
     error = (String)session.getAttribute("error");
@@ -38,7 +37,7 @@
         <form action="login2.jsp" method="POST" id="login_form">
             <div class = "div_userInfo">
                 <p class = "p_userInfo">휴대폰 번호</p>
-                <input type="text" maxlength="11" pattern="\d*" class="input_userInfo" name="tell" id="tell" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"  onkeypress="login_enter(event)" placeholder="휴대폰 번호 입력"/>
+                <input type="number" min="0" max="9" pattern="\d*" class="input_userInfo" name="tell" id="tell" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" onkeydown="return max_length( event )" onkeypress="login_enter(event)" placeholder="휴대폰 번호 입력"/>
                 <p id = "explain_inputTell"> * (-) 하이폰 없이 숫자만 입력</p>
             </div>
             <div class = "div_userInfo">

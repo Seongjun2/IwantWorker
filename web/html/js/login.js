@@ -33,3 +33,14 @@ function login_enter(event) {
         login();
     }
 };
+
+function max_length( event ) {
+    if (document.getElementById("tell").value.length >=  11 ) {
+        return false;
+    } else if ( event.keyCode === 9 || event.keyCode === 13 ) {
+        return true;
+    }
+    else {
+        return true;
+    }
+}
