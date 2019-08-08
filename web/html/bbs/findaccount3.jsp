@@ -30,7 +30,7 @@
     try{
         pw = Util.pw();
         vo = dao.getUserInfo2(tell);
-        dao.update( vo.getTell(), Util.md5( pw ), vo.getUuid() );
+        dao.update( vo.getTell(), Util.md5( pw ), vo.getQuestion(), vo.getAnswer(), vo.getUuid() );
     } catch (Exception e){
     }
     session.removeAttribute("tell");
@@ -50,12 +50,12 @@
                 <h1><%=vo.getName()%>님의 비밀번호는</h1>
                 <h1><%=pw%> 입니다.</h1>
                 <p>홈으로 돌아가면 비밀번호를 다시 확인할수 없습니다. 신중히 클릭하시길!</p>
-        <input type="submit" id="input_submit" value="홈으로돌아가기" onclick="location.href='<%=ctxPath%>/index.jsp'" >
+        <input type="submit" id="input_submit" value="로그인 화면으로 가기" onclick="location.href='<%=ctxPath%>/bbs/login.jsp'" >
                 <%
                 return;
             } else if ( !vo.getAnswer().equals(answer)){
                 out.print("<script>alert('답변이 일치하지 않습니다.');</script>");
-                out.print("<script>location.href=\"" + ctxPath + "/html/bbs/findaccount2.jsp\";</script>");
+                out.print("<script>location.href=\"" + ctxPath + "/bbs/findaccount2.jsp\";</script>");
                 return;
             }
         %>
