@@ -42,7 +42,7 @@
         <div id="header_menu_btn_area" onclick="showSideBar()">
             <img id="header_menu_btn" src="<%= imgDir %>/main_menu_btn.png">
         </div>
-        <img id="header_menu_logo" src="<%= imgDir %>/logo.png" onclick="location.href='<%=__PATH__%>/index.jsp'"/>
+        <img id="header_menu_logo" src="<%= imgDir %>/logo_white.png" onclick="location.href='<%=__PATH__%>/index.jsp'"/>
     </div>
     <div id="header_sidebar">
         <div id="header_sidebar_close" onclick="hideSideBar()">
