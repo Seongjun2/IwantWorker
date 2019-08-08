@@ -58,7 +58,7 @@
                 <input id = "pw_check" type="password"  class="input_userInfo" name="pw_check"/>
             </div>
             <div id = "div_submit">
-                <input id = "input_submit" type="submit" value="변경하기" onclick="check_PW()"/>
+                <input id = "btn_modify" type="submit" value="변경하기" onclick="check_PW()"/>
             </div>
         </form>
     </div>
