@@ -8,6 +8,7 @@
 <%@include file="../header.jsp"%>
 <%
     String search = request.getParameter("search");
+    Integer uuid = (Integer) session.getAttribute("uuid");
 
     if(search==null) search = "";
     BoardDAO_Impl dao = new BoardDAO_Impl();
@@ -60,18 +61,30 @@
     </div>
     <div class="div_mainDiv" style="align-content: center; z-index: 2">
         <% if (list.size() == 0) { %>
-        <p class="empty_table">
-            아직 게시글이 없습니다. <br><br>
-            <span class="text-emphasis">구인 게시글을 작성</span>하고 <br>
-            간편하게 단기 알바를 구해보세요!
-        </p>
-        <div class="redirect_wrapper">
-            <a href="<%= router.board.post_write %>">
-                <button class="btn_redirect" type="button"> 게시글 작성하러 가기 </button>
-            </a>
-        </div>
+            <% if (uuid != null) { %>
+                <p class="empty_table">
+                    아직 게시글이 없습니다. <br><br>
+                    <span class="text-emphasis">구인 게시글을 작성</span>하고 <br>
+                    간편하게 단기 알바를 구해보세요!
+                </p>
+                <div class="redirect_wrapper">
+                    <a href="<%= router.board.post_write %>">
+                        <button class="btn_redirect" type="button"> 게시글 작성하러 가기 </button>
+                    </a>
+                </div>
+            <% } else { %>
+                <p class="empty_table">
+                    아직 게시글이 없습니다. <br><br>
+                    구인 게시글이 올라올 때 까지 기다려주세요!
+                </p>
+                <div class="redirect_wrapper">
+                    <a href="<%= router.main.index %>">
+                        <button class="btn_redirect" type="button"> 홈으로 돌아가기 </button>
+                    </a>
+                </div>
+            <% } %>
         <% } else { %>
-            <% if(session.getAttribute("uuid")!=null) {%>
+            <% if( uuid !=null) {%>
                 <button class="write_button" onclick="location.href='${pageContext.request.contextPath}/html/bbs/post_write.jsp'"> 글쓰기 </button>
             <% } %>
             <% for(BoardVO vo : list) { %>
