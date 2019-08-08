@@ -75,7 +75,7 @@
                 </p>
                 <div class="redirect_wrapper">
                     <a href="<%= router.board.post_write %>">
-                        <button class="btn_redirect" type="button"> 게시글 작성하러 가기 </button>
+                        <button class="btn_redirect" type="button" onclick="board_write()"> 게시글 작성하러 가기 </button>
                     </a>
                 </div>
             <% } else { %>

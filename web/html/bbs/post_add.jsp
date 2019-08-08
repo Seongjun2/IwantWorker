@@ -51,6 +51,7 @@
     JdbcTemplate db = new JdbcTemplate();
     try {
         db.update("update user set point = ? where uuid = ?", (userVO.getPoint()-400),uuid);
+        db.update("insert into pointlog values (default, ?, ?, ?, ?, now())", uuid, "게시글 작성", -400, (userVO.getPoint()-400));
     } catch (Exception e) {
         e.printStackTrace();
     }
