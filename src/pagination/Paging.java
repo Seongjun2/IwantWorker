@@ -6,7 +6,7 @@ import VO.UserVO;
 
 import java.util.List;
 
-public class Paging <T extends Object>{
+public class Paging{
     private final static int pageCount = 10;
     private final static int rangeCount = 5;
     private int blockStartNum = 0;
@@ -47,7 +47,7 @@ public class Paging <T extends Object>{
     }
 
     //userDAO 기준 테스트
-    public void makeLastPageNum_userList(T vo) throws Exception{
+    public void makeLastPageNum_userList() throws Exception{
         UserDAO dao = new UserDAO_Impl();
         int total = dao.getCount();
 
@@ -80,7 +80,6 @@ public class Paging <T extends Object>{
             lastPageNum = (int)Math.floor(total/pageCount)+1;
         }
     }
-
     /*
     public void makeLastPageNum(String kwd){//검색했을 때에
         UserDAO dao = new UserDAO_Impl();
