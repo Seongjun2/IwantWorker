@@ -13,7 +13,6 @@
     String tell = request.getParameter("tell");
     String name = request.getParameter("name");
     String pw = request.getParameter("pw");
-    String pw_check = request.getParameter("pw_check");
     String question = request.getParameter("question");
     String answer = request.getParameter("answer");
     UserDAO dao = new UserDAO_Impl();
