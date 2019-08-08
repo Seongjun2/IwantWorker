@@ -10,7 +10,7 @@
 %>
 <%
     String answer = request.getParameter("answer");
-    String ctxPath = request.getContextPath();
+    String ctxPath = request.getContextPath() + "/html";
     String tell = null;
     tell = (String)session.getAttribute("tell");
 
@@ -20,7 +20,7 @@
         return;
     }
     if ( ctxPath == null || tell == null || answer == null ) {
-        response.sendRedirect(ctxPath + "/html/bbs/findaccount.jsp");
+        response.sendRedirect(ctxPath + "/bbs/findaccount.jsp");
         session.removeAttribute("tell");
         return;
     }
@@ -48,23 +48,16 @@
             if ( vo.getAnswer().equals(answer) ) {
                 out.print("<script>alert('답변이 일치합니다.');</script>");
                 %>
-                <h1 style="font-size: 3.5em;"><%=vo.getName()%>님의 비밀번호 : </h1>
-                <h1 style="font-size: 3.5em"><%=pw%> 입니다.</h1>
-                <p style="font-size: 3.5em;">홈으로 돌아가면 비밀번호를 다시 확인할수 없습니다. 신중히 클릭하시길!</p>
-        <input type="submit" style="
-    font-size: 3em;
-    text-align: center;
-    width: 100%;
-    height: 10%;
-    margin-bottom: 1em;
-    background: #ec8032;
-    color: #ffffff;
-    border-radius: 30px;" value="홈으로돌아가기" onclick="location.href='<%=ctxPath%>/html/index.jsp'" >
+                <h1><%=vo.getName()%>님의 비밀번호는</h1>
+                <h1><%=pw%> 입니다.</h1>
+                <p>홈으로 돌아가면 비밀번호를 다시 확인할수 없습니다. 신중히 클릭하시길!</p>
+        <input type="submit" id="input_submit" value="홈으로돌아가기" onclick="location.href='<%=ctxPath%>/index.jsp'" >
                 <%
                 return;
             } else if ( !vo.getAnswer().equals(answer)){
                 out.print("<script>alert('답변이 일치하지 않습니다.');</script>");
                 out.print("<script>location.href=\"" + ctxPath + "/html/bbs/findaccount2.jsp\";</script>");
+                return;
             }
         %>
     </div>
