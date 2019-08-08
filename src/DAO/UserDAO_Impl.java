@@ -43,7 +43,8 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
     }
 
     @Override
-    public UserVO getUserInfo(String tell) throws Exception {
+    public UserVO getUserInfo2(String tell) throws Exception {
+
         template = new JdbcTemplate();
         RowMapper<UserVO> rowMapper = new UserDAO_Impl();
         String sql = "select * from user where tell = ?";
@@ -95,8 +96,8 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
         vo.setPw(rs.getString("pw"));
         vo.setPermission(rs.getInt("permission"));
         vo.setPoint(rs.getInt("point"));
-        vo.setQuestion(rs.getString("q"));
-        vo.setAnswer(rs.getString("a"));
+        vo.setQuestion(rs.getString("question"));
+        vo.setAnswer(rs.getString("answer"));
 
         return vo;
     }
