@@ -5,6 +5,8 @@
     String imgDir = "imgs";
 %>
 <%
+    session.removeAttribute("error");
+    session.removeAttribute("success");
     String ctxPath = request.getContextPath()+"/html";
     String success = null;
     String error = null;
@@ -62,7 +64,7 @@
                     <option>당신의 반려자 의 이름은?</option>
                     <option>당신의 고향은?</option>
                     <option>당신의 어머님 성함은?</option>
-                    <option>당신의 부모님 성함은?</option>
+                    <option>당신의 아버님 성함은?</option>
                     <option>당신의 주 언어는?</option>
                 </select>
                 <input type="text"  class="input_userInfo" name="answer" id="answer" onkeypress="signUp_enter()" placeholder="답변 입력"/>
