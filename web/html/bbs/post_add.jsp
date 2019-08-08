@@ -2,7 +2,9 @@
 <%@ page import="DAO.BoardDAO" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="routes.Router" %>
-<%@ page import="Util.Util" %><%--
+<%@ page import="Util.Util" %>
+<%@ page import="database.JdbcTemplate" %>
+<%@ page import="VO.UserVO" %><%--
   Created by IntelliJ IDEA.
   User: ddang
   Date: 2019-08-03
@@ -13,6 +15,8 @@
 <html>
 <body>
 <%
+    UserVO userVO = (UserVO) session.getAttribute("vo");
+    session.removeAttribute("vo");
     Router router = Router.getInstance(request.getContextPath());
 
     Integer uuid = Integer.parseInt(session.getAttribute("uuid").toString());
@@ -40,6 +44,13 @@
     try {
 //        dao.add(uuid, title, content, startDate, endDate, workTime, money, addr, time);
         dao.add(uuid, title, content, startDate, endDate, workTime, money, addr);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    JdbcTemplate db = new JdbcTemplate();
+    try {
+        db.update("update user set point = ? where uuid = ?", (userVO.getPoint()-400),uuid);
     } catch (Exception e) {
         e.printStackTrace();
     }
