@@ -86,12 +86,13 @@
             <ul>
                 <li>작성자 | <%=name%></li>
                 <li>모집기간 | <%=vo.getStartDate().substring(0, 10) + "~" + vo.getEndDate().substring(0, 10)%></li>
+                <li>내용 | </li>
             </ul>
         </div>
         <div class="memo">
-            <%=vo.getContent()%>
+            <p><%=vo.getContent()%></p>
         </div>
-        <div style="width: 100%">
+        <div style="width: 100%; display: flex; justify-content: center;">
             <% if(session.getAttribute("uuid")!=null) {%>
                 <% if ((session.getAttribute("uuid").toString()).equals(vo.getUuid().toString())) {%>
                     <button class="button_writer" onclick="location.href='<%=router.board.post_change%>?bo_id='+param">수정하기</button>
