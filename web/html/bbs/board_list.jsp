@@ -17,8 +17,6 @@
     try {
         list = dao.findAll(search);
     } catch (Exception e) {
-        System.out.println(e + " " + e.getMessage() + " " + e);
-        e.getMessage();
         e.printStackTrace();
     }
 
@@ -60,16 +58,16 @@
     </div>
     <div class="div_mainDiv" style="align-content: center; z-index: 2">
         <% if (list.size() == 0) { %>
-        <p class="empty_table">
-            아직 게시글이 없습니다. <br><br>
-            <span class="text-emphasis">구인 게시글을 작성</span>하고 <br>
-            간편하게 단기 알바를 구해보세요!
-        </p>
-        <div class="redirect_wrapper">
-            <a href="<%= router.board.post_write %>">
-                <button class="btn_redirect" type="button"> 게시글 작성하러 가기 </button>
-            </a>
-        </div>
+            <p class="empty_table">
+                아직 게시글이 없습니다. <br><br>
+                <span class="text-emphasis">구인 게시글을 작성</span>하고 <br>
+                간편하게 단기 알바를 구해보세요!
+            </p>
+            <div class="redirect_wrapper">
+                <a href="<%= router.board.post_write %>">
+                    <button class="btn_redirect" type="button"> 게시글 작성하러 가기 </button>
+                </a>
+            </div>
         <% } else { %>
             <% if(session.getAttribute("uuid")!=null) {%>
                 <button class="write_button" onclick="location.href='${pageContext.request.contextPath}/html/bbs/post_write.jsp'"> 글쓰기 </button>
