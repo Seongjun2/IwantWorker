@@ -5,6 +5,7 @@
     String imgDir = "imgs";
 %>
 <%
+    session.removeAttribute("error");
     String ctxPath = request.getContextPath()+"/html";
     String error = null;
     error = (String)session.getAttribute("error");
