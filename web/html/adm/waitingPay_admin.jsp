@@ -76,21 +76,12 @@
                     if(i > payLogList.size()-1 )break;
                     PayLogVO vo = payLogList.get(i);
                     int uuid = vo.getUuid();
-                    UserDAO userDAO2 = new UserDAO_Impl();
-                    UserVO userVO2 = userDAO2.getUserInfo(uuid);
-                    if(userVO2 == null){%>
-                        <td colspan="4">test</td>
-                    <%
-                        continue;
-                    }
-
-                    String userName = userVO2.getName();
                     String vo_status = vo.getStatus();
                     String day = (vo.getRequestTime()).substring(0,10);
             %>
             <tr>
                 <td><%=num%></td>
-                <td id = "td_name"><%=userName%></td>
+                <td id = "td_name"><%=vo.getName()%></td>
                 <td><%=vo.getPoint()%></td>
                 <td><%=vo.getPrice()%></td>
                 <td id = "td_date"><%=day%></td>

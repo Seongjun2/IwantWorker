@@ -54,21 +54,17 @@
     z-index: 1;
 }
 
-/*그렇습니다~*/
-.board_wrapper {
-    height: 45%;
-}
-
 .board_post{
     box-sizing: border-box;
     width: 100%;
     border: 1px solid #5e5e5e;
+    border-radius: 20px;
     padding: 1em 1em 1em 1em;
-    margin: 10px 10px 10px 10px;
+    margin: 10px 10px 30px 10px;
 }
 
 .board_title{
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: bold;
     text-align: center;
 }
@@ -78,7 +74,7 @@
 }
 
 .board_content li {
-    font-size: 2.3em;
+    font-size: 1.3em;
 }
 
 .order_button{
@@ -96,11 +92,40 @@
 }
 
 .write_button{
+    font-size: 3em;
+    font-weight: bold;
     text-align: center;
-    color: #000000;
-    font-size: 4em;
     width: 100%;
-    background-color: #E0E0E0;
-    padding : 15px 15px 15px 15px;
-    margin-bottom: 30px;
+    padding: 0.5em 1em;
+    margin-bottom: 1em;
+    background: #ec8032;
+    color: #ffffff;
+    border-radius: 30px;
+}
+
+.empty_table {
+    width: 100%;
+    margin: 2em 0;
+    text-align: center;
+    font-size: 2.3em;
+}
+
+.redirect_wrapper {
+    text-align: center;
+}
+
+.btn_redirect {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+    width: 70%;
+    padding: 0.5em 1em;
+    background: #ec8032;
+    color: #ffffff;
+    border-radius: 30px;
+}
+
+.text-emphasis {
+    color: #ec8032;
+    font-weight: bold;
 }

@@ -83,14 +83,11 @@
             <%@include file="./tbody_totalUsers.jsp"%>
         </table>
     </div>
-
-
-    <jsp:include page="../pagination.jsp">
-        <jsp:param name="pageNum" value="<%= pageNum %>"/>
-        <jsp:param name="lastPageNum" value="<%= paging.getLastPageNum() %>"/>
-    </jsp:include>
-
 </main>
+<jsp:include page="../pagination.jsp">
+    <jsp:param name="pageNum" value="<%= pageNum %>"/>
+    <jsp:param name="lastPageNum" value="<%= paging.getLastPageNum() %>"/>
+</jsp:include>
 <%@include file="../footer.jsp"%>
 </body>
     <link rel="stylesheet" type="text/css", href="<%=cssDir%>/userList.css">

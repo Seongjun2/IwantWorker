@@ -22,16 +22,14 @@
     try {
         vo = dao.getUserInfo(uuid);
     } catch (Exception e) {
-        out.print("<script>alert('결제도중 오류가 발생하였습니다\n다시 시도해 주세요');</script>");
-        response.sendRedirect("shop.jsp");
+        out.print("<script>alert('결제도중 오류가 발생하였습니다\n다시 시도해 주세요');location.href='shop.jsp'</script>");
         return;
     }
-    String sql = "insert into paylog values (default, ?, ?, ?, ?, 'wait', now(), now())";
+    String sql = "insert into paylog values (default, ?, (select name from user where uuid = ?), ?, ?, ?, 'wait', now(), now())";
         try {
-            db.update(sql, uuid, vo.getTell(), point, price);
+            db.update(sql, uuid, uuid, vo.getTell(), point, price);
         } catch (Exception e) {
-            out.print("<script>alert('결제도중 오류가 발생하였습니다\n다시 시도해 주세요');</script>");
-            response.sendRedirect("shop.jsp");
+            out.print("<script>alert('결제도중 오류가 발생하였습니다\n다시 시도해 주세요');location.href='shop.jsp'</script>");
             return;
         }
 

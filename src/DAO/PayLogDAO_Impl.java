@@ -42,7 +42,7 @@ public class PayLogDAO_Impl implements PayLogDAO, RowMapper<PayLogVO> {
     public List<PayLogVO> findByUUID(Integer uuid) throws Exception {
         List<PayLogVO> list = new ArrayList<PayLogVO>();
         String sql = "SELECT " +
-                "pay_id, uuid, tell, point, price, status, requestTime, updateTime " +
+                "pay_id, uuid, tell, point, price, status, requestTime, updateTime, name " +
                 "FROM paylog " +
                 "WHERE uuid=?";
 
@@ -67,7 +67,7 @@ public class PayLogDAO_Impl implements PayLogDAO, RowMapper<PayLogVO> {
     public List<PayLogVO> findByUUIDAndStatus(Integer uuid, String state) throws Exception {
         List<PayLogVO> list = new ArrayList<PayLogVO>();
         String sql = "SELECT " +
-                "pay_id, uuid, tell, point, price, status, requestTime, updateTime " +
+                "pay_id, uuid, tell, point, price, status, requestTime, updateTime, name " +
                 "FROM paylog " +
                 "WHERE uuid=? and status=?";
 

@@ -13,6 +13,8 @@ public class BoardVO{
     private String address;
     private String writeTime;
 
+    private String name;
+
     public Integer getBoard_id() {
         return board_id;
     }
@@ -93,6 +95,14 @@ public class BoardVO{
         this.writeTime = writeTime;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "BoardVO{" +
@@ -106,6 +116,7 @@ public class BoardVO{
                 ", money=" + money +
                 ", address='" + address + '\'' +
                 ", writeTime='" + writeTime + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }
