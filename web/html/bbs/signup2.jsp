@@ -17,6 +17,10 @@
     String question = request.getParameter("question");
     String answer = request.getParameter("answer");
     UserDAO dao = new UserDAO_Impl();
+    if ( ctxPath == null || tell == null || name == null || pw == null || question == null || answer == null ) {
+
+        
+    }
     try {
         UserVO vo = dao.getUserInfo2(tell);
         if ( tell.equals( vo.getTell() ) ) {
@@ -26,6 +30,7 @@
         }
     } catch ( Exception e ) {
         dao.add( tell, name , Util.md5(pw), question, answer );
+        session.setAttribute("success", "success");
     }
     response.sendRedirect( ctxPath + "/html/bbs/login.jsp");
 %>

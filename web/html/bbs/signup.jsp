@@ -6,7 +6,9 @@
 %>
 <%
     String ctxPath = request.getContextPath()+"/html";
+    String success = null;
     String error = null;
+    success = (String)session.getAttribute("success");
     error = (String)session.getAttribute("error");
     if ( error != null ) {
         if ( error.equals("id") ) {
@@ -15,10 +17,13 @@
             out.print("<script>alert('비밀번호가 일치하지 않습니다.'); </script>");
         }
     }
-    else {
-        
+    else if ( success != null ){
+        if ( success.equals("success") ){
+            out.print("<script>alert('회원가입에 성공하였습니다.'); </script>");
+        }
     }
     session.removeAttribute("error");
+    session.removeAttribute("success");
 %>
 <%@include file="../header.jsp"%>
 <link rel="stylesheet" type="text/css", href="<%=cssDir%>/signup.css">
