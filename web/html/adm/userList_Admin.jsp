@@ -23,7 +23,7 @@
     paging.makeBlock(pageNum);
     int blockStartNum = paging.getBlockStartNum();
     int blockLastNum = paging.getBlockLastNum();
-    paging.makeLastPageNum();
+    paging.makeLastPageNum_userList();
     int lastPageNum = paging.getLastPageNum();
 
 %>
@@ -34,6 +34,17 @@
 <body>
 <%@include file="../header.jsp"%>
 <main>
+    <div id="main_search">
+        <span id="main_search_span">
+            <form id="main_search_form">
+                <input id="main_search_text" type="text" name="search" placeholder="검색어를 입력하세요" onclick="onFocusSearch()" />
+            </form>
+            <div id="main_search_icon">
+                <img src="<%= imgDir %>/lenz.png" />
+            </div>
+        </span>
+        <div id="search_blank" onclick="disFocusSearch()"></div>
+    </div>
     <div class="div_pageName">
         <h3 class="h3_pageName">회원목록 조회</h3>
     </div>
@@ -60,8 +71,10 @@
                 else{
                     lastIdx = startIdx+10;
                 }
-
+                System.out.println(startIdx);
+                System.out.println(lastIdx);
                 for(int j = startIdx; j<lastIdx;j++){
+                    if(userList.size() == 0)break;
                     UserVO vo = userList.get(j);
             %>
             <tr>
@@ -80,9 +93,10 @@
         </table>
     </div>
 </main>
-<%@include file="../paginationTest.jsp"%>
+<%@include file="../pagination.jsp"%>
 <%@include file="../footer.jsp"%>
 </body>
     <link rel="stylesheet" type="text/css", href="<%=cssDir%>/userList.css">
+<link rel="stylesheet" type="text/css", href="<%=cssDir%>/main.css">
     <script type="text/javascript" src="../js/pagination_admin.js"></script>
 </html>

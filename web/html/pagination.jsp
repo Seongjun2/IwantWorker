@@ -1,19 +1,31 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="pagination.Paging" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%
+    String uri = request.getRequestURI();
+%>
+
 <link rel="stylesheet" type="text/css", href="../css/pagination.css">
-<div class="pagination-wrapper">
+<div class="pagination-wrapper" onchange="test()">
     <div class="pagination">
         <div>
             <a class="prev page-numbers" href="javascript:;">prev</a>
-            <span aria-current="page" class="page-numbers current">1</span>
-            <a class="page-numbers" href="javascript:;">2</a>
-            <a class="page-numbers" href="javascript:;">3</a>
-            <a class="page-numbers" href="javascript:;">4</a>
-            <a class="page-numbers" href="javascript:;">5</a>
-            <a class="page-numbers" href="javascript:;">6</a>
-            <%--<a class="page-numbers" href="javascript:;">7</a>--%>
-            <%--<a class="page-numbers" href="javascript:;">8</a>--%>
-            <%--<a class="page-numbers" href="javascript:;">9</a>--%>
-            <%--<a class="page-numbers" href="javascript:;">10</a>--%>
+            <%
+                for(int j = 0; j<lastPageNum;j++){
+                    if(pageNum == j+1){%>
+            <span aria-current="page" class="page-numbers current"><%=j+1%></span>
+            <%
+            }
+            else{
+            %>
+            <a class="page-numbers" href="<%=uri%>?pageNum=<%=j+1%>"><%=j+1%></a>
+            <%--                <a href="javascript:void(0)" onchange="test()"><%=j+1%></a>--%>
+            <%
+                }
+            %>
+            <%
+                }
+            %>
             <a class="next page-numbers" href="javascript:;">next</a>
         </div>
     </div>
