@@ -24,6 +24,7 @@
         <h3 class = "h3_pageName">내 게시글 목록</h3>
     </div>
     <div class="div_mainDiv">
+
         <div class="board_wrapper">
             <% for ( BoardVO board : boards ) { %>
             <div class="board_post">
