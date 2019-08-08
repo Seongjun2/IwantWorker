@@ -13,11 +13,15 @@
     BoardDAO_Impl dao = new BoardDAO_Impl();
 
     List<BoardVO> list = new ArrayList<BoardVO>();
+
     try {
         list = dao.findAll(search);
     } catch (Exception e) {
+        System.out.println(e + " " + e.getMessage() + " " + e);
+        e.getMessage();
         e.printStackTrace();
     }
+
 
     if (!PreventSQLInjection.passOrNot(search)) {
         response.sendRedirect(router.board.board_list);
@@ -72,7 +76,13 @@
             <% } %>
             <% for(BoardVO vo : list) { %>
                 <% BoardDAO dao2 = new BoardDAO_Impl();
-                    String name = dao2.findNameByBoID(vo.getBoard_id()); %>
+                    String name = null;
+                    try {
+                        name = dao2.findNameByBoID(vo.getBoard_id());
+                    } catch (Exception e) {
+                        e.getMessage();
+                        e.printStackTrace();
+                    } %>
                 <% String money = String.format("%.1f", vo.getMoney()/10000.0); %>
                 <div class="board_post" onclick="location.href='<%=router.board.post_view%>?bo_id=<%=vo.getBoard_id()%>'">
                     <div class="board_title"><%=vo.getText()%></div>

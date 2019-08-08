@@ -7,12 +7,14 @@ public class Router {
     public final MypageRoute mypage;
     public final AdminRoute admin;
     public final BoardRoute board;
+    public final ErrorRoute error;
 
     private Router(String ctxPath) {
         main = new MainRoute( ctxPath );
         mypage = new MypageRoute( ctxPath );
         admin = new AdminRoute( ctxPath );
         board = new BoardRoute( ctxPath );
+        error = new ErrorRoute( ctxPath );
     }
 
     public static Router getInstance(String ctxPath) {
