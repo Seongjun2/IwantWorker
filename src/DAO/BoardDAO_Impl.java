@@ -38,10 +38,28 @@ public class BoardDAO_Impl implements BoardDAO, RowMapper<BoardVO> {
 
         search = "%"+search+"%";
 
-        String sql = "select * from Board where EndDate > (now()-1) and (Title LIKE '%" +  search  + "%' or Addr LIKE '%" + search + "%') order by WriteTime desc";
+        String sql = "select bo_id, uuid as u, title, content, startdate, enddate, worktime, money, addr, writetime, " +
+                "(select name from user where uuid = u) as name from board where bo_id = ? " +
+                "and EndDate > (now()-1) and " +
+                "(Title LIKE '%\" +  search  + \"%' or Addr LIKE '%\" + search + \"%') order by WriteTime desc\";";
+
+//        String sql = "select * from Board where EndDate > (now()-1) and (Title LIKE '%" +  search  + "%' or Addr LIKE '%" + search + "%') order by WriteTime desc";
         boardList = template.query(sql, rowMapper);
 
         return boardList;
+    }
+
+    @Override
+    public String findNameByBoID(Integer bo_id) throws Exception{
+        System.out.println(bo_id);
+        String sql = "select bo_id, uuid as u, title, content, startdate, enddate, worktime, money, addr, writetime, " +
+                "(select name from user where uuid = u) as name from board where bo_id = ?;";
+
+        BoardVO vo = null;
+        RowMapper<BoardVO> rowMapper = new BoardDAO_Impl();
+
+        vo = template.qeuryForObject(sql, rowMapper, bo_id);
+        return vo.getName();
     }
 
     @Override
@@ -106,6 +124,8 @@ public class BoardDAO_Impl implements BoardDAO, RowMapper<BoardVO> {
         vo.setMoney(rs.getInt("money"));
         vo.setAddress(rs.getString("addr"));
         vo.setWriteTime(rs.getString("writeTime"));
+        if(rs.getString("name")==null)vo.setName("");
+        else vo.setName(rs.getString("name"));
 
         return vo;
     }

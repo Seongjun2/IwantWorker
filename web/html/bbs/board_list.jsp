@@ -2,6 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="DAO.BoardDAO_Impl" %>
 <%@ page import="Util.PreventSQLInjection" %>
+<%@ page import="DAO.BoardDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" %>
 <%@include file="../header.jsp"%>
 <%
@@ -62,12 +63,14 @@
             </div>
         <% } else { %>
             <% for(BoardVO vo : list) { %>
+                <% BoardDAO dao2 = new BoardDAO_Impl();
+                    String name = dao2.findNameByBoID(vo.getBoard_id()); %>
                 <% String money = String.format("%.1f", vo.getMoney()/10000.0); %>
                 <div class="board_post" onclick="location.href='<%=router.board.post_view%>?bo_id=<%=vo.getBoard_id()%>'">
                     <div class="board_title"><%=vo.getText()%></div>
                     <div class="board_content">
                         <ul>
-                            <li>작성자 : </li>
+                            <li>작성자 : <%=name%></li>
                             <li>기간 : <%=vo.getStartDate().substring(0, 10) + "~" + vo.getEndDate().substring(0, 10)%></li>
                             <li>비용 : <%=money%> 만 원
                             <li>위치 : <%=vo.getAddress()%></li>

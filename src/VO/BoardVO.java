@@ -13,6 +13,8 @@ public class BoardVO{
     private String address;
     private String writeTime;
 
+    private String name;
+
     public Integer getBoard_id() {
         return board_id;
     }
@@ -91,6 +93,14 @@ public class BoardVO{
 
     public void setWriteTime(String writeTime) {
         this.writeTime = writeTime;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override

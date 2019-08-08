@@ -70,6 +70,7 @@ public class JdbcTemplate {
                 if(rs.next()){
                     throw new Exception("many records.");
                 }
+                System.out.println("hjhkjhihiuhuihiuhuihi");
             }
             else{
 //                throw new Exception("no record");
