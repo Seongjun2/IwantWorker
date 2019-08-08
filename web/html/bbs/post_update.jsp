@@ -28,7 +28,8 @@
 
     BoardDAO dao = new BoardDAO_Impl();
     try {
-        dao.update(title, content, startDate, endDate, workTime, addr, time, bo_id);
+//        dao.update(title, content, startDate, endDate, workTime, addr, time, bo_id);
+        dao.update(title, content, startDate, endDate, workTime, addr, bo_id);
     } catch (Exception e) {
         e.printStackTrace();
     }

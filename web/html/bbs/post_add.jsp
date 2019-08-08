@@ -28,7 +28,8 @@
 
     BoardDAO dao = new BoardDAO_Impl();
     try {
-        dao.add(uuid, title, content, startDate, endDate, workTime, money, addr, time);
+//        dao.add(uuid, title, content, startDate, endDate, workTime, money, addr, time);
+        dao.add(uuid, title, content, startDate, endDate, workTime, money, addr);
     } catch (Exception e) {
         e.printStackTrace();
     }

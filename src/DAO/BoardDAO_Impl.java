@@ -20,13 +20,13 @@ public class BoardDAO_Impl implements BoardDAO, RowMapper<BoardVO> {
     @Override
     public void add(Object... args) throws Exception {
 
-        String sql = "insert into board values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "insert into board values (default, ?, ?, ?, ?, ?, ?, ?, ?, now())";
         template.update(sql, args);
     }
 
     @Override
     public void update(Object... args) throws Exception{
-        String sql = "update board set Title=?, Content=?, StartDate=?, EndDate=?, WorkTime=?, Addr=?, WriteTime=? where Bo_Id=?";
+        String sql = "update board set Title=?, Content=?, StartDate=?, EndDate=?, WorkTime=?, Addr=?, WriteTime=now() where Bo_Id=?";
         template.update(sql, args);
     }
 
@@ -36,7 +36,7 @@ public class BoardDAO_Impl implements BoardDAO, RowMapper<BoardVO> {
         template = new JdbcTemplate();
         RowMapper<BoardVO> rowMapper = new BoardDAO_Impl();
 
-        String sql = "select * from Board";
+        String sql = "select * from Board order by WriteTime desc";
         boardList = template.query(sql, rowMapper);
 
         return boardList;
