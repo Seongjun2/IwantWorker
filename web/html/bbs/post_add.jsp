@@ -27,6 +27,11 @@
     String time = format_time;
 
     BoardDAO dao = new BoardDAO_Impl();
-    dao.add(uuid, title, content, startDate, endDate, workTime, money, addr, time);
+    try {
+        dao.add(uuid, title, content, startDate, endDate, workTime, money, addr, time);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
     response.sendRedirect(ctxPath + "/html/bbs/board_list.jsp");
 %>
