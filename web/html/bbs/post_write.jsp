@@ -91,9 +91,9 @@
                     </div>
                 </div>
                 <div style="text-align: center">
-                    <input type="submit" class="submit" value="올리기" style="width: 4em; padding: 20px;"/>
-                    <input type="button" id="cancel" value="뒤로 가기"
-                           style="width: 4.5em; padding: 20px;" onclick="history.back()"/>
+                    <input type="submit" class="submit, write" value="올리기" style="width: 4em; padding: 20px;"/>
+                    <input type="button" id="cancel" class="write" value="뒤로 가기"
+                           onclick="history.back()"/>
                 </div>
             </form>
 <%--            <div class="cancel" style="text-align: center">--%>
