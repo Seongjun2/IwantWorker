@@ -24,7 +24,7 @@
 
     UserDAO dao = new UserDAO_Impl();
     UserVO vo = dao.getUserInfo(Integer.parseInt(uuid));
-    session.setAttribute("uuid", vo.getUuid());
+//    session.setAttribute("uuid", vo.getUuid());
 %>
 <html>
 <head>
@@ -63,6 +63,7 @@
                 <p class = "p_userInfo">변경할 비밀번호 확인</p>
                 <input id = "pw_check" type="password"  class="input_userInfo" name="pw_check"/>
             </div>
+            <input type="hidden" value="<%=uuid%>" name = "uuid">
             <div id = "div_submit">
                 <input id = "btn_modify" type="submit" value="변경하기" onclick="check_PW()"/>
             </div>
