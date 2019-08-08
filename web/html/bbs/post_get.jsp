@@ -8,10 +8,15 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %><%
+
     Integer bo_id = Integer.parseInt(request.getParameter("bo_id"));
 
     BoardDAO dao = new BoardDAO_Impl();
     System.out.println(bo_id);
 
-    BoardVO vo = dao.findByBoID(bo_id);
+    try {
+        BoardVO vo = dao.findByBoID(bo_id);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
 %>
