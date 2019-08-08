@@ -29,6 +29,8 @@ public class PointUpdateTransaction {
                 stmt.executeUpdate(sql);
                 sql = "update paylog set Status='"+status+"', UpdateTime=now() where pay_id="+pay_id;
                 stmt.executeUpdate(sql);
+                sql = "insert into pointlog values (default, "+uuid+", '한라봉 구매', (select point from paylog where pay_id = "+pay_id+"), (select point from user where uuid = "+uuid+"), now())";
+                stmt.executeUpdate(sql);
             }
             else if(status.equals("Expire")){
                 String sql = "update paylog set Status='"+status+"', UpdateTime=now() where pay_id="+pay_id;
