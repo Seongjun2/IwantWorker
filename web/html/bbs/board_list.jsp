@@ -77,12 +77,10 @@
             <% for(BoardVO vo : list) { %>
                 <% BoardDAO dao2 = new BoardDAO_Impl();
                     String name = null;
-                    try {
-                        name = dao2.findNameByBoID(vo.getBoard_id());
-                    } catch (Exception e) {
-                        e.getMessage();
-                        e.printStackTrace();
-                    } %>
+                    UserDAO userboardDAO = new UserDAO_Impl();
+                    UserVO userboardVO = userboardDAO.getUserInfo(vo.getUuid());
+                    name = userboardVO.getName();
+                %>
                 <% String money = String.format("%.1f", vo.getMoney()/10000.0); %>
                 <div class="board_post" onclick="location.href='<%=router.board.post_view%>?bo_id=<%=vo.getBoard_id()%>'">
                     <div class="board_title"><%=vo.getText()%></div>
