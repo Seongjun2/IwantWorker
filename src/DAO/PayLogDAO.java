@@ -10,4 +10,5 @@ public interface PayLogDAO{
   List<PayLogVO> findByUUID(Integer uuid) throws Exception;
   int getCount() throws Exception;
   List<PayLogVO> findByUUIDAndStatus(Integer uuid, String state) throws Exception;
+  List<PayLogVO> findStatus(String state) throws Exception;
 }
