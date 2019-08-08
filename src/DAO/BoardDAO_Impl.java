@@ -5,6 +5,7 @@ import database.JdbcTemplate;
 import database.RowMapper;
 
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -38,12 +39,7 @@ public class BoardDAO_Impl implements BoardDAO, RowMapper<BoardVO> {
 
         search = "%"+search+"%";
 
-        String sql = "select bo_id, uuid as u, title, content, startdate, enddate, worktime, money, addr, writetime, " +
-                "(select name from user where uuid = u) as name from board where bo_id = ? " +
-                "and EndDate > (now()-1) and " +
-                "(Title LIKE '%\" +  search  + \"%' or Addr LIKE '%\" + search + \"%') order by WriteTime desc\";";
-
-//        String sql = "select * from Board where EndDate > (now()-1) and (Title LIKE '%" +  search  + "%' or Addr LIKE '%" + search + "%') order by WriteTime desc";
+        String sql = "select * from Board where EndDate > (now()-1) and (Title LIKE '%" +  search  + "%' or Addr LIKE '%" + search + "%') order by WriteTime desc";
         boardList = template.query(sql, rowMapper);
 
         return boardList;
@@ -51,9 +47,8 @@ public class BoardDAO_Impl implements BoardDAO, RowMapper<BoardVO> {
 
     @Override
     public String findNameByBoID(Integer bo_id) throws Exception{
-        System.out.println(bo_id);
-        String sql = "select bo_id, uuid as u, title, content, startdate, enddate, worktime, money, addr, writetime, " +
-                "(select name from user where uuid = u) as name from board where bo_id = ?;";
+        String sql = "select bo_id, board.uuid, title, content, startdate, enddate, worktime, money, addr, " +
+                "writetime, user.name as name from board, user where user.uuid=board.uuid and bo_id = ?;";
 
         BoardVO vo = null;
         RowMapper<BoardVO> rowMapper = new BoardDAO_Impl();
@@ -124,8 +119,14 @@ public class BoardDAO_Impl implements BoardDAO, RowMapper<BoardVO> {
         vo.setMoney(rs.getInt("money"));
         vo.setAddress(rs.getString("addr"));
         vo.setWriteTime(rs.getString("writeTime"));
-        if(rs.getString("name")==null)vo.setName("");
-        else vo.setName(rs.getString("name"));
+
+//        --------------------------------
+
+        ResultSetMetaData rsmd = rs.getMetaData();
+        int columnCnt = rsmd.getColumnCount();
+
+        if(rsmd.getColumnName(columnCnt).equals("Name")) vo.setName(rs.getString("name"));
+        else vo.setName("");
 
         return vo;
     }

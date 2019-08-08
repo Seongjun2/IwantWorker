@@ -116,6 +116,7 @@ public class BoardVO{
                 ", money=" + money +
                 ", address='" + address + '\'' +
                 ", writeTime='" + writeTime + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }
