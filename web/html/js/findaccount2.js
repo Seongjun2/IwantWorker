@@ -9,22 +9,14 @@ function max_length( event ) {
     }
 }
 function  submit() {
-    var tell = document.getElementById("text");
+    var answer = document.getElementById("text");
 
-    if ( tell.value.indexOf(" ") != -1 ) {
+    if ( answer.value.indexOf(" ") != -1) {
         alert("공백은 입력할수 없습니다.");
         event.preventDefault();
         return;
-    } else if (isNaN(tell.value)) {
-        alert("전화번호에는 숫자만 입력이 가능합니다.");
-        event.preventDefault();
-        return;
-    } else if (tell.value == "" ) {
+    } else if ( answer.value == "") {
         alert("빈칸은 입력할 수 없습니다.");
-        event.preventDefault();
-        return;
-    } else if (tell.value.length != 11) {
-        alert("전화번호 11자리를 입력해주세요");
         event.preventDefault();
         return;
     } else {
