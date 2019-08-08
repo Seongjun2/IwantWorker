@@ -20,7 +20,7 @@ public class BoardRoute {
         post_view = baseURL + "/post_view.jsp";
         post_write = baseURL + "/post_write.jsp";
         post_get = baseURL + "/post_get.jsp";
-        post_change = baseURL + "post_change";
+        post_change = baseURL + "/post_change.jsp";
         shop = baseURL + "/shop.jsp";
     }
 }
