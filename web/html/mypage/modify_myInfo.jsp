@@ -64,7 +64,9 @@
                 <input id = "input_submit" type="submit" value="변경하기" onclick="check_PW()"/>
             </div>
             <hr size="1" noshade style="margin-top: 3em">
-            <input type="button" class="btn_leave" value="회원탈퇴" onclick="leave()"/>
+            <a href="<%= router.mypage.leave %>">
+                <input type="button" class="btn_leave" value="회원탈퇴" onclick="leave()"/>
+            </a>
 
         </form>
     </div>
