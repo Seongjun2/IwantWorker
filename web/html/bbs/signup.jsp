@@ -36,7 +36,7 @@
         <h3 class = "h3_pageName">회원가입</h3>
     </div>
     <div class="div_mainDiv">
-        <form action="signup2.jsp" method="POST">
+        <form action="signup2.jsp" method="POST" id="login_form">
             <div class = "div_userInfo">
                 <p class = "p_userInfo">휴대폰 번호</p>
                 <input type="text" maxlength="11" pattern="\d*" class="input_userInfo" name="tell" id="tell" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" onkeypress="signup_enter()" placeholder="휴대폰 번호 입력"/>
