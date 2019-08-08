@@ -4,32 +4,37 @@
 <%@ page import="Util.Util" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding ="UTF-8"%>
 <%
-    String ctxPath = request.getContextPath();
+    String ctxPath = request.getContextPath() + "/html";
     String tell = request.getParameter("tell");
     String pw = request.getParameter("pw");
     UserDAO dao = new UserDAO_Impl();
 
     if ( ctxPath == null || tell == null || pw == null ) {
-        response.sendRedirect(ctxPath + "/html/bbs/login.jsp");
+        response.sendRedirect(ctxPath + "/bbs/login.jsp");
         return;
     }
     try {
         UserVO vo = dao.getUserInfo2(tell);
-        if ( vo.getPw().equals(Util.md5(pw)) ) {
-            session.setAttribute("uuid" , vo.getUuid());
-            session.setAttribute("user_level" ,vo.getPermission());
-            out.print("<script>alert('로그인에 성공하였습니다.'); </script>");
-            response.sendRedirect(ctxPath + "/html/index.jsp");
-            return;
+        if ( vo != null ) {
+            if ( vo.getPw().equals(Util.md5(pw)) ) {
+                session.setAttribute("uuid" , vo.getUuid());
+                session.setAttribute("user_level" ,vo.getPermission());
+                out.print("<script>alert('로그인에 성공하였습니다.'); </script>");
+                response.sendRedirect(ctxPath + "/index.jsp");
+                return;
+            } else {
+                session.setAttribute("error", "pw");
+                out.print("<script>location.href=\"" + ctxPath + "/bbs/login.jsp\";</script>");
+                return;
+            }
         } else {
-            session.setAttribute("error", "pw");
-            out.print("<script>location.href=\"" + ctxPath + "/html/bbs/login.jsp\";</script>");
+            session.setAttribute("error", "id");
+            out.print("<script>location.href=\"" + ctxPath + "/bbs/login.jsp\";</script>");
             return;
         }
-
     } catch ( Exception e ) {
-        session.setAttribute("error", "id");
-        out.print("<script>location.href=\"" + ctxPath + "/html/bbs/login.jsp\";</script>");
+        session.setAttribute("error", "account");
+        out.print("<script>location.href=\"" + ctxPath + "/bbs/login.jsp\";</script>");
         return;
     }
 %>
