@@ -18,7 +18,7 @@
 <div class="pagination-wrapper" onchange="test()">
     <div class="pagination">
         <div>
-            <a class="prev page-numbers" href="javascript:;">prev</a>
+<%--            <a class="prev page-numbers" href="javascript:;">prev</a>--%>
             <%
                 for(int j = 0; j < lastPageNum;j++){
                     if(pageNum == j+1){%>
@@ -35,7 +35,7 @@
             <%
                 }
             %>
-            <a class="next page-numbers" href="javascript:;">next</a>
+<%--            <a class="next page-numbers" href="javascript:;">next</a>--%>
         </div>
     </div>
 </div>
