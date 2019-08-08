@@ -42,7 +42,6 @@ public class JdbcTemplate {
     }
     public <T extends Object> T qeuryForObject(String sql, RowMapper<T> rowMapper, Object... args) throws Exception{
         T vo = null;
-
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -76,7 +75,8 @@ public class JdbcTemplate {
                 throw new Exception("no record");
             }
         }catch(Exception e){
-            throw e;
+            e.printStackTrace();
+            return null;
         }
         finally{
             if(rs != null) rs.close();

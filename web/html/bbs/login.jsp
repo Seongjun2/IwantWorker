@@ -11,12 +11,9 @@
     if ( error != null ) {
         if ( error.equals("id") ) {
             out.print("<script>alert('전화번호가 일치하지 않습니다.'); </script>");
-        } else if ( session.getAttribute("error").equals("pw")) {
+        } else if (error.equals("pw")) {
             out.print("<script>alert('비밀번호가 일치하지 않습니다.'); </script>");
         }
-    }
-    else {
-
     }
     session.removeAttribute("error");
 %>

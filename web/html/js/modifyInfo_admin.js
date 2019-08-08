@@ -3,7 +3,7 @@ function check_PW() {
     var pw_check = document.getElementById('pw_check').value;
 
     if(pw != pw_check){
-        alert("비밀번호가 틀립니다.");
+        alert("비밀번호가 일치하지 않습니다.");
         event.preventDefault();
     }
 }
