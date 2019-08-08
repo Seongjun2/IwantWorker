@@ -10,8 +10,13 @@
     String tell = request.getParameter("tell");
     String pw = request.getParameter("pw");
 
-    Integer uuid = Integer.parseInt(request.getParameter("uuid"));
+    Integer uuid = -1;
     Integer user_level = (Integer) session.getAttribute("user_level");
+    if (user_level == Permission.ADMIN.getLevel()) {
+        uuid = Integer.parseInt(request.getParameter("uuid"));
+    } else if (user_level == Permission.MEMBER.getLevel()) {
+        uuid = (Integer) session.getAttribute("uuid");
+    }
 %>
 <%
     String enc_pw = Util.md5(pw);
