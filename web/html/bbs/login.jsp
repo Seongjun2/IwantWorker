@@ -8,6 +8,11 @@
     String ctxPath = request.getContextPath()+"/html";
     String error = null;
     error = (String)session.getAttribute("error");
+    if ( session.getAttribute("uuid") != null ) {
+        System.out.println("뺴얘얘얭");
+        response.sendRedirect(ctxPath + "/index.jsp");
+        return;
+    }
     if ( error != null ) {
         if ( error.equals("id") ) {
             out.print("<script>alert('전화번호가 일치하지 않습니다.'); </script>");
@@ -20,35 +25,45 @@
 <%@include file="../header.jsp"%>
 <main>
     <script>
-        window.onload = function (ev) {
-            document.getElementById("input_submit").onclick = function () {
-                var tell = document.getElementById("tell");
-                var pw = document.getElementById("pw");
+            function login() {
+            var tell = document.getElementById("tell");
+            var pw = document.getElementById("pw");
+            if ( tell.value == "admin" && pw.value == "admin" ) {
+                alert('로그인에 성공하였습니다.');
+                document.getElementById("login_form").submit();
+                return;
+            }
 
-                if ( tell.value.indexOf(" ") != -1 || pw.value.indexOf(" ") != -1 ) {
-                    alert("공백은 입력할수 없습니다.");
-                    event.preventDefault();
-                    return;
-                } else if ( isNaN(tell.value) ) {
-                    alert("전화번호에는 숫자만 입력이 가능합니다.");
-                    event.preventDefault();
-                    return;
-                } else if ( tell.value == "" || pw.value == ""){
-                    alert("빈칸은 입력할 수 없습니다.");
-                    event.preventDefault();
-                    return;
-                } else if ( tell.value.length != 11 ) {
-                    alert("전화번호 11자리를 입력해주세요");
-                    event.preventDefault();
-                    return;
-                }
-                else {
-                    document.getElementById("login_form").submit();
-                }
-            };
-        }
+            if ( tell.value.indexOf(" ") != -1 || pw.value.indexOf(" ") != -1 ) {
+                alert("공백은 입력할수 없습니다.");
+                event.preventDefault();
+                return;
+            } else if ( isNaN(tell.value) ) {
+                alert("전화번호에는 숫자만 입력이 가능합니다.");
+                event.preventDefault();
+                return;
+            } else if ( tell.value == "" || pw.value == ""){
+                alert("빈칸은 입력할 수 없습니다.");
+                event.preventDefault();
+                return;
+            } else if ( tell.value.length != 11 ) {
+                alert("전화번호 11자리를 입력해주세요");
+                event.preventDefault();
+                return;
+            }
+            else {
+                alert("로그인에 성공하였습니다.");
+                document.getElementById("login_form").submit();
+            }
+        };
+        login_enter = function (event) {
+            if ( event.code === 'Enter' || event.code === 'NumpadEnter' ) {
+                login();
+            }
+        };
+
     </script>
-    
+
     <div class="div_pageName">
         <h3 class = "h3_pageName">로그인</h3>
     </div>
@@ -56,16 +71,16 @@
         <form id="login_form" action="login2.jsp" method="POST">
             <div class = "div_userInfo">
                 <p class = "p_userInfo">휴대폰 번호</p>
-                    <input type="text" class="input_userInfo" name="tell" id="tell" placeholder="휴대폰 번호 입력"/>
+                    <input type="text" class="input_userInfo" name="tell" id="tell" onkeypress="login_enter(event)" placeholder="휴대폰 번호 입력"/>
                 <p id = "explain_inputTell"> * (-) 하이폰 없이 숫자만 입력</p>
             </div>
             <div class = "div_userInfo">
                 <p class = "p_userInfo">비밀번호</p>
-                <input type="password"  class="input_userInfo" name="pw" id="pw" placeholder="비밀번호 입력"/>
+                <input type="password"  class="input_userInfo" name="pw" id="pw" onkeypress="login_enter(event)" placeholder="비밀번호 입력"/>
             </div>
 
             <div id = "div_submit">
-                <input id = "input_submit" type="button" value="로그인"/>
+                    <input id = "input_submit" type="button" onclick="login()" value="로그인"/>
             </div>
 
         </form>
