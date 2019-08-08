@@ -10,10 +10,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%
     Integer bo_id = Integer.parseInt(request.getParameter("bo_id"));
-
     BoardDAO dao = new BoardDAO_Impl();
 
     BoardVO vo = dao.findByBoID(bo_id);
+    String money = String.format("%.1f", vo.getMoney()/10000.0);
 %>
 <%@include file="./../header.jsp"%>
 <%--header에 head, footer에 body, html 태그 들어가 있음. 쓰면 안됨--%>
@@ -33,7 +33,7 @@
                 <div class="circle"><p>위치</p></div>
             </div>
             <div style="width: 100%;">
-                <div class="circle_content"><%=vo.getMoney()%>원</div>
+                <div class="circle_content"><%=money%>만원</div>
                 <div class="circle_content"><%=vo.getWorkTime()%></div>
                 <div class="circle_content"><%=vo.getAddress()%></div>
             </div>
@@ -50,14 +50,14 @@
         <div style="width: 100%">
             <% if(session.getAttribute("uuid")!=null) {%>
                 <% if ((session.getAttribute("uuid").toString()).equals(vo.getUuid().toString())) {%>
-                    <% System.out.println("true!"); %>
                     <button class="button_writer">수정하기</button>
                     <button class="button_writer">삭제하기</button>
+                    <button class="button_writer" onclick=location.href='<%=router.board.board_list%>'>게시판</button>
                 <% } else { %>
-                    <button class="button_guest" onclick="history.back()">홈으로</button>
+                    <button class="button_guest" onclick=location.href='<%=router.board.board_list%>'>게시판</button>
                 <% } %>
             <% } else { %>
-                <button class="button_guest" onclick="history.back()">홈으로</button>
+                <button class="button_guest" onclick=location.href='<%=router.board.board_list%>'>게시판</button>
             <% } %>
         </div>
     </div>
