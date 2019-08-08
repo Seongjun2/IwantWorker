@@ -25,6 +25,42 @@
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/login.css">
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/findaccount.css">
 <script type="text/javascript" src="../js/modifyInfo_admin.js"></script>
+<script>
+    window.onload = function (ev) {
+        document.getElementById("input_submit").onclick = function () {
+            var tell = document.getElementById("tell");
+            var pw = document.getElementById("pw");
+            var name = document.getElementById("name");
+            var access_key = document.getElementById("access_key");
+
+            if ( tell.value.indexOf(" ") != -1 || pw.value.indexOf(" ") != -1 || name.value.indexOf(" ") != -1 || access_key.value.indexOf(" ") != -1  ) {
+                alert("공백은 입력할수 없습니다.");
+                event.preventDefault();
+                return;
+            } else if ( isNaN(tell.value) ) {
+                alert("전화번호에는 숫자만 입력이 가능합니다.");
+                event.preventDefault();
+                return;
+            } else if ( tell.value == "" || name.value =="" || pw.value == ""  || access_key.value == ""){
+                alert("빈칸은 입력할 수 없습니다.");
+                event.preventDefault();
+                return;
+            } else if ( tell.value.length != 11 ) {
+                alert("전화번호 11자리를 입력해주세요");
+                event.preventDefault();
+                return;
+            }
+            // } else if ( /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(pw) ) {
+            //     alert(pw.value);
+            //     alert( pw.value.indexOf(/[A-Za-z0-9]/gi ) );
+            //     alert("한글은 입력이 불가능합니다.");
+            //     event.preventDefault()
+            else {
+                document.getElementById("login_form").submit();
+            }
+        };
+    }
+</script>
 <main>
     <div class="div_pageName">
         <h3 class = "h3_pageName">회원가입</h3>
