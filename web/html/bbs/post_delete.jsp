@@ -11,7 +11,11 @@
     Integer bo_id = Integer.parseInt(request.getParameter("bo_id"));
 
     BoardDAO dao = new BoardDAO_Impl();
-    dao.deleteByBoID(bo_id);
+    try {
+        dao.deleteByBoID(bo_id);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
 
     response.sendRedirect(ctxPath + "/html/bbs/board_list.jsp");
 %>
