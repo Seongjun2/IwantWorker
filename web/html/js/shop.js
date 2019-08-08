@@ -10,7 +10,7 @@ function chose_item(item) {
     }
     document.getElementById('shop_list_item_'+item).style.border = '3px solid #ff8934';
     document.getElementById('shop_list_item_'+item).style.color = '#ff8934';
-    document.getElementById('shop_button_price').innerText = '결재 포인트 +'+point+'한라봉';
+    document.getElementById('shop_button_price').innerText = '결제 포인트 +'+point+'한라봉';
 }
 function pay() {
     document.getElementById('shop_pay_point').value = point;
