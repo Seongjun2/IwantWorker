@@ -2,12 +2,7 @@
 <%@ page import="DAO.UserDAO_Impl" %>
 <%@ page import="VO.UserVO" %>
 <%@ page import="java.util.List" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding ="EUC-KR"%>
-<%!
-    String cssDir = "../css";
-    String jsDir = "../js";
-    String imgDir = "../imgs";
-%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding ="UTF-8"%>
 <%
     Integer level = (Integer)session.getAttribute("user_level");
 
@@ -51,7 +46,7 @@
     <div id="main_search">
         <span id="main_search_span">
             <form id="main_search_form">
-                <input id="user_search_text" type="text" name="search" placeholder="�̸��� �Է��ϼ���" onclick="onFocusSearch(<%=_uri%>)" />
+                <input id="user_search_text" type="text" name="search" placeholder="이름을 입력하세요" onclick="onFocusSearch(<%=_uri%>)" />
             </form>
             <div id="main_search_icon">
                 <img src="<%= imgDir %>/lenz.png" />
@@ -59,16 +54,16 @@
         </span>
     </div>
     <div class="div_pageName">
-        <h3 class="h3_pageName">ȸ����� ��ȸ</h3>
+        <h3 class="h3_pageName">회원목록 조회</h3>
     </div>
     <div class="div_mainDiv">
-        <table id = "userTable">
-            <thead align="center">
+        <table id = "userTable" class="table_list">
+            <thead class="table_head">
                 <tr>
-                    <th>��ȣ</th>
-                    <th>�̸�</th>
-                    <th>����ó</th>
-                    <th>����</th>
+                    <td>번호</td>
+                    <td>이름</td>
+                    <td>연락처</td>
+                    <td>수정</td>
                 </tr>
             </thead>
 <%--            <%--%>
@@ -90,7 +85,7 @@
 </jsp:include>
 <%@include file="../footer.jsp"%>
 </body>
-    <link rel="stylesheet" type="text/css", href="<%=cssDir%>/userList.css">
+    <link rel="stylesheet" type="text/css", href="<%=cssDir%>/mypage.css">
 <link rel="stylesheet" type="text/css", href="<%=cssDir%>/main.css">
     <script type="text/javascript" src="../js/pagination_admin.js"></script>
     <script type="text/javascript" src="../js/userList.js"></script>

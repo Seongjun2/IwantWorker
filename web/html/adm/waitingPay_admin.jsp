@@ -51,18 +51,18 @@
             <option value="Expire">결제취소</option>
         </select>
         <input type="hidden" id ="hidden_status" value = "<%= status %>"/>
-        <table id = "userTable">
-            <thead align="center">
-            <tr>
-                <th id ="th_payNo">결제<br/>번호</th>
-                <th id = "th_name">이름</th>
-                <th id = "th_point">충전</br>포인트</th>
-                <th id = "th_price">가격</th>
-                <th id = "th_date">날짜</th>
-                <th id = "th_status">상태</th>
-            </tr>
+        <table id = "userTable" class="table_list">
+            <thead class="table_head">
+                <tr>
+                    <td id ="th_payNo">결제<br/>번호</td>
+                    <td id = "th_name">이름</td>
+                    <td id = "th_point">충전</br>포인트</td>
+                    <td id = "th_price">가격</td>
+                    <td id = "th_date">날짜</td>
+                    <td id = "th_status">상태</td>
+                </tr>
             </thead>
-            <tbody align="center">
+            <tbody class="table_body">
             <%
                 int startIdx = paging.getStartIdx();
                 int lastIdx = paging.getLastIdx();
@@ -101,8 +101,8 @@
 <%@include file="../footer.jsp"%>
 </body>
 
-    <link rel="stylesheet" type="text/css", href="<%=cssDir%>/userList.css">
     <link rel="stylesheet" type="text/css", href="<%=cssDir%>/waitingPay.css">
+    <link rel="stylesheet" type="text/css", href="<%=cssDir%>/mypage.css">
     <script type="text/javascript" src="<%= jsDir %>/mypage.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 </html>
