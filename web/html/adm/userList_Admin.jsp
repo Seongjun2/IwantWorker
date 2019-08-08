@@ -47,8 +47,8 @@
 <main>
     <div id="main_search">
         <span id="main_search_span">
-            <form id="main_search_form" action="<%=request.getRequestURI()%>">
-                <input id="main_search_text" type="text" name="search" placeholder="검색어를 입력하세요" onclick="onFocusSearch()" />
+            <form id="main_search_form">
+                <input id="user_search_text" type="text" name="search" placeholder="검색어를 입력하세요" onclick="onFocusSearch()" />
             </form>
             <div id="main_search_icon">
                 <img src="<%= imgDir %>/lenz.png" />
