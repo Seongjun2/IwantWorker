@@ -95,8 +95,8 @@ public class UserDAO_Impl implements UserDAO, RowMapper<UserVO> {
         vo.setPw(rs.getString("pw"));
         vo.setPermission(rs.getInt("permission"));
         vo.setPoint(rs.getInt("point"));
-        vo.setQuestion(rs.getString("question"));
-        vo.setAnswer(rs.getString("answer"));
+        vo.setQuestion(rs.getString("q"));
+        vo.setAnswer(rs.getString("a"));
 
         return vo;
     }

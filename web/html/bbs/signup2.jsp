@@ -13,7 +13,6 @@
     String tell = request.getParameter("tell");
     String name = request.getParameter("name");
     String pw = request.getParameter("pw");
-    String pw_check = request.getParameter("pw_check");
     String question = request.getParameter("question");
     String answer = request.getParameter("answer");
     UserDAO dao = new UserDAO_Impl();
@@ -25,15 +24,7 @@
             return;
         }
     } catch ( Exception e ) {
-        System.out.println(tell);
-        System.out.println(name);
-        System.out.println(pw);
-        System.out.println(question);
-        System.out.println(answer);
-
-
-
+        dao.add( tell, name , Util.md5(pw), question, answer );
     }
-    dao.add( tell, name , Util.md5(pw), question, answer );
     response.sendRedirect( ctxPath + "/html/bbs/login.jsp");
 %>
