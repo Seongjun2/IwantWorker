@@ -9,25 +9,39 @@
 <%@include file="../header.jsp"%>
 <%
     Integer uuid = (Integer) session.getAttribute("uuid");
+    String status = request.getParameter("status");
+
     PayLogDAO dao = new PayLogDAO_Impl();
     List<PayLogVO> payLogs = new ArrayList<PayLogVO>();
 
     if ( uuid == null ) {
         response.sendRedirect(router.main.index);
     } else {
-        payLogs = dao.findByUUID(uuid);
+        if ( status == null ) {
+            payLogs = dao.findByUUID(uuid);
+        } else {
+            payLogs = dao.findByUUIDAndStatus(uuid, status);
+        }
     }
 
     int pageNum = Util.parseIntOr( request.getParameter("pageNum"), 1 );
     Paging paging = new Paging(pageNum, payLogs.size());
 
 %>
+<script type="text/javascript" src="<%= jsDir %>/mypage.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/mypage.css">
 <main>
     <div class="div_pageName">
         <h3 class = "h3_pageName">내 결제 목록</h3>
     </div>
     <div class="div_mainDiv">
+        <select id="paystate" class="select_paystate" onchange="filterState('<%=router.mypage.pay_list%>')">
+            <option>전체</option>
+            <option value="Wait">입금확인중</option>
+            <option value="Success">결제완료</option>
+            <option value="Expire">결제취소</option>
+        </select>
         <table class="table_list">
             <thead class="table_head">
                 <tr>
