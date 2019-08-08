@@ -1,7 +1,11 @@
 <%@ page import="DAO.BoardDAO" %>
 <%@ page import="VO.BoardVO" %>
 <%@ page import="DAO.BoardDAO_Impl" %>
-<%@ page import="Util.PreventSQLInjection" %><%--
+<%@ page import="Util.PreventSQLInjection" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %><%--
   Created by IntelliJ IDEA.
   User: ddang
   Date: 2019-08-04
@@ -37,7 +41,20 @@
     money = String.format("%.1f", vo.getMoney() / 10000.0);
 
     BoardDAO dao2 = new BoardDAO_Impl();
-    String name = dao2.findNameByBoID(vo.getBoard_id());
+    //String name = dao2.findNameByBoID(vo.getBoard_id());
+    Integer uuid = vo.getUuid();
+    String name = null;
+    try {
+        Class.forName("com.mysql.jdbc.Driver");
+
+        Connection conn = DriverManager.getConnection("jdbc:mysql://15.164.79.177:3306/worker?serverTimezone=UTC", "leaguelugas", "8426753190");
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("select name from user where uuid = "+uuid);
+        rs.next();
+        name = rs.getString("name");
+        rs.close();
+        conn.close();
+    } catch (Exception e) {}
 %>
 <%--header에 head, footer에 body, html 태그 들어가 있음. 쓰면 안됨--%>
 <link rel="stylesheet" type="text/css", href="<%= cssDir %>/post_view.css">
