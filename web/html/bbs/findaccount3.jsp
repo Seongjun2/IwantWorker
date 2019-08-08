@@ -9,7 +9,6 @@
     String imgDir = "imgs";
 %>
 <%
-    session.removeAttribute("tell");
     String answer = request.getParameter("answer");
     String ctxPath = request.getContextPath() + "/html";
     String tell = null;

@@ -35,12 +35,12 @@ function login_enter(event) {
 };
 
 function max_length( event ) {
-    if (document.getElementById("tell").value.length >=  11 ) {
-        return false;
-    } else if ( event.keyCode === 9 || event.keyCode === 13 ) {
+    if ( event.keyCode === 9 || event.keyCode === 13 || event.keyCode === 116 || event.keyCode === 17 || event.keyCode === 8 || event.keyCode === 16 ) {
         return true;
     }
-    else {
+    if (document.getElementById("tell").value.length >=  11 ) {
+        return false;
+    } else {
         return true;
     }
 }
