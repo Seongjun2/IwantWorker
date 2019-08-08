@@ -18,8 +18,8 @@
     String answer = request.getParameter("answer");
     UserDAO dao = new UserDAO_Impl();
     if ( ctxPath == null || tell == null || name == null || pw == null || question == null || answer == null ) {
-
-        
+        response.sendRedirect(ctxPath + "/html/bbs/signup.jsp");
+        return;
     }
     try {
         UserVO vo = dao.getUserInfo2(tell);
